@@ -4,10 +4,16 @@
 }
 body {
 	 background-image: url("static/Background.jpg");
- 	background-color: #cccccc;
 }
 .link { color: #000000; font-size: 14px; margin:10px;} /* CSS link color (red) */
 .link:hover { color: #0F0F0F; } /* CSS link hover (green) */
+
+.nav-link{
+	color: black !important;
+}
+.nav-item{
+	margin:30px 30px !important;
+}
 .card{
 	width: 100% !important;
 	text-align: center;
@@ -35,6 +41,7 @@ body {
 	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 -moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+border-bottom: 5px solid dodgerblue;
 }
 
 .carousel{
@@ -57,9 +64,9 @@ td{
 	text-align: center;
 }
 .spacing{
-	display: flex !important;
-	justify-content: space-between !important;
-	width: 100%;
+	right: 40px;
+	padding:20px;
+	align-self: right;
 }
 
 .framespace{
@@ -77,14 +84,10 @@ td{
 
 .navlogo {
 	width=60%;
-	background-color: black;
+	background-color: white;
 	color: white;
 }
 
-.navlogo hr{
-	background: white;
-
-}
 
 .imglogo{
 	display: block;
@@ -97,9 +100,19 @@ td{
 .btn-primary,  .btn-primary:active, .btn-primary:visited {
     background-color: MAROON !important;
     border-color: black !important;
+    border-radius: 0 !important;
     
 }
-
+input::placeholder{
+	font-weight: bold;
+	color:black !important; 
+}
+input{
+	background:transparent !important; 
+	border:none !important;
+	border-bottom: 4px solid maroon !important;
+	border-radius: 0px !important;
+}
 .btn-primary:hover{
 	background-color: tomato !important;
 }
@@ -112,10 +125,16 @@ table{
 	.row{
 		width:100% !important;
 	}
+	.nav-item{
+		margin:0px !important;
+	}
 
 }
 
 @media only screen and (min-width: 993px){
+	.spacing{
+		position: absolute;
+	}
 	.cardmargin{
 		width: 100%;
 	}
