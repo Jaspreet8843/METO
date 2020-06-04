@@ -16,6 +16,8 @@
 	text-align: center;
 	padding: 0;
 	margin:0;
+	border:none !important;
+	background-color: rgb(200,200,200) !important;
 	
 }
 .card-img-top{
@@ -43,17 +45,13 @@ border-bottom: 5px solid dodgerblue;
 	border-bottom:2px solid grey;
 }
 .carousel{
-	width: 100%;
-	margin: 1%;
-	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	height: 100%;
 }
 
 .cardmargin{
 	padding: 0%;
 	align-self: center;
-	margin:0 !important;
+	margin:2% 0 !important;
 }
 
 
@@ -120,10 +118,10 @@ input{
 	background-color: tomato !important;
 }
 table{
-	margin: 4% 0 0 2%;
-	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+
+	background-color:rgb(200,200,200); 
+	height: 100%;
+
 }
 @media only screen and (max-width:992px){
 	.navbar-nav{
@@ -143,6 +141,10 @@ table{
 	}
 	.cardmargin{
 		width: 100%;
+	}
+	td{
+		padding: 0px !important;
+		margin:0px !important;
 	}
 }
 
@@ -181,9 +183,5 @@ table{
 @media (min-width: 1200px) {  
     .xl {color:red;font-weight:bold;}
     .card{width: 100% !important; font-size: 10px !important;}
-    .carousel{
-    	width:95%;
-    	margin:20px !important;
-    }
 
 }
