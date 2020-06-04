@@ -37,7 +37,11 @@
 box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 border-bottom: 5px solid dodgerblue;
 }
-
+.header{
+	padding:20px;
+	font-weight: bold;
+	border-bottom:2px solid grey;
+}
 .carousel{
 	width: 100%;
 	margin: 1%;
@@ -116,7 +120,10 @@ input{
 	background-color: tomato !important;
 }
 table{
-	margin: 1%;
+	margin: 4% 0 0 2%;
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 @media only screen and (max-width:992px){
 	.navbar-nav{
@@ -147,7 +154,7 @@ table{
    .table{width: 50% !important;}
    .link{font-size: 10px !important;}
    td{padding: 2px!important;}
-      table{margin:10px 0px !important;}
+      table{margin:20px 0px !important; margin-left: 5px !important;}
 
 }
 
@@ -174,5 +181,9 @@ table{
 @media (min-width: 1200px) {  
     .xl {color:red;font-weight:bold;}
     .card{width: 100% !important; font-size: 10px !important;}
+    .carousel{
+    	width:95%;
+    	margin:20px !important;
+    }
 
 }
