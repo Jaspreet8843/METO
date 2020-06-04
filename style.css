@@ -122,7 +122,7 @@ table{
 @media (max-width: 576px) {  
 	.link{font-size: 12px; }
   .xs {color:red;font-weight:bold;}
-   .card{width: 100% !important;}
+   .card{width: 90% !important;}
    .h5{font-size: 5px !important;}
    .table{width: 50% !important;}
    .link{font-size: 12px !important;}
