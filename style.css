@@ -1,0 +1,156 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	 background-image: url("static/background.jpg");
+ 	background-color: #cccccc;
+}
+.link { color: #000000; font-size: 14px; margin:10px;} /* CSS link color (red) */
+.link:hover { color: #0F0F0F; } /* CSS link hover (green) */
+.card{
+	width: 100% !important;
+	text-align: center;
+	padding: 0;
+	margin:0;
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+.card-img-top{
+	width: 50% !important;
+	align-self: center;
+	margin-top:20px;
+}
+.card-title{
+	font-size: 16px;
+}
+.navbar-nav{
+	margin-left: 24%;
+	padding: auto;
+}
+
+.navbar{
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+
+.carousel{
+	width: 100%;
+	margin: 1%;
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+
+.cardmargin{
+	padding: 2%;
+	align-self: center;
+}
+
+
+td{
+	padding: 10px !important;
+	text-align: center;
+}
+.spacing{
+	display: flex !important;
+	justify-content: space-between !important;
+	width: 100%;
+}
+
+.framespace{
+	display: flex !important;
+	justify-content:center !important;
+	width: 100%;
+}
+
+}
+
+.darkbg{
+	background-color: rgb(50,50,50) !important;
+	border-radius: 0px !important;
+}
+
+.navlogo {
+	width=60%;
+	background-color: black;
+	color: white;
+}
+
+.navlogo hr{
+	background: white;
+
+}
+
+.imglogo{
+	display: block;
+	max-width: 20%;
+	min-height: 40px;
+	min-width: 200px;
+	margin:0 auto;
+}
+
+.btn-primary,  .btn-primary:active, .btn-primary:visited {
+    background-color: MAROON !important;
+    border-color: black !important;
+    
+}
+
+.btn-primary:hover{
+	background-color: tomato !important;
+}
+table{
+	margin: 1%;
+}
+@media only screen and (max-width:992px){
+	.navbar-nav{
+	margin-left: 0% !important;}
+	.row{
+		width:100% !important;
+	}
+
+}
+
+@media only screen and (min-width: 993px){
+	.cardmargin{
+		width: 100%;
+	}
+}
+
+@media (max-width: 576px) {  
+	.link{font-size: 12px; }
+  .xs {color:red;font-weight:bold;}
+   .card{width: 100% !important;}
+   .h5{font-size: 5px !important;}
+   .table{width: 50% !important;}
+   .link{font-size: 12px !important;}
+   td{padding: 0px !important;}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width:768px) {  
+  .sm {color:red;font-weight:bold;}
+   .card{width: 100% !important;}
+
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) and (max-width:992px) {  
+ .md {color:red;font-weight:bold;}
+ .card{width: 100% !important; font-size: 10px !important;}
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width:1200px) { 
+ .lg {color:red;font-weight:bold;}
+ .card{width: 100% !important; font-size: 10px !important;}
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .xl {color:red;font-weight:bold;}
+    .card{width: 100% !important; font-size: 10px !important;}
+
+}
