@@ -2,9 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-body {
-	 background-image: url("static/Background.jpg");
-}
 .link { color: #000000; font-size: 14px; margin:10px;} /* CSS link color (red) */
 .link:hover { color: #0F0F0F; } /* CSS link hover (green) */
 
@@ -36,7 +33,6 @@ body {
 	margin-left: 24%;
 	padding: auto;
 }
-
 .navbar{
 	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 -moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
@@ -112,6 +108,11 @@ input{
 	border:none !important;
 	border-bottom: 4px solid maroon !important;
 	border-radius: 0px !important;
+	width: 145px !important;
+	background:url("static/search.png") !important;
+	background-position: 115px 2px !important;
+	background-size: 30px !important;
+	background-repeat: no-repeat !important;
 }
 .btn-primary:hover{
 	background-color: tomato !important;
