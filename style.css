@@ -3,7 +3,7 @@
 	padding: 0;
 }
 body {
-	 background-image: url("static/background.jpg");
+	 background-image: url("https://jaspreet8843.github.io/static/Background.jpg");
  	background-color: #cccccc;
 }
 .link { color: #000000; font-size: 14px; margin:10px;} /* CSS link color (red) */
@@ -46,7 +46,7 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 
 .cardmargin{
-	padding: 2%;
+	padding: 0%;
 	align-self: center;
 	margin:0 !important;
 }
@@ -124,12 +124,13 @@ table{
 @media (max-width: 576px) {  
 	.link{font-size: 12px; }
   .xs {color:red;font-weight:bold;}
-   .card{width: 90% !important;}
+   .card{width: 100% !important;}
    .h5{font-size: 5px !important;}
    .table{width: 50% !important;}
    .link{font-size: 11px !important;}
-   td{padding: 10px 2px!important;}
+   td{padding: 2px!important;}
       table{margin:10px 0px !important;}
+
 }
 
 /* Small devices (landscape phones, 576px and up) */
