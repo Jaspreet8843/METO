@@ -25,6 +25,7 @@ body {
 .card-title{
 	font-size: 16px;
 }
+
 .navbar-nav{
 	margin-left: 24%;
 	padding: auto;
@@ -47,6 +48,7 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 .cardmargin{
 	padding: 2%;
 	align-self: center;
+	margin:0 !important;
 }
 
 
@@ -125,8 +127,9 @@ table{
    .card{width: 90% !important;}
    .h5{font-size: 5px !important;}
    .table{width: 50% !important;}
-   .link{font-size: 12px !important;}
-   td{padding: 2px !important;}
+   .link{font-size: 11px !important;}
+   td{padding: 10px 2px!important;}
+      table{margin:10px 0px !important;}
 }
 
 /* Small devices (landscape phones, 576px and up) */
