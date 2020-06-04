@@ -16,9 +16,7 @@
 	text-align: center;
 	padding: 0;
 	margin:0;
-	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	
 }
 .card-img-top{
 	width: 50% !important;
