@@ -25,7 +25,7 @@ jQuery('body').on('appear', function(){
 window.onload = function () { 
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
 	jQuery('#loading').remove();
-	$("body").addClass('animate__animated animate__fadeIn');
+	$("body").addClass('animate__animated animate__fadeIn animate__slower');
 	//$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
 	//$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
 	//$("p").addClass('animate__animated animate__tada animate__fast');
