@@ -31,9 +31,12 @@ function fade_out() {
 
 
 //for loader
-window.onload = function () { jQuery('#loading').remove(); }
+window.onload = function () { 
+	jQuery('#loading').remove(); 
+	const element = document.getElementById('myModal');
+	$("#myModal").addClass('animate__animated animate__bounceInLeft');
+	$("#fspace").addClass('animate__animated animate__wobble');
+	$("p").addClass('animate__animated animate__flip');
+}
 
-//jQuery(document).ready(function() {
-//	setTimeout(() => {  jQuery('#loading').remove(); }, 2000);
-//});
 
