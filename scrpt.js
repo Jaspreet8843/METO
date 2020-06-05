@@ -31,7 +31,9 @@ function fade_out() {
 
 
 //for loader
-jQuery(document).ready(function() {
-	setTimeout(() => {  jQuery('#loading').remove(); }, 2000);
-});
+window.onload = function () { jQuery('#loading').remove(); }
+
+//jQuery(document).ready(function() {
+//	setTimeout(() => {  jQuery('#loading').remove(); }, 2000);
+//});
 
