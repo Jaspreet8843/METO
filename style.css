@@ -22,6 +22,10 @@ html {
 	background:transparent !important;
 	
 }
+.card:hover{
+	transform: scale(1.5);
+	transition: transform .2s ease;
+}
 
 .mymodal{
 	overflow: hidden !important;
