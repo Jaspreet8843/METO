@@ -4,7 +4,9 @@
 }
 .link { color: #000000; font-size: 14px; margin:10px;} /* CSS link color (red) */
 .link:hover { color: #0F0F0F; } /* CSS link hover (green) */
-
+html {
+  scroll-behavior: smooth !important;
+}
 .nav-link{
 	color: black !important;
 }
@@ -25,6 +27,9 @@
 	overflow: hidden !important;
 	position: relative;
 }
+
+
+
 #loading {
 position: fixed;
 width: 100%;
@@ -46,15 +51,12 @@ z-index: 9999;
 	margin-left: 24%;
 	padding: auto;
 }
-.fixed{
-	position: fixed !important;
-}
 .navbar{
 	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	border-bottom: 5px solid dodgerblue;
-	position: relative;
+	position: fixed !important;
 	top:0;
 	width: 100%;
 	z-index: 100;

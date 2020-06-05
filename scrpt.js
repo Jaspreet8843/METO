@@ -14,23 +14,25 @@ window.onscroll = function() {
 }
 
 
+//for viewport check
+
+jQuery('body').on('appear', function(){
+    console.log("das");
+});
 
 
 //for loader
 window.onload = function () { 
-	$("#loading").addClass('animate__animated animate__fadeOut animate__fast');
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
 	jQuery('#loading').remove();
-	$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
-	$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
-	$("p").addClass('animate__animated animate__tada animate__fast');
-
+	$("body").addClass('animate__animated animate__fadeIn');
+	//$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
+	//$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
+	//$("p").addClass('animate__animated animate__tada animate__fast');
+	//var visible = $(#more).visible( detectPartial );
+	
 }
 
-$(document).ready(function() {
-  setTimeout(function() {
-    $('.navbar').addClass('fixed');
-  }, 300);
-});
+
 
 
