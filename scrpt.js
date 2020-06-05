@@ -32,11 +32,13 @@ function fade_out() {
 
 //for loader
 window.onload = function () { 
-	jQuery('#loading').remove(); 
-	const element = document.getElementById('myModal');
-	$("#myModal").addClass('animate__animated animate__bounceInLeft');
-	$("#fspace").addClass('animate__animated animate__wobble');
-	$("p").addClass('animate__animated animate__flip');
+	$("#loading").addClass('animate__animated animate__fadeOut animate__fast');
+	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
+	jQuery('#loading').remove();
+	$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
+	$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
+	$("p").addClass('animate__animated animate__tada animate__fast');
+
 }
 
 
