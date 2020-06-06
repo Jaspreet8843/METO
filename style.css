@@ -476,7 +476,12 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	}
 }
 
-@media (max-width: 576px) {  
+@media (max-width: 576px) { 
+		body{
+			background: url('static/background-mobile.jpg') !important;
+			background-attachment: fixed !important;
+			background-height: 100% !important;
+		} 
 	.link{font-size: 12px; }
   .xs {color:red;font-weight:bold;}
    .card{width: 100% !important;}
