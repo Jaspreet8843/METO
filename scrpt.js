@@ -1,6 +1,4 @@
 
-
-
 // for navbar scroll
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
@@ -26,6 +24,8 @@ window.onload = function () {
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
 	jQuery('#loading').remove();
 	$("body").addClass('animate__animated animate__fadeIn animate__slower');
+	$('#signup').hide();
+	
 	//$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
 	//$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
 	//$("p").addClass('animate__animated animate__tada animate__fast');
@@ -33,6 +33,17 @@ window.onload = function () {
 	
 }
 
+function signupclick()
+{
+	//$("#login").addClass('animate__animated animate__bounceOut')
+		 $('#login').hide(); $('#signup').show();
+		 $("#signup").addClass('animate__animated animate__flipInY')
+}
+function loginclick()
+{
+		$('#signup').hide(); $('#login').show();
+	$("#login").addClass('animate__animated animate__flipInY')
+}
 
 
 

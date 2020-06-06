@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>METO</title>
-	<link rel="icon" href="static/favicon.jpg" type="image/icon type">
+	<link rel="icon" href="static/favicon.png" type="image/icon type">
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
 	<div class="login" style="display: inline-block; align-self: center; "> <!--cardmargin-->
 		<table class="clear-bg">
 			<tr><td style="width: 50%">
-			<div class="form-group">
-				<h2 >Sign in</h2>
+			<div class="form-group" id="login">
+				<h2 >Log In</h2>
 				<form>
 					<table class="center clear-bg">
 						<tr>
@@ -69,10 +69,39 @@
 							<td class="login-input"><a class="login-forgot" href="#">Forgot your password?</a></td>
 						</tr>
 						<tr>
-							<td class="login-input"><button class="signin-login btn-round">SIGN IN</button></td>
+							<td class="login-input"><button class="signin-login btn-round">LOG IN</button></td>
 						</tr>
 						<tr>
-							<td class="login-input">New Here? <a class="login-forgot" href="#">Sign UP!</a></td>
+							<td class="login-input">New Here? <a class="login-forgot" href="#" onclick="signupclick()">Sign UP!</a></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div class="form-group" id="signup">
+				<h2 >Create Account</h2>
+				<form>
+					<table class="center clear-bg">
+						<tr>
+							<td class="login-input"><input class="form-control form-input" type="text" placeholder="Name" name=""></td>
+						</tr>
+						<tr>
+							<td class="login-input"><input class="form-control form-input" type="Email" placeholder="Email" name=""></td>
+						</tr>
+						<tr>
+							<td class="login-input"><input class="form-control form-input" type="text" placeholder="Phone" name=""></td>
+						</tr>
+						<tr>
+							<td class="login-input"><input class="form-control form-input" type="password" placeholder="Password" name=""></td>
+						</tr>
+						<tr>
+							<td class="login-input"><input class="form-control form-input" type="password" placeholder="Confirm Password" name=""></td>
+						</tr>
+					
+						<tr>
+							<td class="login-input"><button class="signin-login btn-round">SIGN UP</button></td>
+						</tr>
+						<tr>
+							<td class="login-input">Already have an account here? <a class="login-forgot" href="#" onclick="loginclick()">Log In!</a></td>
 						</tr>
 					</table>
 				</form>
@@ -143,7 +172,8 @@
         <div class="row">
           <div class="first-column">
             <h6>About</h6>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="text-justify">A paragraph is a group of words put together to form a group that is usually longer than a sentence. Paragraphs are often made up of several sentences. There are usually between three and eight sentences. Paragraphs can begin with an indentation (about five spaces), or by missing a line out, and then starting again. This makes it easier to see when one paragraph ends and another begins.
+				In most organized forms of writing, such as essays, paragraphs contain a topic sentence.</p>
           </div>
 
           
