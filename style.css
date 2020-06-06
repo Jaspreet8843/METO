@@ -46,7 +46,7 @@ html {
 position: fixed;
 width: 100%;
 height: 100vh;
-background: #fff url('https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif') no-repeat center center;
+background: #fff url('static/loading-fast.gif') no-repeat center center;
 background-size: 70%;
 z-index: 9999;
 }
