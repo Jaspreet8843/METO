@@ -424,6 +424,7 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	.login{
 		margin:10% !important;
 		margin-bottom: 0% !important;
+		background: white !important;
 	}
 	.close-div{
 		display: none;
@@ -480,7 +481,7 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 		body{
 			background: url('static/background-mobile.jpg') !important;
 			background-attachment: fixed !important;
-			background-height: 100% !important;
+			background-size: 95% !important;
 		} 
 	.link{font-size: 12px; }
   .xs {color:red;font-weight:bold;}
