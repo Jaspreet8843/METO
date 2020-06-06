@@ -46,7 +46,7 @@ html {
 position: fixed;
 width: 100%;
 height: 100vh;
-background: #fff url('static/loading-fast.gif') no-repeat center center;
+background: #fff url('static/loading-small.gif') no-repeat center center;
 background-size: 70%;
 z-index: 9999;
 }
