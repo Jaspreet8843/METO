@@ -7,6 +7,10 @@
 html {
   scroll-behavior: smooth !important;
 }
+body{
+	background-image: url('static/background.png');
+	background-attachment: fixed;
+}
 .nav-link{
 	color: black !important;
 }
@@ -468,6 +472,7 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 		margin-top:5% !important;
 		margin-left:25% !important;
 		margin-right:25% !important;
+		background: white;
 	}
 }
 
