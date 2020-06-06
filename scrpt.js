@@ -37,13 +37,35 @@ function signupclick()
 {
 	//$("#login").addClass('animate__animated animate__bounceOut')
 		 $('#login').hide(); $('#signup').show();
-		 $("#signup").addClass('animate__animated animate__flipInY')
+		 $("#signup").addClass('animate__animated animate__flipInY');
 }
 function loginclick()
 {
 		$('#signup').hide(); $('#login').show();
-	$("#login").addClass('animate__animated animate__flipInY')
+	$("#login").addClass('animate__animated animate__flipInY');
 }
+
+
+//google button
+
+function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 200,
+        'height': 40,
+        'align': 'center',
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
 
 
 
