@@ -198,7 +198,7 @@ td{
 }
 .profile{
 	background-image: url("static/wave.svg") !important;
-	background-size: 180%;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	width: 100%;
 	height: auto;
@@ -206,6 +206,7 @@ td{
 }
 .dp{
 	border-radius:200px ;
+	width: 250px;
 	margin: 30px;
 }
 .el-1{
