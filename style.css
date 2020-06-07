@@ -191,6 +191,7 @@ td{
 	background-position: 155px 2px !important;
 	background-size: 30px !important;
 	background-repeat: no-repeat !important;
+	padding-right: 40px !important;
 }
 .btn-primary:hover{
 	background-color: tomato !important;
