@@ -23,7 +23,7 @@ jQuery('body').on('appear', function(){
 window.onload = function () { 
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
 	jQuery('#loading').remove();
-	$("body").addClass('animate__animated animate__fadeIn animate__slower');
+	$("body").addClass('animate__animated animate__fadeIn');
 	$('#signup').hide();
 	
 	//$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
