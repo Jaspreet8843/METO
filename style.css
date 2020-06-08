@@ -206,13 +206,14 @@ td{
 }
 .dp{
 	border-radius:200px ;
-	width: 250px;
+	width: 230px;
 	margin: 30px;
 }
 .el-1{
 
 	width: 33%;
 	padding-top: 150px;
+	margin-bottom: 100px;
 	text-align: center;
 	float: left;
 }
@@ -231,7 +232,7 @@ td{
 }
 
 .el-2, .el-3{
-	margin-top:250px; 
+	margin-top:260px; 
 
 }
 .pro-btn{
@@ -245,6 +246,9 @@ td{
    -o-transition: all .3s ease-out;
    -ms-transition: all .3s ease-out;
    transition: all .3s ease-out;
+   -webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
 }
 .pro-btn:hover{
 	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
@@ -255,7 +259,7 @@ td{
 }
 .pattern{
 	background-image: url("static/texture.jpg");
-	background-size: 100%;
+	background-size: 150%;
 	display: block;
 
 }
@@ -275,6 +279,9 @@ td{
    -o-transition: all .3s ease-out;
    -ms-transition: all .3s ease-out;
    transition: all .3s ease-out;
+   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 
 }
 .table-contain:hover{
@@ -411,6 +418,10 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 @media (max-width:767px)
 {
+
+	.pattern{
+		background-size: 400% !important;
+	}
 	.align-btn td{
 		padding: 0 !important;
 
@@ -608,7 +619,10 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 
 @media (max-width: 576px) { 
-		pattern{
+		.profile{
+		background-size: 340%;
+	}
+		.pattern1{
 			background: url('static/background-mobile.jpg') !important;
 			background-attachment: fixed !important;
 			background-size: 95% !important;
@@ -626,6 +640,9 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width:768px) {  
+		.profile{
+		background-size: 180%;
+	}
   .sm {color:red;font-weight:bold;}
    .card{width: 100% !important;}
 
