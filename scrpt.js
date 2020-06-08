@@ -25,6 +25,8 @@ window.onload = function () {
 	jQuery('#loading').remove();
 	$("body").addClass('animate__animated animate__fadeIn');
 	$('#signup').hide();
+	$('#more').hide();
+
 	
 	//$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
 	//$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
@@ -45,6 +47,13 @@ function loginclick()
 	$("#login").addClass('animate__animated animate__flipInY');
 }
 
+function more_services() {
+	$('#more').show();
+	//$("#more").addClass('animate__animated animate__fadeIn');  //your current y position on the page
+
+	$(window).scrollTop($('#more').position().top-100) ;
+	// body...
+}
 
 //google button
 

@@ -11,7 +11,9 @@ html {
 	background-image: url('static/background.png');
 	background-attachment: scroll;
 }
-
+.layer{
+	background: rgba(255,255,255,0.5);
+}
 .nav-link{
 	color: black !important;
 }
