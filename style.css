@@ -619,8 +619,11 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 
 @media (max-width: 576px) { 
+		.el-1{
+			padding-top: 70px;
+		}
 		.profile{
-		background-size: 340%;
+		background-size: 290%;
 	}
 		.pattern1{
 			background: url('static/background-mobile.jpg') !important;
