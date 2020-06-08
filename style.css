@@ -9,7 +9,7 @@ html {
 }
 .body-bg-fixed{
 	background-image: url('static/background.png');
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 .nav-link{
