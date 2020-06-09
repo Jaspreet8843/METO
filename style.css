@@ -206,10 +206,12 @@ td{
 
 	}
 .profilebg{
+	overflow: hidden;
 		bottom: 10%;
+		width: 100%;
 		position: absolute;
 		-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);
-		z-index: -1;
+		z-index:-1;
 }
 .dp{
 	border-radius:200px ;
