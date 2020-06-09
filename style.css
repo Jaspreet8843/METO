@@ -329,7 +329,7 @@ label{
 	transition: transform 0.4 ease;
 }
 .pattern{
-	background-image: url("static/texture.png");
+	background-image: url("static/background.png");
 	background-size: 100%;
 	display: block;
 
