@@ -691,7 +691,10 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 
 @media (max-width: 576px) { 
 	input[type=radio]{
-		transform: scale(1);
+		transform: scale(1.3);
+	}
+	input[type=radio]:hover{
+		transform: scale(1.5);
 	}
 	.editp{
 		width: 100%;
