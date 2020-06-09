@@ -329,8 +329,8 @@ label{
 	transition: transform 0.4 ease;
 }
 .pattern{
-	background-image: url("static/background.png");
-	background-size: 100%;
+	background-image: url("static/seamless.jpg");
+	width: 100%;
 	display: block;
 
 }
@@ -505,7 +505,7 @@ table{
 {
 
 	.pattern{
-		background-size: 400% !important;
+		
 	}
 	.align-btn td{
 		padding: 0 !important;
