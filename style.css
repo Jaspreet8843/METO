@@ -230,6 +230,7 @@ td{
 	float: left;
 }
 .editp{
+	background: 
 	width:33%;
 	padding-top: 150px;
 	padding-left: 5%;
@@ -285,11 +286,11 @@ input[type=radio]{
    -o-transition: all .5s ease-out;
    -ms-transition: all .5s ease-out;
    transition: all .5s ease-out;
-  transform:scale(2);
+  transform:scale(1.8);
 }
 input[type=radio]:hover{
 
-  transform:scale(2.2);
+  transform:scale(2);
 }
 label{
 	margin-left: 15px;
@@ -689,6 +690,9 @@ box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 
 @media (max-width: 576px) { 
+	input[type=radio]{
+		transform: scale(1);
+	}
 	.editp{
 		width: 100%;
 		padding-left: 0;
