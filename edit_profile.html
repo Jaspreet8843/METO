@@ -25,7 +25,7 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<img class="imglogo" src="static/logo.jpg" onclick="document.location='index.html'">
+		<img class="imglogo" src="static/logo.jpg">
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto spacing">
 				<!--li class="nav-item active">
@@ -53,25 +53,98 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="profile" style="display: inline-block;">
+	<form>
+		<div class="profile" style="display: inline-block;">
 
-		<div class="el-1-edit">
-			<img src="static/superman.jpg" class="dp">
-			<h3 class="h3c" style="padding:0">LOREM IPSUM</h3>
-			<table class="clear-bg center align-btn" >
-				<tr>
-					<td>
-						<button class="pro-btn">BOOKINGS</button>
-					</td>
-					<td>
-						<button class="pro-btn" onclick="location.href='edit_profile.html'">SETTINGS</button>
-					</td>
-				</tr>
-			</table>
+			<div class="editp">
+				<img src="static/superman.jpg" class="dp" style="display:flex; margin: auto; margin-bottom: 40px;">
+				<br>
+			</div>
+			<div class="edit-info" >
+				<h3>INFO</h3>
+				<hr>
+				<div class="edit-info1">
+					<img src="static/name.png">
+					<input type="text" value="CLARK KENT (Kal-El)" name="">
+				</div>
+				<div class="edit-info1">
+					<img src="static/phone.png">
+					<input type="text" value="+919876543210" name="">
+				</div>
+				<div class="edit-info1">
+					<img src="static/envelope.png">
+					<input type="text" value="clark_kent@meto.co.in"  name="">
+				</div>
+				<div class="clear"></div> 
+			</div>
+			<div class="edit-info" >
+				<h3>GENDER</h3>
+				<hr>
+				<div class="">
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios" id="rad-m">
+						<label class="form-check-label" for="rad-m">
+							Male
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios" id="rad-f">
+						<label class="form-check-label" for="rad-f">
+							Female
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exampleRadios" id="rad-o">
+						<label class="form-check-label" for="rad-o">
+							Others
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="edit-info" style="padding-top: 0">
+				<h3>ADDRESS</h3>
+				<hr>
+				<div class="edit-info1">
+					<img src="static/mapmarker.png">
+					<input type="text" value="Rajabari" name="">
+				</div>
+				<div class="edit-info1">
+					<img src="static/mapmarker.png">
+					<input type="text" value="Jorhat"  name="">
+				</div>
+				<div class="edit-info1" style="display: block;">
+					<img src="static/mapmarker.png">
+					<input type="text" value="785001"  name="">
+				</div>
+				<div class="clear"></div> 
+			</div>
+			<div class="edit-info">
+				<h3>PASSWORD</h3>
+				<hr>
+				<div class="edit-info1">
+					<img src="static/lock.png">
+					<input type="PASSWORD" placeholder="old password" name="">
+				</div>
+				<div class="edit-info1">
+					<img src="static/lock.png">
+					<input type="PASSWORD" placeholder="new password" name="">
+				</div>
+				<div class="edit-info1">
+					<img src="static/lock.png">
+					<input type="PASSWORD" placeholder="confirm password"  name="">
+				</div>
+				<div class="clear"></div> 
+			</div>
+			<div class="edit-info">
+				<h3> </h3><hr>
+				<button class="signin-login" >SAVE</button>
+			</div>
+
+
+
+
 		</div>
-		
-	</div>
-
+	</form>
 
 	<!-- Footer -->
 	<!-- Site footer -->
