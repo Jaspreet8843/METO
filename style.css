@@ -199,15 +199,23 @@ td{
 	background-color: tomato !important;
 }
 .profile{
-	background-image: url("static/wave.svg") !important;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	width: 100%;
-	height: auto;
 
+	background-repeat: no-repeat;
+	height: auto;
+	width: 100%;
+
+	}
+.profilebg{
+		bottom: 10%;
+		position: absolute;
+		-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);
+		z-index: -1;
 }
 .dp{
 	border-radius:200px ;
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	width: 230px;
 	margin: 30px;
 }
@@ -268,6 +276,9 @@ td{
 	-o-transition: all .5s ease-out;
 	-ms-transition: all .5s ease-out;
 	transition: all .5s ease-out;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
 }
 .edit-info1 input:hover {
 	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
@@ -330,7 +341,6 @@ label{
 }
 .pattern{
 	background-image: url("static/seamless.jpg");
-	width: 100%;
 	display: block;
 
 }
@@ -394,6 +404,7 @@ table{
 	-o-transition: all .3s ease-out;
 	-ms-transition: all .3s ease-out;
 	transition: all .3s ease-out;
+
 }
 .edit-icon:hover{
 	transform: scale(1.2);
