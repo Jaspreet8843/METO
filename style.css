@@ -329,8 +329,8 @@ label{
 	transition: transform 0.4 ease;
 }
 .pattern{
-	background-image: url("static/texture.jpg");
-	background-size: 150%;
+	background-image: url("static/texture.png");
+	background-size: 100%;
 	display: block;
 
 }
