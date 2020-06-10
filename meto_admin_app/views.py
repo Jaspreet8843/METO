@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-	return HttpResponse("Hello Admin")
+	return render('admin_home.html')
+
+def login(request) :
+	return render('admin_login.html')
