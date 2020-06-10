@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-	return render('admin_home.html')
+	return render(request,'admin_home.html')
 
 def login(request) :
-	return render('admin_login.html')
+	return render(request,'admin_login.html')
