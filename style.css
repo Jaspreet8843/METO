@@ -789,6 +789,9 @@ table{
 	@media (max-width: 576px) { 
 		.booking{
 			width: 90%;
+			padding: 0px;
+			background: none;
+			box-shadow: none;
 		}
 		input[type=radio]{
 			transform: scale(1.3);
