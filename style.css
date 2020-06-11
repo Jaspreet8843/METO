@@ -239,21 +239,17 @@ td{
 	transition: all .3s ease-out;
 }
 
-}
-.booking input:hover{
-	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-}
-.booking select:hover{
+
+.booking input:focus {
 	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 .booking h4{
-	color:lightgrey;
+	color:#b3b3b3;
 }
 .booking input[type=checkbox]{
+	box-shadow: none;
 	width: auto;
 	transform: scale(1.5);
 }
