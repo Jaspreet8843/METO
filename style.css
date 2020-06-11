@@ -198,6 +198,69 @@ td{
 .btn-primary:hover{
 	background-color: tomato !important;
 }
+.booking{
+	margin:8%;
+	margin-top: 120px;
+}
+.booking input{
+	margin: 15px;
+	margin-left: 0;
+	padding:10px 20px;
+	width: 100%;
+	border: none;
+	border-radius: 200px;
+	font-size: 18px;
+	outline: none;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+.booking select{
+	margin: 15px;
+	margin-left: 0;
+	padding:10px 20px;
+	width: 95%;
+	border: none;
+	border-radius: 200px;
+	font-size: 18px;
+	outline: none;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+}
+.booking input:hover{
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+.booking select:hover{
+	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+.booking h4{
+	color:lightgrey;
+}
+.booking input[type=checkbox]{
+	width: auto;
+	transform: scale(1.5);
+}
+.booking label{
+	margin-left: 0;
+	color: grey;
+}
 .profile{
 
 	background-repeat: no-repeat;
@@ -644,6 +707,9 @@ table{
 
 
 @media only screen and (max-width:992px){
+	.booking select{
+		width: 100%;
+	}
 	.align-btn td{
 
 
