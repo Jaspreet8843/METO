@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static from static %}
+{% block content %}
+<form>
+    <div class="booking">
+        <h3>SERVICE NAME</h3>
+        <h4>BOOK SERVICE</h4>
+        <hr>
+        <input type="text" name="" placeholder="Short description (optional)">
+        <input type="text" name="" placeholder="Address">
+        <div class="col50">
+            <select required>
+                <option value="">City</option>
+                <option value="1">Jorhat</option>
+            </select>
+        </div>
+        <div class="col50">
+            <input type="text" name="" placeholder="Pincode">
+        </div>
+        <input type="checkbox" id="check"><label for="check">Use saved address</label>
+        <input type="number" name="" placeholder="Phone">
+        <hr>
+        <button class="signin-login">BOOK</button>
+    </div>
+</form>
+{% endblock %}

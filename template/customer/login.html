@@ -1,0 +1,110 @@
+{% extends "base.html"%}
+{% load static from static %}
+{% block content %}
+<div id="contents" class="body-bg-fixed">
+
+    <!--LOGIN | SIGNUP -->
+    <div class="body">
+        <div class="login" style="display: inline-block; align-self: center; "> <!--cardmargin-->
+            <table class="clear-bg">
+                <tr>
+                    <td style="width: 50%">
+                        <div class="form-group" id="login">
+                            <img src="{% static 'img/favicon.png' %}" style="width: 120px; padding: 0;">
+                            <form>
+                                <table class="center clear-bg">
+                                    <tr>
+                                        <td>
+                                            <hr>
+                                        </td>
+                                        <!--td><hr><div id="my-signin2" style="padding: 20px"></div></td-->
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <input class="form-control form-input" type="text"
+                                                   placeholder="&#xf10b;  Number"
+                                                   style="font-family: Arial, FontAwesome " name=""/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input"><input class="form-control form-input" type="password"
+                                                                       placeholder="&#xf023;  Password"
+                                                                       style="font-family: Arial, FontAwesome" name="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input"><a class="login-forgot" href="#">Forgot your
+                                            password?</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <button class="signin-login btn-round">LOG IN</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <hr>
+                                            New Here? <a class="login-forgot" href="#" onclick="signupclick()">Sign
+                                            UP!</a></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="form-group" id="signup">
+                            <img src="{% static 'img/favicon.png' %}" style="width: 120px; padding: 0;">
+                            <form>
+                                <table class="center clear-bg">
+                                    <tr>
+                                        <td>
+                                            <hr>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <input class="form-control form-input" type="text" placeholder="Name"
+                                                   name="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input"><input class="form-control form-input" type="Email"
+                                                                       placeholder="Email" name=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input"><input class="form-control form-input" type="text"
+                                                                       placeholder="Phone" name=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input"><input class="form-control form-input" type="password"
+                                                                       placeholder="Password" name=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input"><input class="form-control form-input" type="password"
+                                                                       placeholder="Confirm Password" name=""></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="login-input">
+                                            <button class="signin-login btn-round">SIGN UP</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <hr>
+                                            Already have an account here? <a class="login-forgot" href="#"
+                                                                             onclick="loginclick()">Log In!</a></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </td>
+                    <td class="close-div">
+                        <!--Carousel Wrapper-->
+                        <img src="{% static 'login-picture2.jpg' %}" style="width:100%">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
