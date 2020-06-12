@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'meto_user_app',
+    'meto_admin_app']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
