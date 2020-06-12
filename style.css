@@ -495,7 +495,24 @@ table{
 .form-input{
 	background: lightgrey !important;	
 }
+.indexbg{
+	width: 100%;
+	position: relative;
 
+}
+.indexbg img{
+	width: 100%;
+}
+.text{
+	position: absolute;
+	top: 30%;
+	left: 100px;
+	width: 50%;
+}
+.text h1{
+	font-size: 100px;
+	font-weight: bolder;
+}
 .site-footer
 {
 	background-color:#26272b;
