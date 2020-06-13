@@ -18,11 +18,24 @@ jQuery('body').on('appear', function(){
     console.log("das");
 });
 
+
+// for navbar hide on click mobile
 $(document).click(function() {
-    if ($(window).width()<1025){
-        document.getElementById("myModal").style.top = "-100px";
-    }
+    var nav_clicked=0;
+    $('nav').click(function () {
+        nav_clicked=1;
+    });
+
+    $(document).click(function(){
+        if (nav_clicked==0 && $(window).width()<1025 && $(window).scrollTop()>0){
+            document.getElementById("myModal").style.top = "-100px";
+        }
+   });
 });
+
+
+
+
 //for loader
 window.onload = function () { 
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
