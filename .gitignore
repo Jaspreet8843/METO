@@ -1,7 +1,6 @@
 metovenv/
 venv/
 .git/
-.idea/
 meto/__pycache__
 meto_user_app/__pycache__
 meto_user_app/migrations
