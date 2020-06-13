@@ -25,7 +25,6 @@ $(document).click(function() {
     $('nav').click(function () {
         nav_clicked=1;
     });
-
     $(document).click(function(){
         if (nav_clicked==0 && $(window).width()<1025 && $(window).scrollTop()>0){
             document.getElementById("myModal").style.top = "-100px";
