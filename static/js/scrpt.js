@@ -18,7 +18,11 @@ jQuery('body').on('appear', function(){
     console.log("das");
 });
 
-
+$(document).click(function() {
+    if ($(window).width()<1025){
+        document.getElementById("myModal").style.top = "-100px";
+    }
+});
 //for loader
 window.onload = function () { 
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
