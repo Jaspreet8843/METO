@@ -7,6 +7,7 @@ class staff(models.Model):
 	staff_id=models.CharField(max_length=255, primary_key=True)
 	staff_name=models.CharField(max_length=255)
 	staff_phone=models.CharField(max_length=255,unique=True)
+	staff_area = models.CharField(max_length=255)
 	staff_city=models.CharField(max_length=255)
 	staff_pincode=models.CharField(max_length=255)
 	staff_job_status=models.CharField(max_length=255)
@@ -16,6 +17,7 @@ class worker(models.Model):
 	worker_id=models.CharField(max_length=255, primary_key=True)
 	worker_name=models.CharField(max_length=255)
 	worker_phone=models.CharField(max_length=255,unique=True)
+	worker_area = models.CharField(max_length=255)
 	worker_city=models.CharField(max_length=255)
 	worker_pincode=models.CharField(max_length=255)
 
