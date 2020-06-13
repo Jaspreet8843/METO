@@ -1,1 +1,1 @@
-web: gunicorn meto.wsgi
+web: gunicorn meto-jrt.wsgi
