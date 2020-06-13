@@ -1,5 +1,8 @@
 metovenv/
 venv/
-
 .git/
-
+meto/__pycache__
+meto_user_app/__pycache__
+meto_user_app/migrations
+meto_admin_app/__pycache__
+meto_admin_app/migrations
