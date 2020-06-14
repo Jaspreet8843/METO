@@ -15,18 +15,21 @@ def login(request):
 			user_password = request.POST.get('login_pass')
 			if valid_login(user_phone,user_password):
 				print(True)
-				user_obj = user.objects.filter(user_phone=user_phone)
-				if user_obj.exists():
-					user_hash_password = user_obj['user_password']
-					check_pass = bcrypt.hashpw(user_password.encode('utf8'),user_hash_password.encode('utf8'))
-					if check_pass==user_hash_password.encode('utf8'):
-						user_id = user_obj['user_id']
-						request.session['user_id']=user_id
+				try:
+					user_obj = user.objects.get(user_phone=user_phone)
+					u_id = user_obj.user_id
+					user_hash_password = user_obj.user_password
+					print("hash",user_hash_password)
+					check_pass = bcrypt.checkpw(user_password.encode('utf8'),bytes(user_hash_password,'utf-8'))
+					print("check",check_pass)
+					if check_pass==user_hash_password:
+						#request.session['user_id']=user_obj
 						return redirect('index')
 					else:
 						print("Incorrect Password")
 						return redirect('login')
-				else:
+				except Exception as e:
+					print(e)
 					print("User doesn't exist")
 					return redirect('login')
 			else:
@@ -50,9 +53,9 @@ def signup(request):
 				user_obj = user(user_name=user_name,user_email=user_email,user_phone=user_phone,
 					user_password=user_hash_password)
 				user_obj.save()
-				user_obj = user.objects.filter(user_phone=user_phone)
-				user_id = user_obj['user_id']
-				request.session['user_id']=user_id
+				user_obj = user.objects.get(user_phone=user_phone)
+				u_id = user_obj.user_id
+				#request.session['user_id']=user_id
 				return redirect('index')
 			else:
 				print(False)
