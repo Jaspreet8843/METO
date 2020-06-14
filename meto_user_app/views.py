@@ -100,6 +100,7 @@ def edit_profile(request):
 			user_obj = user.objects.get(user_id=request.session['user_id'])
 			if valid_details(user_name,user_phone,user_email,user_gender,user_area,
 				user_city,user_pincode,user_old_pass,user_new_pass,user_obj):
+				print(True)
 				return HttpResponse("Under construction")
 			return HttpResponse("Under construction")
 		else:
