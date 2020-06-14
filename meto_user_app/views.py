@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import user,service,booking
 from meto_admin_app.models import staff,worker
-from .validator import valid_login
+from .validator import valid_login,valid_signup
 
 # Create your views here.
 def login(request):
@@ -11,11 +11,17 @@ def login(request):
 	else:
 		if request.method=='POST':
 			user_phone = request.POST.get('login_phone')
-			user_pass = request.POST.get('login_pass')
-			if valid_login(user_phone,user_pass):
+			user_password = request.POST.get('login_pass')
+			if valid_login(user_phone,user_password):
 				print(True)
+				user_obj = user.objects.filter(user_phone=user_phone,user_password=user_password)
+				if user_obj.exists():
+					user_id = user_obj['user_id']
+					request.session['user_id']=user_id
+					return redirect('index')
 				return redirect('index')
 			else:
+				print(False)
 				return redirect('login')
 		return render(request,'customer/login.html')
 
@@ -27,11 +33,18 @@ def signup(request):
 			user_name = request.POST.get('new_name')
 			user_email = request.POST.get('new_email')
 			user_phone = request.POST.get('new_phone')
-			user_pass = request.POST.get('new_pass')
-			if valid_signup(user_name,user_email,user_phone,user_pass):
+			user_password = request.POST.get('new_pass')
+			if valid_signup(user_name,user_email,user_phone,user_password):
 				print(True)
+				user_obj = users(user_name=user_name,user_email=user_email,user_phone=user_phone,
+					user_password=user_password)
+				user_obj.save()
+				user_obj = user.objects.filter(user_phone=user_phone,user_password=user_password)
+				user_id = user_obj['user_id']
+				request.session['user_id']=user_id
 				return redirect('index')
 			else:
+				print(False)
 				return redirect('signup')
 		return render(request,'customer/login.html')
 
