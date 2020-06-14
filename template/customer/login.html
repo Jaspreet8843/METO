@@ -11,7 +11,7 @@
                     <td style="width: 50%">
                         <div class="form-group" id="login">
                             <img src="{% static 'img/favicon.png' %}" style="width: 120px; padding: 0;">
-                            <form>
+                            <form method="post">
                                 <table class="center clear-bg">
                                     <tr>
                                         <td>
@@ -23,13 +23,14 @@
                                         <td class="login-input">
                                             <input class="form-control form-input" type="text"
                                                    placeholder="&#xf10b;  Number"
-                                                   style="font-family: Arial, FontAwesome " name=""/>
+                                                   style="font-family: Arial, FontAwesome " name="login_phone" 
+                                                   pattern="[0-9]{10}" required="required"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="password"
                                                                        placeholder="&#xf023;  Password"
-                                                                       style="font-family: Arial, FontAwesome" name="">
+                                                                       style="font-family: Arial, FontAwesome" name="login_pass" required="required" pattern=".{8,20}" title="Password should be 8-20 characters long">
                                         </td>
                                     </tr>
                                     <tr>
@@ -62,24 +63,24 @@
                                     <tr>
                                         <td class="login-input">
                                             <input class="form-control form-input" type="text" placeholder="Name"
-                                                   name="">
+                                                   name="new_name" pattern="[a-zA-Z]{2,}" required="required">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="Email"
-                                                                       placeholder="Email" name=""></td>
+                                                                       placeholder="Email" name="new_email" pattern="[a-zA-Z0-9@_.]{2,}" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="text"
-                                                                       placeholder="Phone" name=""></td>
+                                                                       placeholder="Phone" name="new_phone" pattern="[0-9]{10}" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="password"
-                                                                       placeholder="Password" name=""></td>
+                                                                       placeholder="Password" name="" required="required" pattern=".{8,20}" title="Password should be 8-20 characters long"></td>
                                     </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="password"
-                                                                       placeholder="Confirm Password" name=""></td>
+                                                                       placeholder="Confirm Password" name="new_pass" required="required" pattern=".{8,20}" title="Password should be 8-20 characters long"></td>
                                     </tr>
 
                                     <tr>

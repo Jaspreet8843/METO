@@ -5,10 +5,24 @@ from meto_admin_app.models import staff,worker
 
 # Create your views here.
 def login(request):
-	return render(request,'customer/login.html')
+	if request.session.has_key('user_id'):
+		return redirect('index')
+	else:
+		if request.method=='POST':
+			user_phone = request.POST.get('login_phone')
+			user_pass = request.POST.get('login_pass')
+		return render(request,'customer/login.html')
 
 def signup(request):
-	return HttpResponse("Under construction")
+	if request.session.has_key('user_id'):
+		return redirect('index')
+	else:
+		if request.method=='POST':
+			user_name = request.POST.get('new_name')
+			user_email = request.POST.get('new_email')
+			user_phone = request.POST.get('new_phone')
+			user_pass = request.POST.get('new_pass')
+		return HttpResponse("Under construction")
 
 def index(request):
 	return render(request,'customer/index.html')
