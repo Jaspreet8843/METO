@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import user,service,booking
 from meto_admin_app.models import staff,worker
-from .validator import valid_login,valid_signup
+from .validator import valid_login,valid_signup,valid_details
 import bcrypt
 
 # Create your views here.
@@ -89,7 +89,7 @@ def edit_profile(request):
 	if request.session.has_key('user_id'):
 		if request.method=='POST':
 			user_name = request.POST.get('user_name')
-			user_phone = = request.POST.get('user_phone')
+			user_phone = request.POST.get('user_phone')
 			user_email = request.POST.get('user_email')
 			user_gender = request.POST.get('user_gender')
 			user_area = request.POST.get('user_area')
@@ -97,6 +97,10 @@ def edit_profile(request):
 			user_pincode = request.POST.get('user_pincode')
 			user_old_pass = request.POST.get('user_old_pass')
 			user_new_pass = request.POST.get('user_new_pass')
+			user_obj = user.objects.get(user_id=request.session['user_id'])
+			if valid_details(user_name,user_phone,user_email,user_gender,user_area,
+				user_city,user_pincode,user_old_pass,user_new_pass,user_obj):
+				return HttpResponse("Under construction")
 			return HttpResponse("Under construction")
 		else:
 			user_obj = user.objects.get(user_id=request.session['user_id'])
