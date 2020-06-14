@@ -2,7 +2,7 @@
 {% load static from static %}
 {% block content %}
 
-<form>
+<form method="post" action=""> {% csrf_token %}
     <div class="profile" style="display: inline-block;">
         <div class="profilebg"><img src='../static/img/wave.svg'></div>
         <div class="editp" >
@@ -16,15 +16,15 @@
             <hr>
             <div class="edit-info1">
                 <img src="../static/img/name.png">
-                <input type="text" value="CLARK KENT (Kal-El)" name="">
+                <input type="text" value="{{user.user_name}}" name="user_name">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/phone.png">
-                <input type="text" value="+919876543210" name="">
+                <input type="text" value="{{user.user_phone}}" name="user_phone">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/envelope.png">
-                <input type="text" value="clark_kent@meto.co.in" name="">
+                <input type="text" value="{{user.user_email}}" name="user_email">
             </div>
             <div class="clear"></div>
         </div>
@@ -33,19 +33,19 @@
             <hr>
             <div class="">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="rad-m">
+                    <input class="form-check-input" type="radio" name="user_gender" id="rad-m">
                     <label class="form-check-label" for="rad-m">
                         Male
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="rad-f">
+                    <input class="form-check-input" type="radio" name="user_gender" id="rad-f">
                     <label class="form-check-label" for="rad-f">
                         Female
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="rad-o">
+                    <input class="form-check-input" type="radio" name="user_gender" id="rad-o">
                     <label class="form-check-label" for="rad-o">
                         Others
                     </label>
@@ -57,15 +57,15 @@
             <hr>
             <div class="edit-info1">
                 <img src="../static/img/mapmarker.png">
-                <input type="text" value="Rajabari" name="">
+                <input type="text" value="{{user.user_area}}" name="user_area">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/mapmarker.png">
-                <input type="text" value="Jorhat" name="">
+                <input type="text" value="{{user.city}}" name="user_city">
             </div>
             <div class="edit-info1" style="display: block;">
                 <img src="../static/img/mapmarker.png">
-                <input type="text" value="785001" name="">
+                <input type="text" value="{{user.pincode}}" name="user_pincode">
             </div>
             <div class="clear"></div>
         </div>
@@ -74,15 +74,15 @@
             <hr>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input type="PASSWORD" placeholder="old password" name="">
+                <input type="PASSWORD" placeholder="Old password" name="user_old_pass">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input type="PASSWORD" placeholder="new password" name="">
+                <input type="PASSWORD" placeholder="New password" name="">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input type="PASSWORD" placeholder="confirm password" name="">
+                <input type="PASSWORD" placeholder="Confirm password" name="user_new_pass">
             </div>
             <div class="clear"></div>
         </div>

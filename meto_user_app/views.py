@@ -87,8 +87,20 @@ def profile(request):
 
 def edit_profile(request):
 	if request.session.has_key('user_id'):
-		user_obj = user.objects.get(user_id=request.session['user_id'])
-		return render(request,'customer/edit_profile.html',({'user':user_obj}))
+		if request.method=='POST':
+			user_name = request.POST.get('user_name')
+			user_phone = = request.POST.get('user_phone')
+			user_email = request.POST.get('user_email')
+			user_gender = request.POST.get('user_gender')
+			user_area = request.POST.get('user_area')
+			user_city = request.POST.get('user_city')
+			user_pincode = request.POST.get('user_pincode')
+			user_old_pass = request.POST.get('user_old_pass')
+			user_new_pass = request.POST.get('user_new_pass')
+			return HttpResponse("Under construction")
+		else:
+			user_obj = user.objects.get(user_id=request.session['user_id'])
+			return render(request,'customer/edit_profile.html',({'user':user_obj}))
 	return redirect('index')
 
 def book(request,service_id):
@@ -99,7 +111,7 @@ def bookings(request):
 
 def book_ticket(request):
     return render(request, 'customer/book_ticket.html')
-    
+
 def feedback(request):
 	return HttpResponse("Under construction")
 
