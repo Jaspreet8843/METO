@@ -89,7 +89,7 @@ def edit_profile(request):
 	if request.session.has_key('user_id'):
 		if request.method=='POST':
 			user_name = request.POST.get('user_name')
-			user_phone = = request.POST.get('user_phone')
+			user_phone = request.POST.get('user_phone')
 			user_email = request.POST.get('user_email')
 			user_gender = request.POST.get('user_gender')
 			user_area = request.POST.get('user_area')
