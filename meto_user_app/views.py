@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import user,service,booking
 from meto_admin_app.models import staff,worker
+from .validator import valid_login
 
 # Create your views here.
 def login(request):
@@ -11,6 +12,11 @@ def login(request):
 		if request.method=='POST':
 			user_phone = request.POST.get('login_phone')
 			user_pass = request.POST.get('login_pass')
+			if valid_login(user_phone,user_pass):
+				print(True)
+				return redirect('index')
+			else:
+				return redirect('login')
 		return render(request,'customer/login.html')
 
 def signup(request):
@@ -22,7 +28,12 @@ def signup(request):
 			user_email = request.POST.get('new_email')
 			user_phone = request.POST.get('new_phone')
 			user_pass = request.POST.get('new_pass')
-		return HttpResponse("Under construction")
+			if valid_signup(user_name,user_email,user_phone,user_pass):
+				print(True)
+				return redirect('index')
+			else:
+				return redirect('signup')
+		return render(request,'customer/login.html')
 
 def index(request):
 	return render(request,'customer/index.html')
