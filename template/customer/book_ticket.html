@@ -1,26 +1,47 @@
 {% extends "base.html" %}
 {% load static from static %}
 {% block content %}
-<form>
+<form method="post" action=""> {% csrf_token %}
     <div class="booking">
-        <h3>SERVICE NAME</h3>
+        <h3>{{service.service_name}}</h3>
         <h4>BOOK SERVICE</h4>
         <hr>
-        <input type="text" name="" placeholder="Short description (optional)">
-        <input type="text" name="" placeholder="Address">
-        <div class="col50">
-            <select required>
+        <input type="text" name="booking_desc" placeholder="Short description (optional)" pattern=".{0,200}">
+        <input type="text" id="area" name="booking_area" placeholder="Address (Area)" pattern=".{2,100}" 
+                required="required">
+        <div class="col50" >
+            <select id="city" name="booking_city" required>
                 <option value="">City</option>
-                <option value="1">Jorhat</option>
+                <option value="Jorhat">Jorhat</option>
             </select>
         </div>
         <div class="col50">
-            <input type="text" name="" placeholder="Pincode">
+            <input type="text" id="pincode" name="booking_pincode" placeholder="Pincode" pattern="[0-9]{6}" 
+                required="required">
         </div>
-        <input type="checkbox" id="check"><label for="check">Use saved address</label>
-        <input type="number" name="" placeholder="Phone">
+        <input type="checkbox" id="check" onclick="myAddr()"><label for="check">Use saved address</label>
+        <input type="text" name="booking_phone" placeholder="Phone" pattern="[0-9]{10}" 
+                required="required">
         <hr>
         <button class="signin-login">BOOK</button>
     </div>
 </form>
+
+<script>
+    
+function myAddr() {
+  var checkBox = document.getElementById("check");
+  if (checkBox.checked == true){
+    document.getElementById("pincode").value = "{{user.user_pincode}}";
+    document.getElementById("area").value = "{{user.user_area}}";
+    document.getElementById('city').value="{{user.user_city}}"
+  } 
+  else {
+    document.getElementById("pincode").value = "";
+    document.getElementById("area").value = "";
+    document.getElementById('city').value=""
+  }
+}
+
+</script>
 {% endblock %}

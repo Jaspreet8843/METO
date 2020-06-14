@@ -10,7 +10,6 @@ urlpatterns = [
 	path('edit_profile/',views.edit_profile,name="edit_profile"),
 	path('bookings/',views.bookings,name="bookings"),
 	path('book/<int:service_id>',views.book,name="book"),
-	path('book_ticket/', views.book_ticket, name="book_ticket"),
 	path('feedback/',views.feedback,name="feedback"),
 	path('about/',views.about,name="about"),
 ]
