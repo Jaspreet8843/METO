@@ -13,7 +13,7 @@ class staff(models.Model):
 	staff_job_status=models.CharField(max_length=255)
 
 class worker(models.Model):
-	#service_id=models.ForeignKey(service, on_delete=models.CASCADE)
+	service_id=models.ForeignKey(service, on_delete=models.CASCADE)
 	worker_id=models.CharField(max_length=255, primary_key=True)
 	worker_name=models.CharField(max_length=255)
 	worker_phone=models.CharField(max_length=255,unique=True)
