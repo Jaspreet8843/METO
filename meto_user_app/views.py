@@ -19,11 +19,12 @@ def login(request):
 					user_obj = user.objects.get(user_phone=user_phone)
 					u_id = user_obj.user_id
 					user_hash_password = user_obj.user_password
-					print("hash",user_hash_password)
+					user_hash_password=str(user_hash_password)
+					user_hash_password=user_hash_password[2:len(user_hash_password)-1]
 					check_pass = bcrypt.checkpw(user_password.encode('utf8'),bytes(user_hash_password,'utf-8'))
 					print("check",check_pass)
-					if check_pass==user_hash_password:
-						#request.session['user_id']=user_obj
+					if check_pass:
+						request.session['user_id']=u_id
 						return redirect('index')
 					else:
 						print("Incorrect Password")
@@ -50,27 +51,45 @@ def signup(request):
 			if valid_signup(user_name,user_email,user_phone,user_password):
 				print(True)
 				user_hash_password = bcrypt.hashpw(user_password.encode('utf8'),bcrypt.gensalt())
-				user_obj = user(user_name=user_name,user_email=user_email,user_phone=user_phone,
-					user_password=user_hash_password)
-				user_obj.save()
-				user_obj = user.objects.get(user_phone=user_phone)
-				u_id = user_obj.user_id
-				#request.session['user_id']=user_id
-				return redirect('index')
+				try:
+					user_obj = user(user_name=user_name,user_email=user_email,user_phone=user_phone,
+						user_password=user_hash_password)
+					user_obj.save()
+					user_obj = user.objects.get(user_phone=user_phone)
+					u_id = user_obj.user_id
+					request.session['user_id']=u_id
+					return redirect('index')
+				except Exception as e:
+					print(e)
+					print("Failed query")
+					return redirect('signup')
 			else:
 				print(False)
 				print("Invalid entries")
 				return redirect('signup')
 		return render(request,'customer/login.html')
 
+def logout(request):
+	del request.session['user_id']
+	return redirect('index')
+
 def index(request):
+	if request.session.has_key('user_id'):
+		user_obj = user.objects.get(user_id=request.session['user_id'])
+		return render(request,'customer/index.html',({'user':user_obj}))
 	return render(request,'customer/index.html')
 
 def profile(request):
-	return render(request,'customer/profile.html')
+	if request.session.has_key('user_id'):
+		user_obj = user.objects.get(user_id=request.session['user_id'])
+		return render(request,'customer/profile.html',({'user':user_obj}))
+	return redirect('index')
 
 def edit_profile(request):
-	return render(request,'customer/edit_profile.html')
+	if request.session.has_key('user_id'):
+		user_obj = user.objects.get(user_id=request.session['user_id'])
+		return render(request,'customer/edit_profile.html',({'user':user_obj}))
+	return redirect('index')
 
 def book(request,service_id):
 	return HttpResponse("Under construction")
@@ -80,6 +99,7 @@ def bookings(request):
 
 def book_ticket(request):
     return render(request, 'customer/book_ticket.html')
+    
 def feedback(request):
 	return HttpResponse("Under construction")
 
