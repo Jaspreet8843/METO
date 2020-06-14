@@ -19,7 +19,6 @@ def login(request):
 					user_id = user_obj['user_id']
 					request.session['user_id']=user_id
 					return redirect('index')
-				return redirect('index')
 			else:
 				print(False)
 				return redirect('login')
@@ -36,7 +35,7 @@ def signup(request):
 			user_password = request.POST.get('new_pass')
 			if valid_signup(user_name,user_email,user_phone,user_password):
 				print(True)
-				user_obj = users(user_name=user_name,user_email=user_email,user_phone=user_phone,
+				user_obj = user(user_name=user_name,user_email=user_email,user_phone=user_phone,
 					user_password=user_password)
 				user_obj.save()
 				user_obj = user.objects.filter(user_phone=user_phone,user_password=user_password)
