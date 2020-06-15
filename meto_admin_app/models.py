@@ -25,3 +25,11 @@ class assign(models.Model):
 	booking_id=models.ForeignKey(booking,related_name='booking',on_delete=models.CASCADE,default=1)
 	staff_id=models.ForeignKey(staff, related_name='staff', on_delete=models.CASCADE,default=1)
 	worker_id=models.ForeignKey(worker, related_name='worker',on_delete=models.CASCADE,default=1)
+
+class date(models.Model):
+	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
+	booking_date=models.DateField()
+	staff_assigned_date=models.DateField()
+	technician_assigned_date=models.DateField()
+	technician_visited_date=models.DateField()
+	close_date=models.DateField()

@@ -30,11 +30,3 @@ class booking(models.Model):
 	booking_city=models.CharField(max_length=255)
 	booking_pincode=models.CharField(max_length=255)
 	booking_status=models.CharField(max_length=255,default="Processing")
-
-class dates(models.Model):
-	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
-	booking_date=models.DateField()
-	staff_assigned_date=models.DateField()
-	technician_assigned_date=models.DateField()
-	technician_visited_date=models.DateField()
-	close_date=models.DateField()
