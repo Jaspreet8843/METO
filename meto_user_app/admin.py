@@ -6,5 +6,3 @@ admin.site.register(user)
 admin.site.register(service)
 admin.site.register(dates)
 admin.site.register(booking)
-admin.site.register(assign)
-

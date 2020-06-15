@@ -31,11 +31,6 @@ class booking(models.Model):
 	booking_pincode=models.CharField(max_length=255)
 	booking_status=models.CharField(max_length=255,default="Processing")
 
-class assign(models.Model):
-	booking_id=models.ForeignKey(booking,related_name='booking',on_delete=models.CASCADE,default=1)
-	staff_id=models.ForeignKey('meto_admin_app.staff', related_name='staff', on_delete=models.CASCADE,default=1)
-	worker_id=models.ForeignKey('meto_admin_app.worker', related_name='worker',on_delete=models.CASCADE,default=1)
-
 class dates(models.Model):
 	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
 	booking_date=models.DateField()
