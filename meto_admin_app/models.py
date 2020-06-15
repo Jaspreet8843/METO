@@ -7,6 +7,7 @@ class staff(models.Model):
 	staff_id=models.AutoField(primary_key=True)
 	staff_name=models.CharField(max_length=255)
 	staff_phone=models.CharField(max_length=255,unique=True)
+	staff_password=models.CharField(max_length=255)
 	staff_area = models.CharField(max_length=255)
 	staff_city=models.CharField(max_length=255)
 	staff_pincode=models.CharField(max_length=255)

@@ -44,18 +44,18 @@
 			<tr><td style="width: 50%">
 			<div class="form-group" id="login">
 				<img src="{% static 'img/favicon.png' %}" style="width: 120px; padding: 0;">
-				<form>
+				<form method="post" action=""> {% csrf_token %}
 					<table class="center clear-bg">
 						<tr>
 							<td><hr></td>
 						</tr>
 						<tr>
 							<td class="login-input">
-								<input class="form-control form-input" type="text" placeholder="&#xf002; Number" style="font-family: FontAwesome" name=""/>
+								<input class="form-control form-input" type="text" placeholder="&#xf002; Number" style="font-family: FontAwesome" name="staff_phone"/>
 							</td>
 						</tr>
 						<tr>
-							<td class="login-input"><input class="form-control form-input" type="password" placeholder="Password" name=""></td>
+							<td class="login-input"><input class="form-control form-input" type="password" placeholder="Password" name="staff_password"></td>
 						</tr>
 						<tr>
 							<td class="login-input"><a class="login-forgot" href="#">Forgot your password?</a></td>
