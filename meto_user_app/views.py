@@ -150,7 +150,11 @@ def book(request,service_id):
 	return redirect('index')
 
 def bookings(request):
-	return render(request,'customer/bookings.html')
+	if request.session.has_key('user_id'):
+		user_obj = user.objects.get(user_id=request.session['user_id'])
+		booking_obj = booking.objects.filter(user_id=user_obj)
+		return render(request,'customer/bookings.html',({'bookings':booking_obj,'user':user_obj}))
+	return redirect('index')
 
 def feedback(request):
 	return HttpResponse("Under construction")
