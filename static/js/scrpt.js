@@ -34,10 +34,17 @@ $(document).click(function() {
 });
 
 
-
+window.trclick=function(id){
+if($("#"+id).is(":visible")){
+    $("#"+id).hide();
+}
+else{
+    $("#"+id).show();
+}
+};
 
 //for loader
-window.onload = function () { 
+window.onload = function () {
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
 	jQuery('#loading').remove();
 	$("body").addClass('animate__animated animate__fadeIn');

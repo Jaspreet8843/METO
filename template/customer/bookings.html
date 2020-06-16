@@ -1,13 +1,81 @@
 {% extends "base.html"%}
 {% load static from static %}
 {% block content %}
+   <style>
 
+    <!-- Progress with steps -->
+
+    ol.progtrckr {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    ol.progtrckr li {
+        display: inline-block;
+        text-align: center;
+        line-height: 3em;
+    }
+
+    ol.progtrckr[data-progtrckr-steps="2"] li { width: 49%; }
+    ol.progtrckr[data-progtrckr-steps="3"] li { width: 33%; }
+    ol.progtrckr[data-progtrckr-steps="4"] li { width: 24%; }
+    ol.progtrckr[data-progtrckr-steps="5"] li { width: 19%; }
+    ol.progtrckr[data-progtrckr-steps="6"] li { width: 16%; }
+    ol.progtrckr[data-progtrckr-steps="7"] li { width: 14%; }
+    ol.progtrckr[data-progtrckr-steps="8"] li { width: 12%; }
+    ol.progtrckr[data-progtrckr-steps="9"] li { width: 11%; }
+
+    ol.progtrckr li.progtrckr-done {
+        color: black;
+        border-left: 4px solid skyblue;
+        width:100%;
+    }
+    ol.progtrckr li.progtrckr-todo {
+        color: silver;
+        border-left: 4px solid silver;
+        width:100%;
+    }
+
+    ol.progtrckr li:after {
+        content: "\00a0\00a0";
+    }
+    ol.progtrckr li:before {
+        position: relative;
+        bottom: -1em;
+        float: left;
+        left: -0.9em;
+        line-height: 1em;
+    }
+    ol.progtrckr li.progtrckr-done:before {
+        content: "";
+        color: white;
+        background-color: tomato;
+        height: 1.5em;
+        width: 1.5em;
+        line-height: 1.5em;
+        border: none;
+        border-radius: 1.5em;
+    }
+    ol.progtrckr li.progtrckr-todo:before {
+        content: "";
+        color: silver;
+        height: 1.5em;
+        width: 1.5em;
+        background-color: silver;
+        border-radius:1.5em;
+        bottom: -0.8em;
+        left: -0.9em;
+    }
+
+</style>
 <div class="bookings">
     <h3><b>BOOKINGS</b></h3>
     <hr>
     <table class="clear-bg" style="width:100%;">
         {% for i in bookings %}
         <table class="book_tr " style="width:100%;">
+            <tr>
             <td style="width: 100px; padding:40px;">
                 <img src="{% static 'img/serve.png' %}" class="booking_icon">
             </td>
@@ -20,6 +88,7 @@
                     </tr>
                     <tr>
                         <td>
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                             Rate:
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -39,6 +108,19 @@
             <td>
                 <img src="{% static 'img/close.png' %}" class="close_btn" onclick="#">
             </td>
+            </tr>
+            <tr>
+                <td  colspan="5" class="book_drop"><i class="fa fa-chevron-down" aria-hidden="true" onclick="trclick({{i.booking_id}});"></i></td>
+            </tr>
+            <tr class="book_drop_down" id="{{i.booking_id}}" ><td colspan="5" style="text-align:left">
+            <ol class="progtrckr" data-progtrckr-steps="5" style="padding-left:50px; width:100%;">
+                <li class="progtrckr-done" style="text-align:left">Booking made</li><br>
+                <li class="progtrckr-done" style="text-align:left">Assigned to our staff</li><br>
+                <li class="progtrckr-done" style="text-align:left">Technician assigned</li><br>
+                <li class="progtrckr-todo" style="text-align:left">Technician Visited</li><br>
+                <li class="progtrckr-todo" style="text-align:left">Case closed</li><br>
+            </ol></td>
+            </tr>
         </table>
             {% endfor %}
     </table>

@@ -157,13 +157,35 @@ margin:5%;
 }
 .book_tr{
     background:white;
-    height:100px;
     margin:20px 0 !important;
     width: 100%;
     border-radius:10px;
     -webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+.book_tr td{
+    padding:5px !important;
+}
+.checked{
+    color:orange;
+    }
+
+.book_drop{
+    background:skyblue;
+    border-radius:0 0 10px 10px;
+    -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+.book_drop:hover{
+    background:grey;
+}
+.book_drop_down{
+
+display:none;
 }
 .book-inner{
     width:40vw;
@@ -854,7 +876,8 @@ table{
 	    font-size:8px !important;
 	    }
 	    .book_tr{
-	    height:70px;}
+	    height:70px;
+	    }
 	    .booking_icon{
 	    width:35px;
 	    }
