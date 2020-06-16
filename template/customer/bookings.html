@@ -1,27 +1,20 @@
 {% extends "base.html"%}
 {% load static from static %}
 {% block content %}
-<div class="profilebg"><img src='{% static 'img/wave.svg' %}'></div>
-<div class="profile" style="display: inline-block;">
 
-    <div class="el-1" style="margin-bottom:0;">
-        <img src="{% static 'img/superman.jpg' %}" class="dp">
-        <!--h3 class="h3c" style="padding:0">{{user.user_name}}</h3-->
-    </div>
-</div>
 <div class="bookings">
     <h3><b>BOOKINGS</b></h3>
-    <table class="clear-bg" style="width:100%; padding:20px;">
+    <table class="clear-bg" style="width:100%;">
         {% for i in bookings %}
         <table class="book_tr " style="width:100%;">
             <td style="width: 100px; padding:40px;">
-                <img src="{% static 'img/serve.png' %}" style="width:60px;">
+                <img src="{% static 'img/serve.png' %}" class="booking_icon">
             </td>
             <td>
                 <table class="clear-bg book-inner">
                     <tr>
                         <td>
-                            <h4>{{i.service_id.service_name}}</h4>
+                            <h4 class="h4c">{{i.service_id.service_name}}</h4>
                         </td>
                     </tr>
                     <tr>
@@ -39,7 +32,7 @@
             <td>
                 {{i.booking_status}}
             </td>
-            <td>
+            <td class="book_date">
                 {{i.booking_date}}
             </td>
             <td>

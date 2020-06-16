@@ -1,0 +1,18 @@
+{% extends "base.html"%}
+{% load static from static %}
+{% block content %}
+	<form>
+		<div class="indexbg">
+			<img src="{% static 'img/indexbg.jpg' %}" style="height:680px; ">
+		</div>
+		<div class="text">
+			<h3>
+					Welcome to, </h3>
+				<h1> M E T O !</h1>
+				<h5>Your own managing assistant. 
+					</h5><br>
+					<button class="signin-login" onclick="window.location.href='../login'">GET STARTED</button>
+			</div>
+	</form>
+
+{% endblock %}

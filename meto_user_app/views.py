@@ -80,7 +80,7 @@ def index(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         return render(request, 'customer/index.html', ({'user': user_obj}))
-    return render(request, 'customer/index.html')
+    return render(request, 'customer/newindex.html')
 
 
 def profile(request):

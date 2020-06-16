@@ -152,12 +152,13 @@ td{
 }
 
 .bookings{
+padding-top:100px;
 margin:5%;
 }
 .book_tr{
     background:white;
-    height:80px;
-    margin:20px 0;
+    height:100px;
+    margin:20px 0 !important;
     width: 100%;
     border-radius:10px;
     -webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
@@ -172,6 +173,9 @@ margin:5%;
     text-align:left;
     padding: 50px;
 }
+.booking_icon{
+        width:60px;
+    }
 .close_btn{
      width:50px;
     -webkit-transition: all .2s ease-out;
@@ -835,7 +839,24 @@ table{
 		}
 	}
 
-	@media (max-width: 576px) { 
+	@media (max-width: 576px) {
+	    .h4c{
+	        font-size:15px;
+	    }
+	    .book_date{
+	        display:none;
+	    }
+	    .book_inner td{
+	    font-size:8px !important;
+	    }
+	    .book_tr{
+	    height:60px;}
+	    .booking_icon{
+	    width:35px;
+	    }
+	    .close_btn{
+	    width:40px;
+	    }
 		.booking{
 			width: 90%;
 			padding: 0px;
@@ -885,7 +906,10 @@ table{
 	}
 
 	/* Small devices (landscape phones, 576px and up) */
-	@media (min-width: 576px) and (max-width:768px) { 
+	@media (min-width: 576px) and (max-width:768px) {
+	    .book_date{
+	        display:none;
+	    }
 		.booking{
 			width: 80%;
 		}
@@ -904,7 +928,10 @@ table{
 	}
 
 	/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-	@media (min-width: 768px) and (max-width:992px) {  
+	@media (min-width: 768px) and (max-width:992px) {
+	    .book_date{
+	        white-space:nowrap;
+	    }
 		.booking{
 			width: 70%;
 		}
