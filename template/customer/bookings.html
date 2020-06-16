@@ -4,6 +4,7 @@
 
 <div class="bookings">
     <h3><b>BOOKINGS</b></h3>
+    <hr>
     <table class="clear-bg" style="width:100%;">
         {% for i in bookings %}
         <table class="book_tr " style="width:100%;">
@@ -29,7 +30,7 @@
                     </tr>
                 </table>
             </td>
-            <td>
+            <td class="book_stats">
                 {{i.booking_status}}
             </td>
             <td class="book_date">
