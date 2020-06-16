@@ -30,12 +30,21 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto spacing">
 				<!--li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li>
+					<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+				</li-->
+
+
+                {% if user.user_name is not defined%}
 				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
+					<a class="nav-link" href="../profile">Profile</a>
 				</li>
-				<li class="nav-item dropdown">
+                <li class="nav-item">
+					<a class="nav-link" href="../bookings">Bookings</a>
+				</li>
+                {% endif %}
+
+
+				<!--li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Dropdown
 					</a>
@@ -46,16 +55,18 @@
 						<a class="dropdown-item" href="#">Something else here</a>
 					</div>
 				</li-->
-
-				<form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0">
 					<li class="nav-item">
 						<input class="form-control mr-sm-2 darkbg srch" id="Search" type="Search" placeholder="SEARCH" aria-label="Search">
 					</li>
 				</form>
-                <li class="nav-item"><button class="signin-login" onclick="window.location.href='../'"><B>&laquo; GO BACK</B></button></li>
-                <li class="nav-item"><button class="signin-login" onclick="window.location.href='../profile'"><B>PROFILE</B></button></li>
-				<li class="nav-item"><button class="signin-login" onclick="window.location.href='../login'"><B>LOGIN | SIGN UP</B></button></li>
-			</ul>
+                {% if user.user_name is not defined%}
+                <li class="nav-item"><button class="signin-login" onclick="window.location.href='../logout'"><B>LOGOUT</B></button></li>
+				{% else %}
+                <li class="nav-item"><button class="signin-login" onclick="window.location.href='../login'"><B>LOGIN | SIGN UP</B></button></li>
+                {% endif %}
+                <!--li class="nav-item"><button class="signin-login" onclick="window.location.href='../'"><B>&laquo; GO BACK</B></button></li-->
+            </ul>
 		</div>
 	</nav>
 

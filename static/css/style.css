@@ -151,8 +151,39 @@ td{
 	width: 100%;
 }
 
+.bookings{
+margin:5%;
 }
+.book_tr{
+    background:white;
+    height:80px;
+    margin:20px 0;
+    width: 100%;
+    border-radius:10px;
+    -webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+}
+.book-inner{
+    width:40vw;
+    border:none;
+}
+.book-inner td{
+    text-align:left;
+    padding: 50px;
+}
+.close_btn{
+     width:50px;
+    -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+.close_btn:hover{
+    transform:scale(1.1)
 
+}
 .darkbg{
 	background-color: rgb(50,50,50) !important;
 	border-radius: 0px !important;
