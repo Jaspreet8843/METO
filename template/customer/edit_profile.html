@@ -2,32 +2,32 @@
 {% load static from static %}
 {% block content %}
 
-<form method="post" action=""> {% csrf_token %}
+<form action="" method="post"> {% csrf_token %}
     <div class="profile" style="display: inline-block;">
         <div class="profilebg"><img src='../static/img/wave.svg'></div>
-        <div class="editp" >
+        <div class="editp">
             <div>
-                <img src="../static/img/superman.jpg" class="dp dp-center" style=" display:flex; margin-bottom: 40px;">
+                <img class="dp dp-center" src="../static/img/superman.jpg" style=" display:flex; margin-bottom: 40px;">
             </div>
-            <img src="../static/img/edit.png" class="edit-icon">
+            <img class="edit-icon" src="../static/img/edit.png">
         </div>
         <div class="edit-info" style="margin-top: 0;">
             <h4>INFO</h4>
             <hr>
             <div class="edit-info1">
                 <img src="../static/img/name.png">
-                <input type="text" value="{{user.user_name}}" name="user_name" pattern="[a-zA-Z ]{2,}" 
-                required="required">
+                <input name="user_name" pattern="[a-zA-Z ]{2,}" required="required" type="text"
+                       value="{{user.user_name}}">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/phone.png">
-                <input type="text" value="{{user.user_phone}}" name="user_phone" pattern="[0-9]{10}" 
-                required="required">
+                <input name="user_phone" pattern="[0-9]{10}" required="required" type="text"
+                       value="{{user.user_phone}}">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/envelope.png">
-                <input type="text" value="{{user.user_email}}" name="user_email" pattern="[a-zA-Z0-9@_.]{2,}"
-                required="required">
+                <input name="user_email" pattern="[a-zA-Z0-9@_.]{2,}" required="required" type="text"
+                       value="{{user.user_email}}">
             </div>
             <div class="clear"></div>
         </div>
@@ -36,19 +36,21 @@
             <hr>
             <div class="">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" id="Male" name="user_gender" value="Male" id="rad-m">
+                    <input class="form-check-input" id="Male" id="rad-m" name="user_gender" type="radio" value="Male">
                     <label class="form-check-label" for="rad-m">
                         Male
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" id="Female" name="user_gender" value="Female" id="rad-f">
+                    <input class="form-check-input" id="Female" id="rad-f" name="user_gender" type="radio"
+                           value="Female">
                     <label class="form-check-label" for="rad-f">
                         Female
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" id="Others" name="user_gender" value="Others" id="rad-o">
+                    <input class="form-check-input" id="Others" id="rad-o" name="user_gender" type="radio"
+                           value="Others">
                     <label class="form-check-label" for="rad-o">
                         Others
                     </label>
@@ -56,36 +58,49 @@
             </div>
         </div>
         <div class="edit-info" style="padding-top: 0">
-            <h4>ADDRESS</h4>
-            <hr>
             <div class="edit-info1">
+                <h4>AREA</h4>
+                <hr>
                 <img src="../static/img/mapmarker.png">
-                <input type="text" value="{{user.user_area}}" name="user_area" pattern=".{2,100}">
+                <input name="user_area" pattern=".{2,100}" type="text" value="{{user.user_area}}">
             </div>
             <div class="edit-info1">
+                <h4>CITY</h4>
+                <hr>
                 <img src="../static/img/mapmarker.png">
-                <input type="text" value="{{user.user_city}}" name="user_city" pattern="[a-zA-Z ]{2,30}">
+                <select id="city" name="booking_city" required>
+                    <option value="">City</option>
+                    <option value="Jorhat">Jorhat</option>
+                </select>
             </div>
             <div class="edit-info1" style="display: block;">
+                <h4>PINCODE</h4>
+                <hr>
                 <img src="../static/img/mapmarker.png">
-                <input type="text" value="{{user.user_pincode}}" name="user_pincode" pattern="[0-9]{6}">
+                <input name="user_pincode" pattern="[0-9]{6}" type="text" value="{{user.user_pincode}}">
             </div>
             <div class="clear"></div>
         </div>
         <div class="edit-info">
+            <input type="checkbox" id="check" onclick="passcheck()"><label for="check">Change password?</label>
+        </div>
+        <div class="edit-info" id="change_password">
             <h4>PASSWORD</h4>
             <hr>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input type="PASSWORD" placeholder="Old password" name="user_old_pass" pattern=".{8,20}" title="Password was 8-20 characters long">
+                <input name="user_old_pass" pattern=".{8,20}" placeholder="Old password"
+                       title="Password was 8-20 characters long" type="PASSWORD">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input type="PASSWORD" placeholder="New password" name="" pattern=".{8,20}" title="Password should be 8-20 characters long">
+                <input name="" pattern=".{8,20}" placeholder="New password"
+                       title="Password should be 8-20 characters long" type="PASSWORD">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input type="PASSWORD" placeholder="Confirm password" name="user_new_pass" pattern=".{8,20}" title="Password should be 8-20 characters long">
+                <input name="user_new_pass" pattern=".{8,20}" placeholder="Confirm password"
+                       title="Password should be 8-20 characters long" type="PASSWORD">
             </div>
             <div class="clear"></div>
         </div>
@@ -103,6 +118,7 @@
     document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("{{user.user_gender}}").checked = true;
     });
+
 </script>
 
 {% endblock %}

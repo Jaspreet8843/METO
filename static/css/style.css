@@ -184,7 +184,6 @@ margin:5%;
     background:grey;
 }
 .book_drop_down{
-
 display:none;
 }
 .book-inner{
@@ -255,6 +254,7 @@ display:none;
 .btn-primary:hover{
 	background-color: tomato !important;
 }
+
 .booking{
 	margin:auto;
 	margin-top: 120px;
@@ -387,6 +387,23 @@ display:none;
 .edit-info1 img{
 	width: 10%;
 }
+.edit-info1 select{
+   outline: none;
+	padding:5px 20px;
+	margin-left: 10px;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	width: 80%;
+	border:1px solid lightgrey;
+	border-radius: 40px;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	transition: all .3s ease-out;}
 .edit-info1 input{
 	outline: none;
 	padding:5px 20px;
@@ -784,6 +801,71 @@ table{
 }
 
 
+    <!-- Progress with steps -->
+
+    ol.progtrckr {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    ol.progtrckr li {
+        display: inline-block;
+        text-align: center;
+        line-height: 3em;
+    }
+
+    ol.progtrckr[data-progtrckr-steps="2"] li { width: 49%; }
+    ol.progtrckr[data-progtrckr-steps="3"] li { width: 33%; }
+    ol.progtrckr[data-progtrckr-steps="4"] li { width: 24%; }
+    ol.progtrckr[data-progtrckr-steps="5"] li { width: 19%; }
+    ol.progtrckr[data-progtrckr-steps="6"] li { width: 16%; }
+    ol.progtrckr[data-progtrckr-steps="7"] li { width: 14%; }
+    ol.progtrckr[data-progtrckr-steps="8"] li { width: 12%; }
+    ol.progtrckr[data-progtrckr-steps="9"] li { width: 11%; }
+
+    ol.progtrckr li.progtrckr-done {
+        color: black;
+        border-left: 4px solid skyblue;
+        width:100%;
+    }
+    ol.progtrckr li.progtrckr-todo {
+        color: silver;
+        border-left: 4px solid silver;
+        width:100%;
+    }
+
+    ol.progtrckr li:after {
+        content: "\00a0\00a0";
+    }
+    ol.progtrckr li:before {
+        position: relative;
+        bottom: -0.8em;
+        float: left;
+        left: -0.9em;
+        line-height: 1em;
+    }
+    ol.progtrckr li.progtrckr-done:before {
+        content: "";
+        color: white;
+        background-color: tomato;
+        height: 1.5em;
+        width: 1.5em;
+        line-height: 1.5em;
+        border: none;
+        border-radius: 1.5em;
+    }
+    ol.progtrckr li.progtrckr-todo:before {
+        content: "";
+        color: silver;
+        height: 1.5em;
+        width: 1.5em;
+        background-color: silver;
+        border-radius:1.5em;
+        bottom: -0.8em;
+        left: -0.9em;
+    }
+
 
 @media only screen and (max-width:992px){
 	.booking select{
@@ -862,6 +944,15 @@ table{
 	}
 
 	@media (max-width: 576px) {
+	.progtrckr-done{
+	font-size:12px;
+	}
+	.progtrckr-todo{
+	font-size:12px;
+	}
+	.book_drop:hover{
+    background:skyblue;
+}
 	    .book_stats{
 	    width:150px;
 	    font-size:12px !important;

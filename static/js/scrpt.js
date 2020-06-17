@@ -33,6 +33,15 @@ $(document).click(function() {
    });
 });
 
+window.passcheck=function(){
+if($("#change_password").is(":visible")){
+    $("#change_password").hide();
+}
+else{
+    $("#change_password").show();
+    $("#change_password").addClass('animate__animated animate__fadeIn');
+}
+};
 
 window.trclick=function(id){
 if($("#"+id).is(":visible")){
@@ -40,11 +49,13 @@ if($("#"+id).is(":visible")){
 }
 else{
     $("#"+id).show();
+    $("#"+id).addClass('animate__animated animate__fadeIn');
 }
 };
 
 //for loader
 window.onload = function () {
+    $("#change_password").hide();
 	//$("#loading").addEventListener('animationend', () => {jQuery('#loading').remove()});
 	jQuery('#loading').remove();
 	$("body").addClass('animate__animated animate__fadeIn');
