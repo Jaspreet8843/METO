@@ -63,8 +63,7 @@ def assign_worker(request,service_id):
 	service_obj = service.objects.get(service_id=service_id)
 	booking_obj = booking.objects.filter(service_id=service_obj,booking_status="Processing")
 	worker_obj = worker.objects.filter(service_id=service_obj)
-	# return render(request,'management/assign_worker.html',({'bookings':booking_obj,'workers':worker_obj})
-	return HttpResponse("assign worker")
+	return render(request,'management/assign_worker.html',({'bookings':booking_obj,'workers':worker_obj}))
 
 def workers(request):
 	worker_obj = worker.objects.all()

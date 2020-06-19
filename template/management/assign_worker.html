@@ -1,0 +1,155 @@
+{% extends "admin_base.html"%}
+{% load static from static %}
+{% block content %}
+<div class="bk_body">
+    <div class="bk_col1">
+        <table class="assign-worker-booking">
+            <form>
+                <tr>
+                    <td style="border-bottom: 2px solid white">
+                        <h3>BOOKINGS</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:left;">
+                        <label style=" padding-top:20px">Sort By:</label>
+                        <select id="sort_by">
+                            <option>select</option>
+                            <option value="Ascending">Ascending</option>
+                            <option value="Descending">Descending</option>
+                        </select>
+                    </td>
+                </tr>
+                <tbody class="assign-book-scroll">
+                {% for i in bookings %}
+                <tr onclick="fill_info('{{i}}');">
+                    <td>
+                        <table class="assign-worker-booking-inner">
+                            <tr>
+                                <td style="width: 100px; padding:40px;">
+                                    <img src="{% static 'img/serve.png' %}" class="booking_icon"
+                                         style="margin:10px 30px;">
+                                </td>
+                                <td>
+                                    <table class="clear-bg">
+                                        <tr style="border-bottom:1px solid lightgrey">
+                                            <td><b><h5>
+                                                <label>ID:</label>
+                                                {{i.booking_id}}
+                                            </h5></B></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {{i.booking_date}}
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </form>
+        </table>
+    </div>
+    <div class="bk_col2">
+        <table>
+            <tr>
+                <td style="border-bottom:2px solid white; text-align:center;">
+                    <h3>
+                        DETAILS
+                    </h3>
+                </td>
+            </tr>
+            <tr><td>
+            <table class="assign-worker-info">
+                <tr>
+                    <td  style="width:15%">
+                        Area :
+                    </td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:15%">
+                        City :
+                    </td>
+                    <td>
+
+                    </td>
+                    <td style="width:15%">
+                        Pincode :
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Name :
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        Phone :
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:15%">
+                        Description :
+                    </td>
+                    <td colspan="3">
+
+                    </td>
+                </tr>
+            </table>
+            </td></tr>
+            <tr><td><hr style="background:white; margin:0; height:2px;"></td></tr>
+            <tr>
+                <td>
+                    <table class="assign-worker-workers" style="background:white">
+                        <thead>
+                        <th style="width:5%">ID</th>
+                        <th style="width:20%">Name</th>
+                        <th style="width:20%">Phone</th>
+                        <th style="width:10%">Assigned #</th>
+                        <th style="width:10%">  </th>
+                        </thead>
+                        <tbody class="assign-worker-scroll">
+                        {% for i in workers %}
+                        <tr>
+                            <td>
+                                {{i.worker_id}}
+                            </td>
+                            <td>
+                                {{i.worker_name}}
+                            </td>
+                            <td>
+                                {{i.worker_phone}}
+                            </td>
+                            <td>
+                                0
+                            </td>
+                            <td>
+                                <button class="assign-btn">Assign</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

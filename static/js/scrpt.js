@@ -42,7 +42,9 @@ else{
     $("#change_password").addClass('animate__animated animate__fadeIn');
 }
 };
-
+function fill_info(x){
+    alert(x.booking.id);
+}
 window.trclick=function(id){
 if($("#"+id).is(":visible")){
     $("#"+id).hide();

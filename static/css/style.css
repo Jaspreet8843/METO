@@ -220,6 +220,121 @@ display:none;
 	color: white;
 }
 
+.bk_col1{
+    float:left;
+    width:25%;
+
+}
+.bk_col2{
+    width:75%;
+    float:right;
+    padding:40px;
+}
+.bk_col2 table{
+    width:100%;
+    border-radius:10px;
+    background:skyblue;
+
+}
+
+.bk_col2 td{
+    padding:0px 10px !important;
+    text-align:left;
+ }
+
+ .assign-worker-info{
+
+    background:white !important;
+    border-radius:10px;
+    margin:20px auto;
+    border-radius:10px;
+ }
+ .assign-worker-info td{
+    padding:15px !important;
+    border:1px solid lightgrey;
+    border-radius:10px;
+ }
+ .assign-worker-workers{
+    background: white !important;
+    border-radius:10px;
+    margin:15px 0 !important;
+ }
+  .assign-worker-workers td{
+   padding:10px !important;
+   border: 1px solid lightgrey;
+   text-align:center;
+ }
+ .assign-worker-workers th{
+   text-align:center;
+   border: 1px solid lightgrey;
+ }
+ .assign-btn{
+    padding:5px 20px;
+    background: orangered;
+    border:none;
+    color:white;
+ }
+ .assign-btn:hover{
+    background:red;
+
+ }
+/*.assign-book-scroll{
+    height:420px !important;
+    overflow-y:scroll;
+    display:inline-block;
+}
+
+.assign-worker-scroll{
+    width:100%;
+    height:150px !important;
+    overflow-y:scroll;
+    display:inline-block;
+}*/
+.assign-worker-booking{
+    background:skyblue;
+    margin:40px;
+    padding:10px;
+    width:95%;
+    border-radius:10px;
+
+}
+
+.assign-worker-booking select{
+    border-radius:10px;
+}
+
+.assign-worker-booking-inner td{
+    margin-bottom:40px !important;
+    text-align:left !important;
+
+}
+.assign-worker-booking table{
+    height:100%;
+    border:none;
+}
+.assign-worker-booking-inner{
+    margin:auto;
+    width:90%;
+    margin-top:10px;
+    margin-bottom:10px;
+    background:white;
+    border-radius:10px;
+    -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	height:300px;
+    overflow:scroll;
+
+}
+.assign-worker-booking-inner:hover{
+    background:lightgrey;
+
+}
+
+
+
 
 .imglogo{
 	display: block;
@@ -531,7 +646,7 @@ label{
 }
 table{
 
-	background-color:#D0D3D4; 
+	background-color:#D0D3D4;
 	height: 100%;
 
 }
