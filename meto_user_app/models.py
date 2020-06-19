@@ -5,7 +5,7 @@ class user(models.Model):
     user_id=models.AutoField(primary_key=True)
     user_name=models.CharField(max_length=255)
     user_password=models.CharField(max_length=255)
-    user_dp=models.CharField(max_length=255,blank=True)
+    user_dp=models.ImageField(upload_to='profile_images',blank=True)
     user_email=models.CharField(max_length=255,unique=True)
     user_phone=models.CharField(max_length=255,unique=True)
     user_gender=models.CharField(max_length=255,blank=True)
@@ -30,3 +30,14 @@ class booking(models.Model):
 	booking_city=models.CharField(max_length=255)
 	booking_pincode=models.CharField(max_length=255)
 	booking_status=models.CharField(max_length=255,default="Processing")
+
+class recovery(models.Model):
+	email_id=models.CharField(max_length=255,unique=True)
+	recovery_id=models.CharField(max_length=255)
+	recovery_time=models.DateField(default=timezone.now)
+
+class feedback(models.Model):
+	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
+	rating=models.IntegerField()
+	feedback=models.CharField(max_length=255,blank=True)
+	date=models.DateField(default=timezone.now)

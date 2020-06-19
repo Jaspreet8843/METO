@@ -29,8 +29,9 @@ class assign(models.Model):
 
 class date(models.Model):
 	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
-	booking_date=models.DateField()
-	staff_assigned_date=models.DateField()
-	technician_assigned_date=models.DateField()
-	technician_visited_date=models.DateField()
-	close_date=models.DateField()
+	booking_date=models.DateField(default=timezone.now)
+	visiting_date=models.DateField(blank=True)
+	staff_assigned_date=models.DateField(blank=True)
+	technician_assigned_date=models.DateField(blank=True)
+	technician_visited_date=models.DateField(blank=True)
+	close_date=models.DateField(blank=True)

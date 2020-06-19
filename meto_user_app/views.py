@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import user, service, booking
-from meto_admin_app.models import staff, worker
+from .models import user, service, booking, recovery, feedback
+from meto_admin_app.models import staff, worker, assign, date
 from .validator import valid_login, valid_signup, valid_details, valid_booking
 import bcrypt
-
+from django.core.mail import send_mail
+from django.utils.crypto import get_random_string
+from datetime import datetime
+from django.utils import timezone
 
 # Create your views here.
 def login(request):
@@ -148,6 +151,8 @@ def book(request, service_id):
                                           booking_area=booking_area,
                                           booking_city=booking_city, booking_pincode=booking_pincode)
                     booking_obj.save()
+                    date_obj = date(booking_id=booking_obj)
+                    date_obj.save()
                 except:
                     print("Failed booking")
             else:
@@ -173,3 +178,34 @@ def feedback(request):
 
 def about(request):
     return HttpResponse("Under construction")
+
+def forgotpass(request):
+    if request.method=='POST':
+        sender="metojrt@gmail.com"
+        email = request.POST.get['recovery_email']
+        subject = "Reset your password"
+        site="https://meto.co.in/reset/"
+        recovery_id = str(get_random_string(length=32))+str(datetime.now().strftime('%Y%m%d%H%M%S'))
+        msg="Go to the link below to reset your password.\n\nDo not share the link with anyone.\n\n"+site+recovery_id+" \nClick the link."
+        send_mail(subject,msg,sender,[email],fail_silently=False)
+        recovery_obj = recovery.objects.filter(email_id=email)
+        if recovery_obj.exist():
+            recovery_obj.update(recovery_id=recovery_id)
+        else:
+            recovery_obj = recovery(email=email,recovery_id=recovery_id)
+            recovery_obj.save()
+        return HttpResponse("Mail Sent. Check your email inbox and the spam folder.")
+    return HttpResponse("forgot password")
+
+def resetpass(request,recovery_id):
+    if request.method=='POST':
+        new_pass = request.POST.get['new_password']
+        recovery_obj = recovery.objects.get(recovery_id=recovery_id)
+        email = recovery_obj.email_id
+        user_password = bcrypt.hashpw(new_pass.encode('utf8'), bcrypt.gensalt())
+        user_obj = user.objects.filter(user_email=email)
+        user_obj.update(user_password=user_password)
+        recovery_obj.delete()
+        return HttpResponse("password changed")
+    return HttpResponse("reset pass")
+

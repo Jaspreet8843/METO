@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import staff,worker
-from meto_user_app.models import user, booking,service
+from .models import staff,worker,assign,date
+from meto_user_app.models import user, booking, service, recovery, feedback
 from .validator import valid_login
 
 # Create your views here.

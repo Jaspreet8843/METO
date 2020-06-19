@@ -12,4 +12,6 @@ urlpatterns = [
 	path('book/<int:service_id>',views.book,name="book"),
 	path('feedback/',views.feedback,name="feedback"),
 	path('about/',views.about,name="about"),
+	path('forgotpass/',views.forgotpass,name="forgotpass"),
+	path('reset/<str:recovery_id>',views.resetpass,name="resetpass"),
 ]
