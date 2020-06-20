@@ -22,7 +22,8 @@
                 </tr>
                 <tbody class="assign-book-scroll">
                 {% for i in bookings %}
-                <tr onclick="fill_info('{{i}}');">
+                <tr onclick="fill_info('{{i.booking_area}}','{{i.booking_city}}',{{i.booking_phone}},{{i.booking_pincode}},
+                        '{{i.user_id.user_name}}', '{{i.booking_desc}}');">
                     <td>
                         <table class="assign-worker-booking-inner">
                             <tr>
@@ -68,46 +69,47 @@
             <table class="assign-worker-info">
                 <tr>
                     <td  style="width:15%">
-                        Area :
+                        <b>Area :</b>
                     </td>
                     <td colspan="3">
-
+                        <label id="area_info"></label>
                     </td>
                 </tr>
                 <tr>
                     <td style="width:15%">
-                        City :
+                        <b>City :</b>
                     </td>
                     <td>
-
+                        <label id="city_info"></label>
                     </td>
                     <td style="width:15%">
-                        Pincode :
+                        <b>Pincode :</b>
                     </td>
                     <td>
-
+                        <label id="pincode_info"></label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Name :
+                        <b>Name :</b>
                     </td>
                     <td>
+                        <label id="name_info"></label>
 
                     </td>
                     <td>
-                        Phone :
+                        <b>Phone :</b>
                     </td>
                     <td>
-
+                        <label id="phone_info"></label>
                     </td>
                 </tr>
                 <tr>
                     <td style="width:15%">
-                        Description :
+                        <b>Description :</b>
                     </td>
                     <td colspan="3">
-
+                        <label id="desc_info"></label>
                     </td>
                 </tr>
             </table>

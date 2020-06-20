@@ -42,8 +42,13 @@ else{
     $("#change_password").addClass('animate__animated animate__fadeIn');
 }
 };
-function fill_info(x){
-    alert(x.booking.id);
+function fill_info(ar, ct, ph, pc, nm, ds){
+    document.getElementById('area_info').innerHTML= ar;
+    document.getElementById('city_info').innerHTML= ct;
+    document.getElementById('phone_info').innerHTML= ph;
+    document.getElementById('pincode_info').innerHTML=pc ;
+    document.getElementById('name_info').innerHTML=nm ;
+    document.getElementById('desc_info').innerHTML=ds ;
 }
 window.trclick=function(id){
 if($("#"+id).is(":visible")){

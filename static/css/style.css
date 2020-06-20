@@ -249,6 +249,10 @@ display:none;
     margin:20px auto;
     border-radius:10px;
  }
+  .assign-worker-info label{
+
+    margin:0 !important;
+ }
  .assign-worker-info td{
     padding:15px !important;
     border:1px solid lightgrey;
