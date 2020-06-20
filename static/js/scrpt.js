@@ -105,11 +105,11 @@ function signupclick()
 }
 function loginclick()
 {
-		$('#signup').hide(); $('#login').show(); $('#forgot_password').hide();
+		$('#signup').hide();$('#signup_2').hide(); $('#login').show(); $('#forgot_password').hide();
 	$("#login").addClass('animate__animated animate__flipInY');
 }
 function signup_1_click(){
-    $('#signup_2').hide(); $('#signup').show();
+    $('#signup_2').hide();$('#login').hide(); $('#signup').show();
     $("#signup").addClass('animate__animated animate__flipInY');
 }
 function signup_2_click()
