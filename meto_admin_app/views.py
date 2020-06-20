@@ -54,18 +54,19 @@ def admin_logout(request):
 
 def assign_workers(request, service_id):
     if request.method == 'POST':
-        worker_id = request.POST.get('worker_id_form')
-        booking_id = request.POST.get('booking_id_form')
+        worker_id = request.POST.get('work_id_form')
+        booking_id = request.POST.get('book_id_form')
         visiting_date = request.POST.get('visiting_date_form')
-        # technician_assigned_date = datetime.now().strftime('%Y-%m-%d')
-        # worker_obj = worker.objects.get(worker_id=worker_id)
-        # booking_obj = booking.objects.get(booking_id=booking_id)
-        # booking_obj.update(booking_status="Worker")
-        # assign_worker_obj = assign_worker(worker_id=worker_obj, booking_id=booking_obj)
-        # assign_worker_obj.save()
-        # date_obj = date.objects.filter(booking_id=booking_obj)
-        # date_obj.update(visiting_date=visiting_date, technician_assigned_date=technician_assigned_date)
-        return HttpResponse("assigned")
+        technician_assigned_date = datetime.now().strftime('%Y-%m-%d')
+        worker_obj = worker.objects.get(worker_id=worker_id)
+        booking_obj = booking.objects.filter(booking_id=booking_id)
+        booking_obj.update(booking_status="Worker assigned")
+        booking_obj = booking.objects.get(booking_id=booking_id)
+        assign_worker_obj = assign_worker(booking_id=booking_obj,worker_id=worker_obj)
+        assign_worker_obj.save()
+        date_obj = date.objects.filter(booking_id=booking_obj)
+        date_obj.update(visiting_date=visiting_date, technician_assigned_date=technician_assigned_date)
+        return redirect('assign_workers',service_id=booking_obj.service_id.service_id)
     service_obj = service.objects.get(service_id=service_id)
     booking_obj = booking.objects.filter(service_id=service_obj, booking_status="Processing")
     worker_obj = worker.objects.filter(service_id=service_obj)
@@ -77,20 +78,6 @@ def assign_workers(request, service_id):
     for i,j in z:
         worker_and_count.append([i,j])
     return render(request, 'management/assign_worker.html', ({'bookings': booking_obj, 'workers': worker_and_count}))
-
-def assign_worker_to_booking(request,worker_id,booking_id):
-    print(worker_id,booking_id)
-    technician_assigned_date = datetime.now().strftime('%Y-%m-%d')
-    visiting_date = datetime.now().strftime('%Y-%m-%d')
-    worker_obj = worker.objects.get(worker_id=worker_id)
-    booking_obj = booking.objects.filter(booking_id=booking_id)
-    booking_obj.update(booking_status="Worker assigned")
-    booking_obj = booking.objects.get(booking_id=booking_id)
-    assign_worker_obj = assign_worker(booking_id=booking_obj,worker_id=worker_obj)
-    assign_worker_obj.save()
-    date_obj = date.objects.filter(booking_id=booking_obj)
-    date_obj.update(visiting_date=visiting_date, technician_assigned_date=technician_assigned_date)
-    return redirect('assign_workers',service_id=booking_obj.service_id.service_id)
 
 def workers(request):
     worker_obj = worker.objects.all()
