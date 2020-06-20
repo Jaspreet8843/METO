@@ -71,7 +71,14 @@ def assign_workers(request, service_id):
     service_obj = service.objects.get(service_id=service_id)
     booking_obj = booking.objects.filter(service_id=service_obj, booking_status="Processing")
     worker_obj = worker.objects.filter(service_id=service_obj)
-    return render(request, 'management/assign_worker.html', ({'bookings': booking_obj, 'workers': worker_obj}))
+    work_count = []
+    for i in worker_obj:
+        work_count.append(assign_worker.objects.filter(worker_id=i).count())
+    z = zip(worker_obj,work_count)
+    worker_and_count = []
+    for i,j in z:
+        worker_and_count.append([i,j])
+    return render(request, 'management/assign_worker.html', ({'bookings': booking_obj, 'workers': worker_and_count}))
 
 def assign_worker_to_booking(request,worker_id,booking_id):
     print(worker_id,booking_id)
@@ -99,20 +106,19 @@ def workers(request):
     return render(request, 'management/workers.html', ({'workers': worker_and_count}))
 
 
-def assign_staffs(request):
-    if request.method == 'POST':
-        booking_id = request.POST.get('booking_id')
-        staff_id = request.POST.get('staff_id')
-        staff_assigned_date = datetime.now().strftime('%Y-%m-%d')
-        booking_obj = booking.objects.get(booking_id=booking_id)
-        staff_obj = booking.objects.get(staff_id=staff_id)
-        assign_staff_obj = assign_staff(staff_id=staff_obj, booking_id=booking_obj)
-        assign_staff_obj.save()
-        booking_obj.update(booking_status="Staff")
-        date_obj = date.objects.filter(booking_id=booking_obj)
-        date_obj.update(staff_assigned_date=staff_assigned_date)
-        return HttpResponse("assigned")
-    booking_obj = booking.objects.filter(booking_status="Processing")
-    staff_obj = staff.objects.all()
-    # return render(request,'management/assign_staff.html',({'bookings':booking_obj,'staffs':staff_obj}))
-    return HttpResponse("assign staff")
+# def assign_staffs(request):
+#     if request.method == 'POST':
+#         booking_id = request.POST.get('booking_id')
+#         staff_id = request.POST.get('staff_id')
+#         staff_assigned_date = datetime.now().strftime('%Y-%m-%d')
+#         booking_obj = booking.objects.get(booking_id=booking_id)
+#         staff_obj = booking.objects.get(staff_id=staff_id)
+#         assign_staff_obj = assign_staff(staff_id=staff_obj, booking_id=booking_obj)
+#         assign_staff_obj.save()
+#         booking_obj.update(booking_status="Staff")
+#         date_obj = date.objects.filter(booking_id=booking_obj)
+#         date_obj.update(staff_assigned_date=staff_assigned_date)
+#         return HttpResponse("assigned")
+#     booking_obj = booking.objects.filter(booking_status="Processing")
+#     staff_obj = staff.objects.all()
+#     return render(request,'management/assign_staff.html',({'bookings':booking_obj,'staffs':staff_obj}))
