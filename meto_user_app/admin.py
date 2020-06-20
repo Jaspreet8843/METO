@@ -5,3 +5,6 @@ from .models import *
 admin.site.register(user)
 admin.site.register(service)
 admin.site.register(booking)
+admin.site.register(recovery)
+admin.site.register(feedback)
+

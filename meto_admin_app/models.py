@@ -22,10 +22,13 @@ class worker(models.Model):
 	worker_city=models.CharField(max_length=255)
 	worker_pincode=models.CharField(max_length=255)
 
-class assign(models.Model):
-	booking_id=models.ForeignKey(booking,related_name='booking',on_delete=models.CASCADE,default=1)
-	staff_id=models.ForeignKey(staff, related_name='staff', on_delete=models.CASCADE,default=1)
-	worker_id=models.ForeignKey(worker, related_name='worker',on_delete=models.CASCADE,default=1)
+class assign_staff(models.Model):
+	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
+	staff_id=models.ForeignKey(staff,on_delete=models.CASCADE,default=1)
+
+class assign_worker(models.Model):
+	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
+	worker_id=models.ForeignKey(worker,on_delete=models.CASCADE,default=1)
 
 class date(models.Model):
 	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)

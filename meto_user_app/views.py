@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import user, service, booking, recovery, feedback
-from meto_admin_app.models import staff, worker, assign, date
+from meto_admin_app.models import staff, worker, assign_staff, assign_worker, date
 from .validator import valid_login, valid_signup, valid_details, valid_booking
 import bcrypt
 from django.core.mail import send_mail

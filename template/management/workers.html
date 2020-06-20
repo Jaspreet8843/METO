@@ -1,0 +1,64 @@
+{% extends "admin_base.html"%}
+{% load static from static %}
+{% block content %}
+<div class="bk_body">
+    <div class="bk_col2" style="width: 100%;float: none;">
+        <table>
+            <tr>
+                <td style="border-bottom:2px solid white; text-align:center;">
+                    <h3>
+                        WORKERS
+                    </h3>
+                </td>
+            </tr>
+            <tr><td>
+            </td></tr>
+            <tr><td><hr style="background:white; margin:0; height:2px;"></td></tr>
+            <tr>
+                <td>
+                    <table class="assign-worker-workers" style="background:white">
+                        <thead>
+                        <th style="width:5%">ID</th>
+                        <th style="width:20%">Name</th>
+                        <th style="width:10%">Phone</th>
+                        <th style="width:10%">City</th>
+                        <th style="width:10%">Pincode</th>
+                        <th style="width:10%">Assigned #</th>
+                        <th style="width:10%">Service ID</th>
+                        </thead>
+                        <tbody class="assign-worker-scroll">
+                        {% for i in workers %}
+                        <tr>
+                            <td>
+                                {{i.worker_id}}
+                            </td>
+                            <td>
+                                {{i.worker_name}}
+                            </td>
+                            <td>
+                                {{i.worker_phone}}
+                            </td>
+                            <td>
+                                {{i.worker_city}}
+                            </td>
+                            <td>
+                                {{i.worker_pincode}}
+                            </td>
+                            <td>
+                                0
+                            </td>
+                            <td>
+                                {{i.service_id.service_id}} ({{i.service_id.service_name}})
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

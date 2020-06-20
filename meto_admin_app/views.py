@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import staff,worker,assign,date
+from .models import staff,worker,assign_staff,assign_worker,date
 from meto_user_app.models import user, booking, service, recovery, feedback
 from .validator import valid_login
 from datetime import datetime
@@ -56,7 +56,9 @@ def assign_worker(request,service_id):
 		technician_assigned_date = datetime.now().strftime('%Y-%m-%d')
 		worker_obj = worker.objects.get(worker_id=worker_id)
 		booking_obj = booking.objects.get(booking_id=booking_id)
-		assign_obj = assign(worker_id=worker_obj,booking_id=booking_obj)
+		booking_obj.update(booking_status="Worker")
+		assign_worker_obj = assign_worker(worker_id=worker_obj,booking_id=booking_obj)
+		assign_worker_obj.save()
 		date_obj = date.objects.filter(booking_id=booking_obj)
 		date_obj.update(visiting_date=visiting_date,technician_assigned_date=technician_assigned_date)
 		return HttpResponse("assigned")
@@ -67,8 +69,9 @@ def assign_worker(request,service_id):
 
 def workers(request):
 	worker_obj = worker.objects.all()
-	# return render(request,'management/workers.html',({'workers':worker_obj}))
-	return HttpResponse("all workers")
+	print(worker_obj)
+	return render(request,'management/workers.html',({'workers':worker_obj}))
+	# return HttpResponse("all workers")
 
 def assign_staff(request):
 	if request.method=='POST':
@@ -77,11 +80,13 @@ def assign_staff(request):
 		staff_assigned_date = datetime.now().strftime('%Y-%m-%d')
 		booking_obj = booking.objects.get(booking_id=booking_id)
 		staff_obj = booking.objects.get(staff_id=staff_id)
-		assign_obj = assign(booking_id=booking_obj,staff_id=staff_obj)
+		assign_staff_obj = assign_staff(staff_id=staff_obj,booking_id=booking_obj)
+		assign_staff_obj.save()
+		booking_obj.update(booking_status="Staff")
 		date_obj = date.objects.filter(booking_id=booking_obj)
 		date_obj.update(staff_assigned_date=staff_assigned_date)
 		return HttpResponse("assigned")
-	booking_obj = booking.objects.all()
+	booking_obj = booking.objects.filter(booking_status="Processing")
 	staff_obj = staff.objects.all()
 	# return render(request,'management/assign_staff.html',({'bookings':booking_obj,'staffs':staff_obj}))
 	return HttpResponse("assign staff")
