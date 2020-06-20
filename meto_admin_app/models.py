@@ -33,8 +33,8 @@ class assign_worker(models.Model):
 class date(models.Model):
 	booking_id=models.ForeignKey(booking,on_delete=models.CASCADE,default=1)
 	booking_date=models.DateField(default=timezone.now)
-	visiting_date=models.DateField(blank=True)
-	staff_assigned_date=models.DateField(blank=True)
-	technician_assigned_date=models.DateField(blank=True)
-	technician_visited_date=models.DateField(blank=True)
-	close_date=models.DateField(blank=True)
+	visiting_date=models.DateField(null=True,blank=True)
+	staff_assigned_date=models.DateField(null=True,blank=True)
+	technician_assigned_date=models.DateField(null=True,blank=True)
+	technician_visited_date=models.DateField(null=True,blank=True)
+	close_date=models.DateField(null=True,blank=True)

@@ -151,9 +151,11 @@ def book(request, service_id):
                                           booking_area=booking_area,
                                           booking_city=booking_city, booking_pincode=booking_pincode)
                     booking_obj.save()
+                    print(booking_obj)
                     date_obj = date(booking_id=booking_obj)
                     date_obj.save()
-                except:
+                except Exception as e:
+                    print(e)
                     print("Failed booking")
             else:
                 print("Invalid details")
