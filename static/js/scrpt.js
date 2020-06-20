@@ -86,6 +86,7 @@ window.onload = function () {
 	jQuery('#loading').remove();
 	$("body").addClass('animate__animated animate__fadeIn');
 	$('#signup').hide();
+	$('#forgot_password').hide();
 	$('#more').hide();
 
 
@@ -99,13 +100,18 @@ window.onload = function () {
 function signupclick()
 {
 	//$("#login").addClass('animate__animated animate__bounceOut')
-		 $('#login').hide(); $('#signup').show();
+		 $('#login').hide(); $('#signup').show();$('#forgot_password').hide();
 		 $("#signup").addClass('animate__animated animate__flipInY');
 }
 function loginclick()
 {
-		$('#signup').hide(); $('#login').show();
+		$('#signup').hide(); $('#login').show(); $('#forgot_password').hide();
 	$("#login").addClass('animate__animated animate__flipInY');
+}
+function forgot_click()
+{
+		$('#signup').hide(); $('#login').hide(); $('#forgot_password').show();
+	$("#forgot_password").addClass('animate__animated animate__flipInY');
 }
 
 function more_services() {

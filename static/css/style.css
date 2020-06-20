@@ -282,6 +282,24 @@ display:none;
     background:red;
 
  }
+ .password-reset{
+ background:rgba(255,255,255,0.6);
+ padding-top:140px;
+ padding-bottom:50px;
+ display:block;
+ width:100%;
+ text-align:center;
+ }
+ .password-reset img{
+ width:10%;
+ }
+ .password-reset h5{
+ margin:auto;
+ width:60%;
+ }
+ .password-reset button{
+ margin-top:50px;
+ }
 /*.assign-book-scroll{
     height:420px !important;
     overflow-y:scroll;
@@ -1063,6 +1081,15 @@ table{
 	}
 
 	@media (max-width: 576px) {
+	.password-reset img{
+	width:30%;
+	}
+	.password-reset h2{
+	font-size:20px !important;
+	}
+	.password-reset h5{
+	font-size:12px !important;
+	}
 	.progtrckr-done{
 	font-size:12px;
 	}
