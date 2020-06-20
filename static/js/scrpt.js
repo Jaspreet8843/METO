@@ -42,14 +42,29 @@ else{
     $("#change_password").addClass('animate__animated animate__fadeIn');
 }
 };
-function fill_info(ar, ct, ph, pc, nm, ds){
+function fill_info(ar, ct, ph, pc, nm, ds, id){
     document.getElementById('area_info').innerHTML= ar;
     document.getElementById('city_info').innerHTML= ct;
     document.getElementById('phone_info').innerHTML= ph;
     document.getElementById('pincode_info').innerHTML=pc ;
     document.getElementById('name_info').innerHTML=nm ;
     document.getElementById('desc_info').innerHTML=ds ;
+    document.getElementById('header_mid_info').innerHTML="for ID :" ;
+    document.getElementById('header_id').innerHTML=id ;
 }
+
+function assign(id){
+    if (document.getElementById('header_id').innerHTML=="")
+    {
+        alert("Booking not selected!");
+    }
+    else
+    {
+        location.href=id+"/"+document.getElementById('header_id').innerHTML;
+
+    }
+}
+
 window.trclick=function(id){
 if($("#"+id).is(":visible")){
     $("#"+id).hide();
