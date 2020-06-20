@@ -699,6 +699,17 @@ table{
 	padding: 10px !important;
 	width: 240px;
 }
+.login-input input:focus{
+    background:white !important;
+}
+.login-input select{
+    outline:none;
+    border:none;
+    background:lightgrey;
+    border-radius:5px;
+	padding: 10px !important;
+	width: 240px;
+}
 .btn-round{
 	width: 200px !important;
 	border-radius: 100px !important;

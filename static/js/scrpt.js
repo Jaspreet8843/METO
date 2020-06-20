@@ -108,6 +108,15 @@ function loginclick()
 		$('#signup').hide(); $('#login').show(); $('#forgot_password').hide();
 	$("#login").addClass('animate__animated animate__flipInY');
 }
+function signup_1_click(){
+    $('#signup_2').hide(); $('#signup').show();
+    $("#signup").addClass('animate__animated animate__flipInY');
+}
+function signup_2_click()
+{
+    $('#signup').hide(); $('#signup_2').show();
+    $("#signup_2").addClass('animate__animated animate__flipInY');
+}
 function forgot_click()
 {
 		$('#signup').hide(); $('#login').hide(); $('#forgot_password').show();

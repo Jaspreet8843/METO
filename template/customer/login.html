@@ -118,10 +118,59 @@
                                                                        placeholder="Phone" name="new_phone"
                                                                        pattern="[0-9]{10}" required="required"></td>
                                     </tr>
+                                    <tr>
+                                        <td class="login-input"><input class="form-control form-input" type="text"
+                                                                       placeholder="Pincode" name="new_pincode"
+                                                                       pattern="[0-9]{6}" required="required"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="login-input">
+                                            <button class="signin-login btn-round" onclick="signup_2_click();">NEXT
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <hr>
+                                            Already have an account here? <a class="login-forgot" href="#"
+                                                                             onclick="loginclick()">Log In!</a></td>
+                                    </tr>
                                 </table>
                             </div>
-                            <div style="display:none">
-                                <table>
+                            <div style="display:none" id="signup_2">
+                                <table class="center clear-bg">
+                                    <tr>
+                                        <td class="login-input">
+                                            Missed something?<a class="login-forgot" href="#"
+                                                                onclick="signup_1_click()"> GO BACK.</a>
+                                            <hr>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <input class="form-control form-input" type="text" placeholder="Locality"
+                                                   name="new_area" pattern="[a-zA-Z ]{2,}" required="required">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <select id="city" name="new_city" required>
+                                                <option value="">City</option>
+                                                <option value="Jorhat">Jorhat</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="login-input">
+                                            <select id="gender" name="new_gender" required>
+                                                <option value="">Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="password"
                                                                        placeholder="Password" name=""
