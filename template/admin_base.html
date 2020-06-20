@@ -26,7 +26,7 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<img class="imglogo" src="{% static 'img/logo.jpg' %}">
+		<img class="imglogo" src="{% static 'img/logo.jpg' %}" onclick="location.href='/metoadmin'">
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto spacing">
 
@@ -34,7 +34,7 @@
 					<a class="nav-link" href="#">Bookings <!-- <span class="sr-only">(current)</span> --></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Workers</a>
+					<a class="nav-link" href="/metoadmin/workers">Workers</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
