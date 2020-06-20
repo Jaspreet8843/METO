@@ -48,7 +48,7 @@ def admin_logout(request):
 	del request.session['staff_id']
 	return redirect('admin_login')
 
-def assign_worker(request,service_id):
+def assign_workers(request,service_id):
 	if request.method=='POST':
 		worker_id = request.POST.get('worker_id')
 		booking_id = request.POST.get('booking_id')
@@ -69,11 +69,16 @@ def assign_worker(request,service_id):
 
 def workers(request):
 	worker_obj = worker.objects.all()
-	print(worker_obj)
-	return render(request,'management/workers.html',({'workers':worker_obj}))
-	# return HttpResponse("all workers")
+	work_count = []
+	for i in worker_obj:
+		work_count.append(assign_worker.objects.filter(worker_id=i).count())
+	z = zip(worker_obj,work_count)
+	worker_and_count=[]
+	for i,j in z:
+		worker_and_count.append([i,j])
+	return render(request,'management/workers.html',({'workers':worker_and_count}))
 
-def assign_staff(request):
+def assign_staffs(request):
 	if request.method=='POST':
 		booking_id = request.POST.get('booking_id')
 		staff_id = request.POST.get('staff_id')

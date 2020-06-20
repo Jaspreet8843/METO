@@ -30,25 +30,25 @@
                         {% for i in workers %}
                         <tr>
                             <td>
-                                {{i.worker_id}}
+                                {{i.0.worker_id}}
                             </td>
                             <td>
-                                {{i.worker_name}}
+                                {{i.0.worker_name}}
                             </td>
                             <td>
-                                {{i.worker_phone}}
+                                {{i.0.worker_phone}}
                             </td>
                             <td>
-                                {{i.worker_city}}
+                                {{i.0.worker_city}}
                             </td>
                             <td>
-                                {{i.worker_pincode}}
+                                {{i.0.worker_pincode}}
                             </td>
                             <td>
-                                0
+                                {{i.1}}
                             </td>
                             <td>
-                                {{i.service_id.service_id}} ({{i.service_id.service_name}})
+                                {{i.0.service_id.service_id}} ({{i.0.service_id.service_name}})
                             </td>
                         </tr>
                         {% endfor %}
