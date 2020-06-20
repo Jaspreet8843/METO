@@ -54,13 +54,17 @@ function fill_info(ar, ct, ph, pc, nm, ds, id){
 }
 
 function assign(id){
-    if (document.getElementById('header_id').innerHTML=="")
+    if (document.getElementById('header_id').innerHTML=="" || document.getElementById('visiting_date'+id).value=="")
     {
-        alert("Booking not selected!");
+        alert("Booking or date not selected!");
     }
     else
     {
-        location.href=id+"/"+document.getElementById('header_id').innerHTML;
+        document.getElementById('book_id_form').value=document.getElementById('header_id').innerHTML;
+        document.getElementById('work_id_form').value=id;
+        document.getElementById('visiting_date_form').value=document.getElementById('visiting_date'+id).value;
+        document.forms['info_form'].submit();
+        /*location.href=id+"/"+document.getElementById('header_id').innerHTML;*/
 
     }
 }

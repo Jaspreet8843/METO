@@ -125,6 +125,7 @@
                         <th style="width:20%">Name</th>
                         <th style="width:20%">Phone</th>
                         <th style="width:10%">Assigned #</th>
+                        <th style="width:10%">Select date:</th>
                         <th style="width:10%">  </th>
                         </thead>
                         <tbody class="assign-worker-scroll">
@@ -143,6 +144,9 @@
                                 {{i.1}}
                             </td>
                             <td>
+                                <input type="date" id="visiting_date{{i.0.worker_id}}">
+                            </td>
+                            <td>
                                 <button class="assign-btn" onclick="assign({{i.0.worker_id}})">Assign</button>
                             </td>
                         </tr>
@@ -152,6 +156,11 @@
                 </td>
             </tr>
         </table>
+        <form style="" id="info_form" method="post" action="">{% csrf_token %}
+            <input type="text" id="book_id_form" name="book_id_form">
+            <input type="text" id="work_id_form" name="work_id_form">
+            <input type="text" id="visiting_date_form" name="visiting_date_form">
+        </form>
     </div>
 </div>
 

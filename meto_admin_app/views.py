@@ -54,11 +54,9 @@ def admin_logout(request):
 
 def assign_workers(request, service_id):
     if request.method == 'POST':
-        # worker_id = request.POST.get('worker_id')
-        # booking_id = request.POST.get('booking_id')
-        # visiting_date = request.POST.get('visiting_date')
-        # header_id=request.POST.get('header_id')
-        # print(header_id)
+        worker_id = request.POST.get('worker_id_form')
+        booking_id = request.POST.get('booking_id_form')
+        visiting_date = request.POST.get('visiting_date_form')
         # technician_assigned_date = datetime.now().strftime('%Y-%m-%d')
         # worker_obj = worker.objects.get(worker_id=worker_id)
         # booking_obj = booking.objects.get(booking_id=booking_id)
