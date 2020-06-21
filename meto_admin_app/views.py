@@ -87,8 +87,22 @@ def workers(request):
     z = zip(worker_obj, work_count)
     worker_and_count = []
     for i, j in z:
+        print(i,j)
         worker_and_count.append([i, j])
     return render(request, 'management/workers.html', ({'workers': worker_and_count}))
+
+def all_bookings(request):
+    booking_obj=booking.objects.all()
+    soln=[]
+    for i in booking_obj:
+        try:
+            id=assign_worker.objects.get(booking_id=i.booking_id).worker_id.worker_id
+            name=assign_worker.objects.get(booking_id=i.booking_id).worker_id.worker_name
+
+            soln.append([i,id,name])
+        except:
+            soln.append([i,' ',' '])
+    return render(request, 'management/all_bookings.html', ({'bookings': soln}))
 
 
 def assign_staffs(request):

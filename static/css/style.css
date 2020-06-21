@@ -242,6 +242,25 @@ display:none;
     text-align:left;
  }
 
+ .bk_col2 input{
+    border-radius:20px;
+    padding:10px 20px;
+    margin:30px 0;
+    margin-top:0;
+    width:90%;
+    outline:none;
+    border:none;
+ }
+ .bk_col2 select{
+    border-radius:20px;
+    padding:10px 20px;
+    width:90%;
+    border:none;
+    outline:none;
+    margin:30px 0;
+    margin-top:0;
+ }
+
  .assign-worker-info{
 
     background:white !important;

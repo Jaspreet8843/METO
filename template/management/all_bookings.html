@@ -1,0 +1,119 @@
+{% extends "admin_base.html"%}
+{% load static from static %}
+{% block content %}
+<div class="bk_body">
+    <div class="bk_col2" style="width:100%">
+        <table>
+            <tr>
+                <td style="border-bottom:2px solid white; text-align:center;" colspan="5">
+                    <h3>
+                        FILTER BOOKINGS
+                    </h3>
+                </td>
+            </tr>
+            <form method="post">{% csrf_token %}
+                <tr>
+                    <td><br></td>
+                </tr>
+                <tr>
+                    <td style="width:20%;text-align:center"><label ><b>From: </b></label></td>
+                    <td style="width:20%;text-align:center"><label><b>Till: </b></label></td>
+                    <td style="width:20%;text-align:center"><label><b>Status Filter: </b></label></td>
+                    <td style="width:20%;text-align:center"> <label><b>Sort: </b></label></td>
+                    <td style="text-align:center" rowspan="2">
+                    <button class="signin-login" style="border-radius:20px; width:90%">Filter</button>
+                </td>
+                </tr>
+            <tr>
+                <td style="text-align:center;">
+
+                    <input type="date" name="date_from">
+                </td>
+                <td style="text-align:center;">
+
+                    <input type="date" name="date_till">
+                </td>
+                <td style="text-align:center;">
+
+                    <select id="status_filter" name="status_filter" required>
+                        <option value="default">All</option>
+                        <option value="Processing">Processing</option>
+                        <option value="s_assigned">Staff Assigned</option>
+                        <option value="w_assigned">Worker Assigned</option>
+                        <option value="visited">Worker Visited</option>
+                        <option value="closed">Case closed</option>
+                </select>
+                </td>
+                <td style="text-align:center;">
+
+                    <select id="status_filter" name="status_filter" required>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                </select>
+                </td>
+            </tr>
+            </form>
+        </table>
+    </div>
+    <div class="bk_col2" style="width: 100%;float: none;">
+        <table>
+            <tr>
+                <td style="border-bottom:2px solid white; text-align:center;">
+                    <h3>
+                        BOOKINGS
+                    </h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table class="assign-worker-workers table-hover" style="background:white">
+                        <thead>
+                        <th style="width:10%">Booking date</th>
+                        <th style="width:5%">ID</th>
+                        <th style="width:10%">Service</th>
+                        <th style="width:20%">Locality</th>
+                        <th style="width:10%">User</th>
+                        <th style="width:10%">Phone</th>
+                        <th style="width:15%">Status</th>
+                        <th style="width:15%">Worker</th>
+                        </thead>
+                        <tbody class="assign-worker-scroll">
+                        {% for i in bookings %}
+                        <tr>
+                            <td>
+                                {{i.0.booking_date}}
+                            </td>
+                            <td>
+                                {{i.0.booking_id}}
+                            </td>
+                            <td>
+                                {{i.0.service_id.service_name}}
+                            </td>
+                            <td>
+                                {{i.0.booking_area}}
+                            </td>
+                            <td>
+                                {{i.0.user_id.user_name}}
+                            </td>
+                            <td>
+                                {{i.0.booking_phone}}
+                            </td>
+                            <td>
+                                {{i.0.booking_status}}
+                            </td>
+                            <td>
+                                {{i.2}} {{i.1}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

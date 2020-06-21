@@ -8,4 +8,5 @@ urlpatterns = [
 	path('assign_worker/<int:service_id>',views.assign_workers,name="assign_workers"),
 	path('assign_staff/',views.assign_staffs,name="assign_staff"),
 	path('workers/',views.workers,name="workers"),
+	path('all_bookings/',views.all_bookings,name="all_bookings"),
 ]
