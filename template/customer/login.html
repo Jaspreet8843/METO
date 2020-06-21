@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group" id="forgot_password">
                             <img src="{% static 'img/favicon.png' %}" style="width: 120px; padding: 0;">
-                            <form method="post" action="/signup/"> {% csrf_token %}
+                            <form method="post" action="/forgotpass/"> {% csrf_token %}
                                 <table class="center clear-bg">
                                     <tr>
                                         <td>
@@ -68,8 +68,7 @@
                                         <td class="login-input"><input class="form-control form-input" type="text"
                                                                        placeholder="&#xf10b;  Regd. Number"
                                                                        style="font-family: Arial, FontAwesome "
-                                                                       name="forgot_phone" pattern="[0-9]{10}"
-                                                                       required="required"></td>
+                                                                       name="recovery_phone" pattern="[0-9]{10}" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td class="login-input">

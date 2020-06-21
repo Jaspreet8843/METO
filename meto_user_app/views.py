@@ -186,25 +186,30 @@ def about(request):
 
 def forgotpass(request):
     if request.method=='POST':
-        sender="metojrt@gmail.com"
-        email = request.POST.get['recovery_email']
-        subject = "Reset your password"
-        site="https://meto.co.in/reset/"
-        recovery_id = str(get_random_string(length=32))+str(datetime.now().strftime('%Y%m%d%H%M%S'))
-        msg="Go to the link below to reset your password.\n\nDo not share the link with anyone.\n\n"+site+recovery_id+" \nClick the link."
-        send_mail(subject,msg,sender,[email],fail_silently=False)
-        recovery_obj = recovery.objects.filter(email_id=email)
-        if recovery_obj.exist():
-            recovery_obj.update(recovery_id=recovery_id)
-        else:
-            recovery_obj = recovery(email=email,recovery_id=recovery_id)
-            recovery_obj.save()
-        return HttpResponse("Mail Sent. Check your email inbox and the spam folder.")
-    return HttpResponse("forgot password")
+        phone = request.POST.get('recovery_phone')
+        try:
+            email = user.objects.get(user_phone=phone).user_email
+            email = "manabsahams@gmail.com"
+            sender="metojrt@gmail.com"
+            subject = "Reset your password"
+            site="https://meto-jrt.herokuapp.com/reset/"
+            recovery_id = str(get_random_string(length=32))+str(datetime.now().strftime('%Y%m%d%H%M%S'))
+            msg="Go to the link below to reset your password.\n\nDo not share the link with anyone.\n"+site+recovery_id
+            send_mail(subject,msg,sender,[email],fail_silently=False)
+            recovery_obj = recovery.objects.filter(email_id=email)
+            if recovery_obj.exists():
+                recovery_obj.update(recovery_id=recovery_id)
+            else:
+                recovery_obj = recovery(email_id=email,recovery_id=recovery_id)
+                recovery_obj.save()
+            return render(request,'customer/password_reset_email.html')
+        except Exception as e:
+            print(e)
+    return HttpResponse("Something went wrong. Try again.")
 
 def resetpass(request,recovery_id):
     if request.method=='POST':
-        new_pass = request.POST.get['new_password']
+        new_pass = request.POST.get('new_password')
         recovery_obj = recovery.objects.get(recovery_id=recovery_id)
         email = recovery_obj.email_id
         user_password = bcrypt.hashpw(new_pass.encode('utf8'), bcrypt.gensalt())
