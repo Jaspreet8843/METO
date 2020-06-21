@@ -80,6 +80,8 @@ def logout(request):
 
 def password_reset_page(request):
     return render(request,'customer/password_reset_email.html')
+def resetpage(request):
+    return render(request,'customer/password_reset.html')
 def index(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])

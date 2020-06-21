@@ -15,4 +15,5 @@ urlpatterns = [
 	path('about/',views.about,name="about"),
 	path('forgotpass/',views.forgotpass,name="forgotpass"),
 	path('reset/<str:recovery_id>',views.resetpass,name="resetpass"),
+    path('reset_page',views.resetpage,name="resetpage"),
 ]
