@@ -395,7 +395,23 @@ display:none;
     margin:30px 0;
     margin-top:0;
  }
+ .nav_pc_disp, .nav_mob_disp{
+    position: absolute;top:0vh;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    text-align: right;
+ }
 
+ .nav_mob_disp img{
+    width:40px !important;
+    float:left;
+    margin:5px 15px;
+ }
+ .nav_pc_disp img{
+    width:40px !important;
+    float:left;
+    margin:5px 15px;
+    }
  .assign-worker-info{
 
     background:white !important;
@@ -1170,6 +1186,7 @@ table{
 
 
 @media only screen and (max-width:992px){
+
 	.home-pc{
 		display: none;
 	}

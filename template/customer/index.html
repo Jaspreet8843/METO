@@ -113,11 +113,11 @@
 					<div style="position: absolute;top:46vw; background: rgba(0,0,0,.5); width: 100%; text-align: right">
 						<text style="color:white; font-weight: lighter;padding-right: 50px;">Queries? Reach out to us at <a href="mailto: care@meto.co.in" style="color:white"><b>care@meto.co.in</b></a></text>
 					</div>
-					<div id="signup-bar" style="position: absolute;top:0vh; background: rgba(0,0,0,.5); width: 100%; text-align: right">
+					<div id="signup-bar" class="nav_pc_disp" >
 						{% if user.user_name is defined %}
-						<text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
+						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
 						{% else %}
-						<text style="color:white; font-weight: lighter;padding-right: 50px;">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
+						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 50px;">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
 						{% endif %}
 					</div>
 				</div>
@@ -126,7 +126,7 @@
 			<!-------------------------------      METO LOGO MOBILE VIEW                   --------------------------------->
 			<div id="home-mobile" class="home-mobile">
 				<div id="bg-dark" style="background: rgba(0,0,0,.5); position: fixed;width: 100%; height: 1024px; z-index: 999;  display: none"></div>
-				<button class="navbar_open" onclick="navbar_open()"><i class="fa fa-list" aria-hidden="true"></i></button>
+				<button id="navbar_open" style="display:none" class="navbar_open" onclick="navbar_open()"><i class="fa fa-list" aria-hidden="true"></i></button>
 				<div class="indexbg" style="background: url(static/background/backgroundtextmobile.png); background-size: 100%;">
 					<img src="static/background/backgroundtextmobile.png" style="visibility: hidden;"/>
 					<div id="mobile_nav" style="display: none;  top:0;">
@@ -185,8 +185,12 @@
 					<div style="position: absolute;top:115vw; background: rgba(0,0,0,.5); width: 100%; text-align: right">
 						<text style="color:white; font-weight: lighter; padding: 20px;">Queries? Reach out to us at <a href="mailto: care@meto.co.in" style="color:white"><b>care@meto.co.in</b></a></text>
 					</div>
-					<div id="signup-bar" style="position: absolute;top:0vh; background: rgba(0,0,0,.5); width: 100%; text-align: right">
-						<text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
+					<div id="signup-bar-mob" class="nav_mob_disp">
+						{% if user.user_name is defined %}
+						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 0px;"><button class="getstarted-signup" onclick="window.location.href='../signup'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
+						{% else %}
+						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 0px;"> <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
+						{% endif %}
 					</div>
 				</div>
 			</div>

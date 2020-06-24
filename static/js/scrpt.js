@@ -11,7 +11,16 @@
 //  prevScrollpos = currentScrollPos;
 //}
 
+window.onscroll = function(){
+    if ($(window).scrollTop()>50 &&  $(window).width()<993 ){
+        $("#navbar_open").show();
+        $("#navbar_open").addClass('animate__animated animate__fadeInRight');
+    }
+    else{
+        $("#navbar_open").fadeOut();
+    }
 
+}
 //for viewport check
 
 jQuery('body').on('appear', function(){
