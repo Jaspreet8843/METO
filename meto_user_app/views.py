@@ -78,10 +78,6 @@ def logout(request):
     del request.session['user_id']
     return redirect('index')
 
-def password_reset_page(request):
-    return render(request,'customer/password_reset_email.html')
-def resetpage(request):
-    return render(request,'customer/password_reset.html')
 def index(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
@@ -189,7 +185,6 @@ def forgotpass(request):
         phone = request.POST.get('recovery_phone')
         try:
             email = user.objects.get(user_phone=phone).user_email
-            email = "manabsahams@gmail.com"
             sender="metojrt@gmail.com"
             subject = "Reset your password"
             site="https://meto-jrt.herokuapp.com/reset/"
@@ -210,12 +205,15 @@ def forgotpass(request):
 def resetpass(request,recovery_id):
     if request.method=='POST':
         new_pass = request.POST.get('new_password')
-        recovery_obj = recovery.objects.get(recovery_id=recovery_id)
-        email = recovery_obj.email_id
-        user_password = bcrypt.hashpw(new_pass.encode('utf8'), bcrypt.gensalt())
-        user_obj = user.objects.filter(user_email=email)
-        user_obj.update(user_password=user_password)
-        recovery_obj.delete()
-        return HttpResponse("password changed")
-    return HttpResponse("reset pass")
+        try:
+            recovery_obj = recovery.objects.get(recovery_id=recovery_id)
+            email = recovery_obj.email_id
+            user_password = bcrypt.hashpw(new_pass.encode('utf8'), bcrypt.gensalt())
+            user_obj = user.objects.filter(user_email=email)
+            user_obj.update(user_password=user_password)
+            recovery_obj.delete()
+        except Exception as e:
+            print(e)
+        return redirect('login')
+    return render(request,'customer/password_reset.html')
 
