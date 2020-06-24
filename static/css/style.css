@@ -7,6 +7,8 @@
 html {
 	scroll-behavior: smooth !important;
 }
+
+
 .body-bg-fixed{
 	background-image: url('../img/background.png');
 	background-attachment: scroll;
@@ -20,13 +22,135 @@ html {
 .nav-item{
 	margin:30px 30px !important;
 }
-.card{
-	width: 100% !important;
+.getstarted{
+	background: #ffb500;
+	width: 120px;
+	height:40px;
+	border:none;
+	outline: none;
+	border-radius: 10px;
+	font-weight: bold;
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+}
+.getstarted:hover{
+	transform: scale(1.1);
+	
+}
+.getstarted-login{
+	background: #ffb500;
+	border-radius: 50px;
+	width: 100px;
+	height: 40px;
+	font-weight: bold;
+	margin:5px 10px;
+	border:none;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+.getstarted-login:hover{
+	background: #c2068d;
+}
+.getstarted-signup{
+	background: transparent;
+	color: white;
+	border-radius: 50px;
+	width: 100px;
+	height: 40px;
+	font-weight: bold;
+	margin:5px 10px;
+	border:2px solid #ffb500;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+.getstarted-signup:hover{
+	border:2px solid #c2068d;
+}
+.service_pop{
+	width: 70%;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+	background: white !important;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	display: inline-block;
+	z-index: 999;
+}
+
+.service_pop .col1{
+	width: 33%;
+}
+
+.mob_nav_close{
+	background: transparent; 
+	color: white; 
+	position: fixed; 
+	top:0vw; 
+	left:80vw; 
+	width: 70px; 
+	height: 60px; 
+	z-index: 1001; 
+	font-size: 40px; 
+	border: none;
+	outline: none !important;
+}
+
+.navbar_open{
+	position: fixed;
+	z-index: 997;
+	width: 70px;
+	height: 50px;
+	color: rgba(255,255,255,.6);
+	background: rgba(0,0,0,.4);
+	border-radius: 10px;
+	border: none;
+	outline: none !important;
+	padding-right: 10px;
+	right: -10px;
+	top: 60vh;
+	font-size: 30px;
+}
+.categories h2{
+	margin-top:5%;
+}
+.categories h5{
+	margin: auto; 
+	width: 60%;
+	font-weight: lighter;
 	text-align: center;
-	padding: 0;
-	margin:0;
+
+}
+.bottom-bg{
+	position: fixed; 
+	top:0; 
+	width: 110%; 
+	z-index: -1;
+}
+.card{
+	text-align: center;
+	padding: 20px 0;
 	border:1px solid transparent !important;
-	background:transparent !important;
+	background:none !important;
 	-webkit-transition: all .5s ease-out;
 	-moz-transition: all .5s ease-out;
 	-o-transition: all .5s ease-out;
@@ -35,11 +159,13 @@ html {
 
 	
 }
-.card:hover{
+.permahover{
+	background:white !important;
 	overflow: hidden !important;
-	border:1px solid grey !important;
-	transform: scale(1.3);
-	transition: transform .5s ease-out;
+	transition: transform .3s ease-out;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
 }
 
 .mymodal{
@@ -47,7 +173,9 @@ html {
 	position: relative;
 }
 
-
+:root {
+  --animate-delay: 0.3s;
+}
 
 #loading {
 	position: fixed;
@@ -60,10 +188,17 @@ html {
 .card-img-top{
 	width: 50% !important;
 	align-self: center;
-	margin-top:20px;
+	margin:5% auto;
+	background: white;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
 }
-.card-title{
-	font-size: 16px;
+.card text{
+	font-size: 15px;
+	padding:10px 0;
+	font-weight: bolder;
 }
 
 .navbar-nav{
@@ -1035,6 +1170,19 @@ table{
 
 
 @media only screen and (max-width:992px){
+	.home-pc{
+		display: none;
+	}
+	.categories{
+			width: 95%;
+			display: block;
+			margin: auto;
+		}
+
+	.service_pop{
+		width: 100%;
+		margin-top: 5%;
+	}
 	.booking select{
 		width: 100%;
 	}
@@ -1092,6 +1240,23 @@ table{
 	}
 
 	@media only screen and (min-width: 993px){
+		.home-mobile{
+			display: none;
+		}
+		.categories{
+			width: 100%;
+			margin:auto; 
+			display: inline-block;
+		}
+		.card:hover{
+			background:white !important;
+		overflow: hidden !important;
+		transition: transform .3s ease-out;
+		-webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.75);
+
+		}
 		.spacing{
 			position: absolute;
 		}
@@ -1111,6 +1276,25 @@ table{
 	}
 
 	@media (max-width: 576px) {
+		.categories h5{
+			font-size: 12px;
+			width: 90%;
+			margin-bottom: 10%;
+		}
+		.categories h2{
+			font-size: 25px;
+			margin-bottom: 0;
+		}
+		.col1{
+			padding: 0;
+		}
+		.card text{
+			font-size: 12px;
+		}
+		.bottom-bg{
+			height: 100vh;
+			background-repeat: repeat-y;
+		}
 	.password-reset img{
 	width:30%;
 	}
@@ -1201,6 +1385,10 @@ table{
 
 	/* Small devices (landscape phones, 576px and up) */
 	@media (min-width: 576px) and (max-width:768px) {
+		.bottom-bg{
+			height: 800px;
+			background-repeat: repeat;
+		}
 	    .book_date{
 	        display:none;
 	    }
@@ -1223,6 +1411,10 @@ table{
 
 	/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 	@media (min-width: 768px) and (max-width:992px) {
+		.bottom-bg{
+			height: 1024px;
+			background-repeat: repeat;
+		}
 	    .book_date{
 	        white-space:nowrap;
 	    }
@@ -1235,6 +1427,10 @@ table{
 
 	/* Large devices (desktops, 992px and up) */
 	@media (min-width: 992px) and (max-width:1200px) { 
+		.bottom-bg{
+			height: 1366px;
+			background-repeat: repeat;
+		}
 		.pro-btn{
 			font-size: 16px !important;
 			margin:10px;

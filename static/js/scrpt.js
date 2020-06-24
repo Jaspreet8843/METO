@@ -1,15 +1,15 @@
 
 // for navbar scroll
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("myModal").style.top = "0";
-  } else {
-    document.getElementById("myModal").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
+//var prevScrollpos = window.pageYOffset;
+//window.onscroll = function() {
+//  var currentScrollPos = window.pageYOffset;
+//  if (prevScrollpos > currentScrollPos) {
+//    document.getElementById("myModal").style.top = "0";
+//  } else {
+//    document.getElementById("myModal").style.top = "-100px";
+//  }
+//  prevScrollpos = currentScrollPos;
+//}
 
 
 //for viewport check
@@ -18,8 +18,69 @@ jQuery('body').on('appear', function(){
     console.log("das");
 });
 
+//smooth scroll to service categories
+window.service_btn=function(){
+   
+    $(window).scrollTop($('#cat').position().top);
+        
+};
+
+//show services
+function show_service(id){
+    if( $(window).width()>992)
+    {
+        var flag=0;
+        if($("#"+id).is(":visible"))
+        {
+            flag=1;
+            $("#card-"+id).removeClass('permahover');
+             $("#"+id).slideUp();
+        }
+        
+
+        for(var i=1; i<9;i++)
+        {
+            if($("#cat"+i).is(":visible") && ("cat"+i != id)){
+                $("#card-cat"+i).removeClass('permahover');
+                $("#cat"+i).slideUp();
+            }   
+            
+        }
+        if(flag!=1){
+            $("#card-"+id).addClass('permahover');
+            $("#"+id).slideDown();
+        }
+    }
+    else{
+        var flag=0;
+        if($("#m"+id).is(":visible"))
+        {
+            flag=1;
+            $("#card-"+id).removeClass('permahover');
+             $("#m"+id).slideUp();
+        }
+        
+
+        for(var i=1; i<9;i++)
+        {
+            if($("#mcat"+i).is(":visible") && ("cat"+i != id)){
+                $("#card-cat"+i).removeClass('permahover');
+                $("#mcat"+i).slideUp();
+            }   
+            
+        }
+        if(flag!=1){
+            $("#card-"+id).addClass('permahover');
+            $("#m"+id).slideDown();
+        }
+    }
+    
+}
+
+
 
 // for navbar hide on click mobile
+/*
 $(document).click(function() {
     var nav_clicked=0;
     $('nav').click(function () {
@@ -32,13 +93,13 @@ $(document).click(function() {
         }
    });
 });
-
+*/
 window.passcheck=function(){
 if($("#change_password").is(":visible")){
-    $("#change_password").hide();
+    $("#change_password").slideUp();
 }
 else{
-    $("#change_password").show();
+    $("#change_password").slideDown();
     $("#change_password").addClass('animate__animated animate__fadeIn');
 }
 };
@@ -71,11 +132,10 @@ function assign(id){
 
 window.trclick=function(id){
 if($("#"+id).is(":visible")){
-    $("#"+id).hide();
+    $("#"+id).slideUp();
 }
 else{
-    $("#"+id).show();
-    $("#"+id).addClass('animate__animated animate__fadeIn');
+    $("#"+id).slideDown();
 }
 };
 
@@ -88,7 +148,14 @@ window.onload = function () {
 	$('#signup').hide();
 	$('#forgot_password').hide();
 	$('#more').hide();
-
+    $("#inner_ring").addClass('animate__animated animate__backInLeft');
+    $("#middle_ring").addClass('animate__animated animate__backInLeft animate__delay-1s');
+    $("#outer_ring").addClass('animate__animated animate__backInLeft animate__delay-2s');
+     $("#inner_ring_mob").addClass('animate__animated animate__backInLeft');
+    $("#middle_ring_mob").addClass('animate__animated animate__backInLeft animate__delay-1s');
+    $("#outer_ring_mob").addClass('animate__animated animate__backInLeft animate__delay-2s');
+    $(".nav-btn").addClass('animate__animated animate__bounceIn animate__delay-5s');
+    $("#signup-bar").addClass('animate__animated animate__fadeInDown animate__delay-4s');
 
 	//$("#myModal").addClass('animate__animated animate__fadeInLeft animate__fast');
 	//$("#fspace").addClass('animate__animated animate__fadeInRight animate__fast');
@@ -97,6 +164,14 @@ window.onload = function () {
 
 }
 
+function navbar_close(){
+    $('#mobile_nav').fadeOut();
+     $('#bg-dark').fadeOut();
+}
+function navbar_open(){
+ $('#mobile_nav').fadeIn();
+ $('#bg-dark').fadeIn();   
+}
 function signupclick()
 {
 	//$("#login").addClass('animate__animated animate__bounceOut')

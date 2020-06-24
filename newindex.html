@@ -1,119 +1,693 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-	<title>METO</title>
-	<link rel="icon" href="{% static 'img/favicon.png' %}" type="image/icon type">
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="scrpt.js"></script>
-	<script>
-		$(function() { AOS.init(); });
-	</script>
-</head>
-<div class="load" id="loading"></div>
-<body id="contents" class="pattern">
-	<div class="">
-	<nav id="myModal" class="navbar navbar-expand-lg navbar-light navlogo" style="border-color: dodgerblue;">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<img class="imglogo" src="static/img/logo.jpg">
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto spacing">
-				<!--li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Dropdown
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
+	<head> 
+		<title>METO</title>
+		<link rel="icon" href="static/img/favicon.png" type="image/icon type">
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.css">
+		<link rel="stylesheet" type="text/css" href="static/css/style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="static/js/scrpt.js"></script>
+		<script>
+			$(function() { AOS.init(); });
+		</script>
+	</head>
+	<div class="load" id="loading"></div>
+	<body id="contents" class="">
+		<img src="static/background/bg3.png" class='bottom-bg' style="">
+		<div class="">
+
+			<!-------------------------------      METO LOGO DESKTOP VIEW                   --------------------------------->
+			
+			<div id="home-pc" class="home-pc">
+				<div class="indexbg" style="background: url(static/background/backgroundtextlight.png); background-size: 100%;">
+					<img src="static/background/background.png" style="visibility: hidden;"/>
+					<div style=" background:transparent; position: absolute; top:0; width: 100%;" id='outer_ring'>
+						<svg viewBox='105 53 185 89' width=100% height=100%> <!--style="position: absolute; top:-12%; right:35%"-->
+							<!-- define the gradient -->
+							<defs>
+								<!-- x1,y1,x2,y2 are used to define the gradient direction -->
+								<linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="100%">
+									<!-- start color at 0%-->
+									<stop offset="0%"   stop-color="#ffb500"/>
+									<!-- end color at 100%-->
+									<stop offset="100%" stop-color="#c2068d"/>
+								</linearGradient>
+							</defs>
+							<!-- Create an svg circle at [100,100] with radius of 90
+								make the border-width 6 (stroke-width) fill it with gradient (stroke)
+								and make the content of circle transparent (fill)
+							--->
+							<circle cx="100" cy="100" r="50" stroke="url(#linear)" stroke-width="10" fill="transparent" />
+							<!-- Create a text element at the postion [70,140] -->
+						</svg>
 					</div>
-				</li-->
-
-				<form class="form-inline my-2 my-lg-0">
-					<li class="nav-item"><input class="form-control mr-sm-2 darkbg srch" id="Search" type="Search" placeholder="SEARCH" aria-label="Search"></li>
-				</form>
-				<li class="nav-item"><button class="signin-login" onclick="document.location='login.html'"><B>LOGIN | SIGN UP</B></button></li>
-			</ul>
-		</div>
-	</nav>
-	<form>
-		<div class="indexbg" >
-			<img src="static/indexbg.jpg" style="height:680px; ">
-		</div>
-		<div class="text">
-			<h3>
-					Welcome to, </h3>
-				<h1> M E T O !</h1>
-				<h5>Your own managing assistant. 
-					</h5><br>
-					<button class="signin-login">GET STARTED</button>
-			</div>
-	</form>
-
-	<!-- Footer -->
-	<!-- Site footer -->
-	<footer data-aos="fade-up" class="site-footer ">
-		<div class="container">
-			<div class="row">
-				<div class="first-column">
-					<h6>About</h6>
-					<p class="text-justify">A paragraph is a group of words put together to form a group that is usually longer than a sentence. Paragraphs are often made up of several sentences. There are usually between three and eight sentences. Paragraphs can begin with an indentation (about five spaces), or by missing a line out, and then starting again. This makes it easier to see when one paragraph ends and another begins.
-					In most organized forms of writing, such as essays, paragraphs contain a topic sentence.</p>
-				</div>
-
-
-
-				<div class="second-column">
-					<h6>Quick Links</h6>
-					<ul class="footer-links">
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Contribute</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Sitemap</a></li>
-					</ul>
+					<div style=" background:transparent; position: absolute; top:0; width: 100%;" id='middle_ring'>
+						<svg viewBox='110 28 280 140' width=100% height=100%> <!--style="position: absolute; top:-12%; right:35%"-->
+							<circle cx="100" cy="100" r="50" stroke="url(#linear)" stroke-width="10" fill="transparent" />
+						</svg>
+					</div>
+					<div style=" background:transparent; position: absolute; top:0; width: 100%;" id='inner_ring'>
+						<svg viewBox='120 -30 500 340' width=100% height=100%> <!--style="position: absolute; top:-12%; right:35%"-->		
+							<circle cx="100" cy="100" r="50" stroke="url(#linear)" stroke-width="10" fill="transparent" />
+						</svg>
+					</div>
+					
+					
+					<div class="nav-btn" style="position: absolute; top:24vw; left:1vw">
+						<button class="getstarted">CONTACT</button>
+					</div>
+					<div class="nav-btn" style="position: absolute; top:19vw; left:9vw">
+						<button class="getstarted">BOOKINGS</button>
+					</div>
+					<div class="nav-btn" style="position: absolute; top:29vw; left:9vw">
+						<button class="getstarted">ABOUT</button>
+					</div>
+					<div class="nav-btn" style="position: absolute; top:14vw; left:18vw">
+						<button class="getstarted" onclick="#cat">PROFILE</button>
+					</div>
+					<div class="nav-btn" style="position: absolute; top:34vw; left:18vw">
+						<button onclick='service_btn()' class="getstarted">SERVICES</button>
+					</div>
+					<div style="position: absolute;top:46vw; background: rgba(0,0,0,.5); width: 100%; text-align: right">
+						<text style="color:white; font-weight: lighter;padding-right: 50px;">Queries? Reach out to us at <a href="mailto: care@meto.co.in" style="color:white"><b>care@meto.co.in</b></a></text>
+					</div>
+					<div id="signup-bar" style="position: absolute;top:0vh; background: rgba(0,0,0,.5); width: 100%; text-align: right">
+						<text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
+					</div>
 				</div>
 			</div>
-			<hr>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-sm-6 col-xs-12">
-					<p class="copyright-text">Copyright &copy; 2020 All Rights Reserved
-					</p>
-				</div>
-
-				<div class="col-md-4 col-sm-6 col-xs-12">
-					<ul class="social-icons">
-						<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li> 
-						<li><a class="quora" href="https://www.instagram.com/meto_india"><i class="fa fa-instagram"></i></a></li>   
-					</ul>
+			
+			<!-------------------------------      METO LOGO MOBILE VIEW                   --------------------------------->
+			<div id="home-mobile" class="home-mobile">
+				<div id="bg-dark" style="background: rgba(0,0,0,.5); position: fixed;width: 100%; height: 1024px; z-index: 999;  display: none"></div>
+				<button class="navbar_open" onclick="navbar_open()"><i class="fa fa-list" aria-hidden="true"></i></button>
+				<div class="indexbg" style="background: url(static/background/backgroundtextmobile.png); background-size: 100%;">
+					<img src="static/background/backgroundtextmobile.png" style="visibility: hidden;"/>
+					<div id="mobile_nav" style="display: none;  top:0;">
+						<button class="mob_nav_close" onclick="navbar_close()"><i class="fa fa-times" aria-hidden="true"></i></button>
+						<div>
+							<div style=" background:transparent; position: fixed; top:0%; width: 100vh;height: 100vh; z-index: 999;" id='outer_ring_mob'>
+								<svg viewBox='157 50 1 100' width=100% height=100% style="display: block;"> 
+									<!-- define the gradient -->
+									<defs>
+										<!-- x1,y1,x2,y2 are used to define the gradient direction -->
+										<linearGradient id="linear_mobile" x1="0%" y1="0%" x2="100%" y2="100%">
+											<!-- start color at 0%-->
+											<stop offset="0%"   stop-color="#ffb500"/>
+											<!-- end color at 100%-->
+											<stop offset="100%" stop-color="#c2068d"/>
+										</linearGradient>
+									</defs>
+									<!-- Create an svg circle at [100,100] with radius of 90
+										make the border-width 6 (stroke-width) fill it with gradient (stroke)
+										and make the content of circle transparent (fill)
+									--->
+									<circle cx="100" cy="100" r="50" stroke="url(#linear_mobile)" stroke-width="7" fill="transparent" />
+									<!-- Create a text element at the postion [70,140] -->
+								</svg>
+							</div>
+							<div style=" background:transparent; position: fixed; top:5%; width: 100vh;height: 100vh; z-index: 999;" id='middle_ring_mob'>
+								<svg viewBox='140 36 83 140' width=100% height=100% style="display: block;"> 
+									<circle cx="100" cy="100" r="50" stroke="url(#linear_mobile)" stroke-width="8" fill="transparent" />
+								</svg>
+							</div>
+							<div style=" background:transparent; position: fixed; top:5%;  width: 100vh;height: 100vh; z-index: 999;" id='inner_ring_mob'>
+								<svg viewBox='200 -55 150 340' width=100% height=100% style="display: block;"> 
+									<circle cx="100" cy="100" r="50" stroke="url(#linear_mobile)" stroke-width="10" fill="transparent" />
+								</svg>
+							</div>
+							
+							<div>
+								<div class="nav-btn" style="position: fixed; top:47vh; left:3vh; z-index: 1000;">
+									<button class="getstarted">CONTACT</button>
+								</div>
+								<div class="nav-btn" style="position: fixed; top:30vh; left:13vh; z-index: 1000;">
+									<button class="getstarted">BOOKINGS</button>
+								</div>
+								<div class="nav-btn" style="position: fixed; top:65vh; left:13vh; z-index: 1000;">
+									<button class="getstarted">ABOUT</button>
+								</div>
+								<div class="nav-btn" style="position: fixed; top:12vh; left:20vh; z-index: 1000;">
+									<button class="getstarted" onclick="#cat">PROFILE</button>
+								</div>
+								<div class="nav-btn" style="position: fixed; top:82vh; left:20vh; z-index: 1000;">
+									<button onclick='service_btn()' class="getstarted">SERVICES</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="position: absolute;top:115vw; background: rgba(0,0,0,.5); width: 100%; text-align: right">
+						<text style="color:white; font-weight: lighter; padding: 20px;">Queries? Reach out to us at <a href="mailto: care@meto.co.in" style="color:white"><b>care@meto.co.in</b></a></text>
+					</div>
+					<div id="signup-bar" style="position: absolute;top:0vh; background: rgba(0,0,0,.5); width: 100%; text-align: right">
+						<text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
+					</div>
 				</div>
 			</div>
+			
+			
+			<div class="categories" id="cat">
+				<h2>WHAT WE DO</h2>
+				<h5>We support you in minor daily problems like managing a professional photographer or carpenter or makeup artist or electrician and many more including groceries.</h5>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1 " onclick="show_service('cat1')">
+					<div class="card" id="card-cat1">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Trending</text>
+					</div>
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat2')">
+					<div class="card" id="card-cat2">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Home</text>
+					</div>
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat3')">
+					<div class="card" id="card-cat3">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Beauty</text>
+					</div>
+				</div>
+				<!--------------------------------------------------------MOBILE ROW 1 ----------------------------------------------------->
+				<div style="width: 100%; background: transparent; text-align: center;" >
+					<div id="mcat1" class="service_pop" style="display: none;">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+					</div>
+					<div id="mcat2" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Maid</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Driver</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Gardener</text>
+							</div>
+						</div>
+					</div>
+					<div id="mcat3" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Makeup</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Boys haircut</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Girls haircut</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Spa</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Mehendi</text>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat4')">
+					<div class="card" id="card-cat4">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Occasion</text>
+					</div>
+				</div>
+				
+				
+				
+				<!-----------------------------------------------------------DESKTOP FULL VIEW--------------------------------------------->	
+				
+				<div style="width: 100%; background: transparent; text-align: center;" >
+					<div id="cat1" class="service_pop" style="display: none;">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Trending</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat2" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Maid</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Driver</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Gardener</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat3" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Makeup</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Boys haircut</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Girls haircut</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Spa</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Mehendi</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat4" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Photographer</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Organizer</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Caterer</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat5" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Doctor</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Lawyer</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat6" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Grocery</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Veggies</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Fruits</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat7" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Plumber</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Electrician</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Mechanic</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Painter</text>
+							</div>
+						</div>
+					</div>
+					<div id="cat8" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Bike</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Taxi</text>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat5')">
+					<div class="card" id="card-cat5">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Appointment</text>
+					</div>
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat6')">
+					<div class="card" id="card-cat6">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Daily needs</text>
+					</div>
+				</div>
+				
+				
+				<!-------------------------------------------------------MOBILE ROW 2--------------------------------------------------------------->
+				<div style="width: 100%; background: transparent; text-align: center;" >
+					<div id="mcat4" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Photographer</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Organizer</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Caterer</text>
+							</div>
+						</div>
+					</div>
+					<div id="mcat5" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Doctor</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Lawyer</text>
+							</div>
+						</div>
+					</div>
+					<div id="mcat6" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Grocery</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Veggies</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Fruits</text>
+							</div>
+						</div>
+					</div>		
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat7')">
+					<div class="card" id="card-cat7">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Maintainence</text>
+					</div>
+				</div>
+				<!------------------------------------------------------------------------------------------------------------------------------->
+				<div class="col1" onclick="show_service('cat8')">
+					<div class="card" id="card-cat8">
+						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<text>Transport</text>
+					</div>
+				</div>
+				
+				
+				
+				<!-------------------------------------------------MOBILE ROW 3------------------------------------------------------------------>
+				<div style="width: 100%; background: transparent; text-align: center;" >
+					<div id="mcat7" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Plumber</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Electrician</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Mechanic</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Painter</text>
+							</div>
+						</div>
+					</div>
+					<div id="mcat8" style="display: none;" class="service_pop">
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Bike</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card">
+								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<text>Taxi</text>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<!------------------------------------------------------------------------------------------------------------------------------->
+			</div>
+			<div class="col-xl" style="width: 100%; margin-top:5%; padding: 0; display: inline-block;">
+				<!--Carousel Wrapper-->
+				<div id="carousel-example-2" class="carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
+					<!--Indicators-->
+					<ol class="carousel-indicators" style="">
+						<li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-2" data-slide-to="1"></li>
+						<li data-target="#carousel-example-2" data-slide-to="2"></li>
+						<li data-target="#carousel-example-2" data-slide-to="3"></li>
+					</ol>
+					<!--/.Indicators-->
+					<!--Slides-->
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<div class="view">
+								<img class="d-block w-100" src="static/edited1.jpg">
+								<div class="mask rgba-black-light"></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<!--Mask color-->
+							<div class="view">
+								<img class="d-block w-100" src="static/edited2.jpg">
+								<div class="mask rgba-black-light"></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<!--Mask color-->
+							<div class="view">
+								<img class="d-block w-100" src="static/edited3.jpg">
+								<div class="mask rgba-black-light"></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<!--Mask color-->
+							<div class="view">
+								<img class="d-block w-100" src="static/edited4.jpg" alt="Third slide">
+								<div class="mask rgba-black-light"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--/.Slides-->
+				<!--Controls-->
+				<a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+				<!--/.Controls-->
+			</div>
+			<!-- Footer -->
+			<!-- Site footer -->
+			<footer class="site-footer " >
+				<div class="container">
+					<div class="row">
+						<div class="first-column">
+							<h6>About</h6>
+							<p class="text-justify">A paragraph is a group of words put together to form a group that is usually longer than a sentence. Paragraphs are often made up of several sentences. There are usually between three and eight sentences. Paragraphs can begin with an indentation (about five spaces), or by missing a line out, and then starting again. This makes it easier to see when one paragraph ends and another begins.
+							In most organized forms of writing, such as essays, paragraphs contain a topic sentence.</p>
+						</div>
+						
+						
+						
+						<div class="second-column">
+							<h6>Quick Links</h6>
+							<ul class="footer-links">
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Contribute</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Sitemap</a></li>
+							</ul>
+						</div>
+					</div>
+					<hr>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-12">
+							<p class="copyright-text">Copyright &copy; 2020 All Rights Reserved
+							</p>
+						</div>
+						
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<ul class="social-icons">
+								<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li> 
+								<li><a class="quora" href="https://www.instagram.com/meto_india"><i class="fa fa-instagram"></i></a></li>   
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+			
+			
+			
 		</div>
-	</footer>
-
-
-
-	</div>
-</body>
+	</body>
 </html>
