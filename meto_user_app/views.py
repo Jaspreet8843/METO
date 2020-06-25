@@ -52,12 +52,17 @@ def signup(request):
             user_email = request.POST.get('new_email')
             user_phone = request.POST.get('new_phone')
             user_password = request.POST.get('new_pass')
+            user_gender = request.POST.get('new_gender')
+            user_pincode = request.POST.get('new_pincode')
+            user_city = request.POST.get('new_city')
+            user_area = request.POST.get('new_area')
             if valid_signup(user_name, user_email, user_phone, user_password):
                 print(True)
                 user_hash_password = bcrypt.hashpw(user_password.encode('utf8'), bcrypt.gensalt())
                 try:
                     user_obj = user(user_name=user_name, user_email=user_email, user_phone=user_phone,
-                                    user_password=user_hash_password)
+                                    user_password=user_hash_password,user_gender=user_gender,
+                                    user_pincode=user_pincode,user_city=user_city,user_area=user_area)
                     user_obj.save()
                     user_obj = user.objects.get(user_phone=user_phone)
                     u_id = user_obj.user_id
