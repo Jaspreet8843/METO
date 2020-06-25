@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
 from datetime import datetime
 from django.utils import timezone
+from django.contrib import messages
 
 # Create your views here.
 def login(request):
@@ -18,7 +19,7 @@ def login(request):
             user_phone = request.POST.get('login_phone')
             user_password = request.POST.get('login_pass')
             if valid_login(user_phone, user_password):
-                print(True)
+                # print(True)
                 try:
                     user_obj = user.objects.get(user_phone=user_phone)
                     u_id = user_obj.user_id
@@ -30,15 +31,18 @@ def login(request):
                         request.session['user_id'] = u_id
                         return redirect('index')
                     else:
-                        print("Incorrect Password")
+                        messages.info(request,"Incorrect password!!")
+                        #print("Incorrect Password")
                         return redirect('login')
                 except Exception as e:
+                    messages.error(request,"Number not registered!!")
                     print(e)
-                    print("User doesn't exist")
+                    #print("User doesn't exist")
                     return redirect('login')
             else:
-                print(False)
-                print("Invalid entries")
+                # print(False)
+                # print("Invalid entries")
+                messages.error(request,"Invalid entries")
                 return redirect('login')
         return render(request, 'customer/login.html')
 
@@ -57,7 +61,13 @@ def signup(request):
             user_city = request.POST.get('new_city')
             user_area = request.POST.get('new_area')
             if valid_signup(user_name, user_email, user_phone, user_password):
-                print(True)
+                # print(True)
+                if user.objects.filter(user_phone=user_phone).count()!=0:
+                    messages.error(request,"Number already registered")
+                    return redirect('login')
+                if user.objects.filter(user_email=user_email).count()!=0:
+                    messages.error(request,"Email already registered")
+                    return redirect('login') 
                 user_hash_password = bcrypt.hashpw(user_password.encode('utf8'), bcrypt.gensalt())
                 try:
                     user_obj = user(user_name=user_name, user_email=user_email, user_phone=user_phone,
@@ -70,12 +80,14 @@ def signup(request):
                     return redirect('index')
                 except Exception as e:
                     print(e)
-                    print("Failed query")
-                    return redirect('signup')
+                    # print("Failed query")
+                    messages.error(request,"Internal error. Try again")
+                    return redirect('login')
             else:
-                print(False)
-                print("Invalid entries")
-                return redirect('signup')
+                # print(False)
+                # print("Invalid entries")
+                messages.error(request,"Invalid entries")
+                return redirect('login')
         return render(request, 'customer/login.html')
 
 
