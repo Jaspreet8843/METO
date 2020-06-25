@@ -39,6 +39,31 @@ function show_service(id){
     if( $(window).width()>992)
     {
         var flag=0;
+        if(!$("#"+id).height()>0)
+        {
+            flag=1;
+            $("#card-"+id).addClass('permahover');
+            $("#"+id).show();
+            $("#"+id).toggleClass("slidedown");
+        }
+        
+
+        for(var i=1; i<9;i++)
+        {
+            if($("#cat"+i).height()>0 && ("cat"+i != id)){
+                $("#card-cat"+i).removeClass('permahover');
+                $("#cat"+i).toggleClass("slidedown");
+                $("#cat"+i).delay(350).fadeOut();
+            }   
+            
+        }
+        if(flag!=1){
+         $("#card-"+id).removeClass('permahover');
+         $("#"+id).toggleClass("slidedown");
+         $("#"+id).delay(350).fadeOut();
+     }
+        /*
+        var flag=0;
         if($("#"+id).is(":visible"))
         {
             flag=1;
@@ -59,9 +84,37 @@ function show_service(id){
             $("#card-"+id).addClass('permahover');
             $("#"+id).slideDown();
         }
+        */
+
+
     }
     else{
         var flag=0;
+        if(!$("#m"+id).height()>0)
+        {
+            flag=1;
+            $("#card-"+id).addClass('permahover');
+            $("#m"+id).show();
+            $("#m"+id).toggleClass("slidedown");
+        }
+        
+
+        for(var i=1; i<9;i++)
+        {
+            if($("#mcat"+i).height()>0 && ("cat"+i != id)){
+                $("#card-cat"+i).removeClass('permahover');
+                $("#mcat"+i).toggleClass("slidedown");
+                $("#mcat"+i).delay(400).fadeOut();
+            }   
+            
+        }
+        if(flag!=1){
+         $("#card-"+id).removeClass('permahover');
+         $("#m"+id).toggleClass("slidedown");
+         $("#m"+id).delay(400).fadeOut();
+     }
+
+        /*var flag=0;
         if($("#m"+id).is(":visible"))
         {
             flag=1;
@@ -82,6 +135,7 @@ function show_service(id){
             $("#card-"+id).addClass('permahover');
             $("#m"+id).slideDown();
         }
+        */
     }
     
 }
