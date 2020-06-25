@@ -171,20 +171,22 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="login-input"><input class="form-control form-input" type="password"
+                                        <td class="login-input"><input class="form-control form-input" type="password" id="password" onkeyup="check_pass()" 
                                                                        placeholder="Password" name=""
                                                                        required="required" pattern=".{8,20}"
                                                                        title="Password should be 8-20 characters long">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="login-input"><input class="form-control form-input" type="password"
+                                        <td class="login-input"><input class="form-control form-input" type="password" id="confirm_password" onkeyup="check_pass()" 
                                                                        placeholder="Confirm Password" name="new_pass"
                                                                        required="required"
                                                                        pattern=".{8,20}"
                                                                        title="Password should be 8-20 characters long">
                                         </td>
                                     </tr>
+
+                                    <tr><td><span id="message"></span></td></tr>
 
                                     <tr>
                                         <td class="login-input">

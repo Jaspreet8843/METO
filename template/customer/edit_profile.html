@@ -94,16 +94,18 @@
             </div>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input name="" pattern=".{8,20}" placeholder="New password"
-                       title="Password should be 8-20 characters long" type="PASSWORD">
+                <input name="" pattern=".{8,20}" id="password" placeholder="New password"
+                       title="Password should be 8-20 characters long" type="PASSWORD" onkeyup="check_pass()">
             </div>
             <div class="edit-info1">
                 <img src="../static/img/lock.png">
-                <input name="user_new_pass" pattern=".{8,20}" placeholder="Confirm password"
-                       title="Password should be 8-20 characters long" type="PASSWORD">
+                <input name="user_new_pass" pattern=".{8,20}" id="confirm_password" placeholder="Confirm password"
+                       title="Password should be 8-20 characters long" type="PASSWORD" onkeyup="check_pass()">
             </div>
             <div class="clear"></div>
+            <div class="clear"><span id="message"></span></div>
         </div>
+
         <div class="edit-info">
             <h3></h3>
             <hr>
@@ -115,8 +117,10 @@
 </form>
 
 <script>
+
     document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("{{user.user_gender}}").checked = true;
+        document.getElementById("city").value = "{{user.user_city}}"
     });
 
 </script>

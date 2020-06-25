@@ -146,6 +146,22 @@ function show_service(id){
 }
 
 
+//Check password
+
+function check_pass() {
+      if (document.getElementById('password').value == '' &&
+        document.getElementById('confirm_password').value == '') {
+        document.getElementById('message').innerHTML = '';
+      }
+      else if (document.getElementById('password').value ==
+        document.getElementById('confirm_password').value) {
+        document.getElementById('message').innerHTML = '';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Password not matching';
+      }
+    }
+
 
 // for navbar hide on click mobile
 /*
@@ -294,6 +310,4 @@ function onSuccess(googleUser) {
         'onfailure': onFailure
       });
     }
-
-
 
