@@ -121,7 +121,7 @@ function show_service(id){
         {
             flag=1;
             $("#card-"+id).removeClass('permahover');
-             $("#m"+id).velocity('slideUp', { duration: 1500 });;
+             $("#m"+id).velocity('slideUp', { duration: 100 });
         }
         
 
@@ -129,13 +129,13 @@ function show_service(id){
         {
             if($("#mcat"+i).is(":visible") && ("cat"+i != id)){
                 $("#card-cat"+i).removeClass('permahover');
-                $("#mcat"+i).velocity('slideUp', { duration: 1500 });
+                $("#mcat"+i).velocity('slideUp', { duration: 100 });
             }   
             
         }
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
-            $("#m"+id).velocity('slideDown', { duration: 1500 });
+            $("#m"+id).velocity('slideDown', { duration: 100 });
         }
 
     }
