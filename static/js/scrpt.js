@@ -38,6 +38,7 @@ window.service_btn=function(){
 function show_service(id){
     if( $(window).width()>992)
     {
+        /*
         var flag=0;
         if(!$("#"+id).height()>0)
         {
@@ -62,13 +63,13 @@ function show_service(id){
          $("#"+id).toggleClass("slidedown");
          $("#"+id).delay(350).fadeOut();
      }
-        /*
+        */
         var flag=0;
         if($("#"+id).is(":visible"))
         {
             flag=1;
             $("#card-"+id).removeClass('permahover');
-             $("#"+id).slideUp();
+             $("#"+id).velocity('slideUp');
         }
         
 
@@ -76,19 +77,20 @@ function show_service(id){
         {
             if($("#cat"+i).is(":visible") && ("cat"+i != id)){
                 $("#card-cat"+i).removeClass('permahover');
-                $("#cat"+i).slideUp();
+                $("#cat"+i).velocity('slideUp');
             }   
             
         }
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
-            $("#"+id).slideDown();
+            $("#"+id).velocity('slideDown');
         }
-        */
+
 
 
     }
     else{
+    /*
         var flag=0;
         if(!$("#m"+id).height()>0)
         {
@@ -113,13 +115,13 @@ function show_service(id){
          $("#m"+id).toggleClass("slidedown");
          $("#m"+id).delay(400).fadeOut();
      }
-
-        /*var flag=0;
+    */
+        var flag=0;
         if($("#m"+id).is(":visible"))
         {
             flag=1;
             $("#card-"+id).removeClass('permahover');
-             $("#m"+id).slideUp();
+             $("#m"+id).velocity('slideUp');;
         }
         
 
@@ -127,15 +129,15 @@ function show_service(id){
         {
             if($("#mcat"+i).is(":visible") && ("cat"+i != id)){
                 $("#card-cat"+i).removeClass('permahover');
-                $("#mcat"+i).slideUp();
+                $("#mcat"+i).velocity('slideUp');
             }   
             
         }
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
-            $("#m"+id).slideDown();
+            $("#m"+id).velocity('slideDown');
         }
-        */
+
     }
     
 }
