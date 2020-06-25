@@ -47,11 +47,37 @@
             </tr>
             <tr class="book_drop_down" id="{{i.booking_id}}" ><td colspan="5" style="text-align:left">
             <ol class="progtrckr" data-progtrckr-steps="5" style="padding-left:50px; width:100%;">
+                {% if i.booking_status == 'Processing' %}
+                <li class="progtrckr-done" style="text-align:left">Booking made</li>
+                <li class="progtrckr-done" style="text-align:left">Assigned to our staff</li>
+                <li class="progtrckr-todo" style="text-align:left">Technician assigned</li>
+                <li class="progtrckr-todo" style="text-align:left">Technician Visited</li>
+                <li class="progtrckr-todo" style="text-align:left">Case closed</li>
+                {% elif i.booking_status == 'Worker assigned' %}
                 <li class="progtrckr-done" style="text-align:left">Booking made</li>
                 <li class="progtrckr-done" style="text-align:left">Assigned to our staff</li>
                 <li class="progtrckr-done" style="text-align:left">Technician assigned</li>
                 <li class="progtrckr-todo" style="text-align:left">Technician Visited</li>
                 <li class="progtrckr-todo" style="text-align:left">Case closed</li>
+                {% elif i.booking_status == 'Visited' %}
+                <li class="progtrckr-done" style="text-align:left">Booking made</li>
+                <li class="progtrckr-done" style="text-align:left">Assigned to our staff</li>
+                <li class="progtrckr-done" style="text-align:left">Technician assigned</li>
+                <li class="progtrckr-done" style="text-align:left">Technician Visited</li>
+                <li class="progtrckr-todo" style="text-align:left">Case closed</li>
+                {% elif i.booking_status == 'Cancelled' %}
+                <li class="progtrckr-done" style="text-align:left">Booking made</li>
+                <li class="progtrckr-done" style="text-align:left">Assigned to our staff</li>
+                <li class="progtrckr-todo" style="text-align:left">Technician assigned</li>
+                <li class="progtrckr-todo" style="text-align:left">Technician Visited</li>
+                <li class="progtrckr-done" style="text-align:left">Case closed</li>
+                {% else %}
+                <li class="progtrckr-done" style="text-align:left">Booking made</li>
+                <li class="progtrckr-done" style="text-align:left">Assigned to our staff</li>
+                <li class="progtrckr-done" style="text-align:left">Technician assigned</li>
+                <li class="progtrckr-done" style="text-align:left">Technician Visited</li>
+                <li class="progtrckr-done" style="text-align:left">Case closed</li>
+                {% endif %}
             </ol></td>
             </tr>
         </table>

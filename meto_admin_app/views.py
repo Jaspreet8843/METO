@@ -92,7 +92,29 @@ def workers(request):
     return render(request, 'management/workers.html', ({'workers': worker_and_count}))
 
 def all_bookings(request):
-    booking_obj=booking.objects.all()
+    if request.method == 'POST':
+        date_from = request.POST.get('date_from')
+        date_till = request.POST.get('date_till')
+        status_filter = request.POST.get('status_filter')
+        sort_filter = request.POST.get('sort_filter')
+        if sort_filter == "asc":
+            sort = 'booking_date'
+        else:
+            sort = '-booking_date'
+        print(datetime.now().strftime('%Y-%m-%d'))
+        if date_from == None:
+            date_from = '2020-06-01'
+        if date_till == None:
+            date_till = datetime.now().strftime('%Y-%m-%d')
+        print(date_from,date_till)
+        if status_filter == "default":
+            booking_obj = booking.objects.filter(booking_date__gte=date_from,
+                booking_date__lte=date_till).order_by(sort)
+        else:
+            booking_obj = booking.objects.filter(booking_status=status_filter,booking_date__gte=date_from,
+                booking_date__lte=date_till).order_by(sort)
+    else:
+        booking_obj=booking.objects.all()
     soln=[]
     for i in booking_obj:
         try:
