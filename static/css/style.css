@@ -997,6 +997,14 @@ table{
 {
 	margin:0
 }
+
+.about_mob{
+        display:none;
+    }
+    .about_pc{
+        display:inline-block;
+     }
+
 @media (max-width:991px)
 {
 
@@ -1094,7 +1102,12 @@ table{
 }
 
 @media (max-width:767px)
-{
+{   .about_pc{
+        display:none;
+    }
+    .about_mob{
+        display:inline-block;
+     }
 	.el-1, .el-2, .el-3{
 		width:100% !important; 
 	}
