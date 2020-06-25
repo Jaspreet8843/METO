@@ -130,8 +130,7 @@ function show_service(id){
         {
             if($("#mcat"+i).is(":visible") && ("cat"+i != id)){
                 $("#card-cat"+i).removeClass('permahover');
-                $("#mcat"+i).delay(50).fadeOut();
-                $("#mcat"+i).addClass('animate__animated animate__fadeOut');
+                $("#mcat"+i).hide();
             }   
             
         }
