@@ -121,7 +121,8 @@ function show_service(id){
         {
             flag=1;
             $("#card-"+id).removeClass('permahover');
-             $("#m"+id).velocity('slideUp', { duration: 100 });
+             $("#m"+id).delay(300).fadeOut();
+             $("#m"+id).addClass('animate__animated animate__fadeOut');
         }
         
 
@@ -129,13 +130,16 @@ function show_service(id){
         {
             if($("#mcat"+i).is(":visible") && ("cat"+i != id)){
                 $("#card-cat"+i).removeClass('permahover');
-                $("#mcat"+i).velocity('slideUp', { duration: 100 });
+                $("#mcat"+i).delay(50).fadeOut();
+                $("#mcat"+i).addClass('animate__animated animate__fadeOut');
             }   
             
         }
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
-            $("#m"+id).velocity('slideDown', { duration: 100 });
+            $("#m"+id).show();
+            $("#m"+id).removeClass('animate__animated animate__fadeOut');
+            $("#m"+id).addClass('animate__animated animate__fadeIn');
         }
 
     }
