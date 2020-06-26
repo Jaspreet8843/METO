@@ -51,6 +51,14 @@
 <!--LOGIN -->
 <div class="body">
     <div class="login" style="display: inline-block; align-self: center; "> <!--cardmargin-->
+        {% if messages %}
+              {% for msg in messages %}
+                <div class="alert alert-danger alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  {{msg.message}}
+                </div>
+              {% endfor %}
+            {% endif %}
         <table class="clear-bg">
             <tr>
                 <td style="width: 50%">
