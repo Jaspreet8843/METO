@@ -4,13 +4,18 @@ from .models import staff, worker, assign_staff, assign_worker, date
 from meto_user_app.models import user, booking, service, recovery, feedback
 from .validator import valid_login
 from datetime import datetime
-
+from django.contrib import messages
 
 # Create your views here.
 def admin_index(request):
     if request.session.has_key('staff_id'):
         staff_obj = staff.objects.get(staff_id=request.session['staff_id'])
-        return render(request, 'management/admin_home.html', ({'staff': staff_obj}))
+        service_obj = service.objects.all()
+        count_dict = {}
+        for i in service_obj:
+            count_dict[i.service_id] = booking.objects.filter(service_id=i).count()
+        # print(count_dict)
+        return render(request, 'management/admin_home.html', ({'staff': staff_obj,'count':count_dict}))
     return redirect('admin_login')
 
 
@@ -22,7 +27,7 @@ def admin_login(request):
             staff_phone = request.POST.get('staff_phone')
             staff_password = request.POST.get('staff_password')
             if valid_login(staff_phone, staff_password):
-                print(True)
+                # print(True)
                 try:
                     staff_obj = staff.objects.get(staff_phone=staff_phone)
                     s_id = staff_obj.staff_id
@@ -34,14 +39,17 @@ def admin_login(request):
                         request.session['staff_id'] = s_id
                         return redirect('admin_index')
                     else:
-                        print("Incorrect Password")
+                        messages.error(request,"Incorrect password")
+                        # print("Incorrect Password")
                         return redirect('admin_login')
                 except Exception as e:
+                    messages.error(request,"Number not registered!!")
                     print(e)
-                    print("User doesn't exist")
+                    # print("User doesn't exist")
                     return redirect('admin_login')
             else:
-                print(False)
+                # print(False)
+                messages.error(request,"Invalid entries")
                 print("Invalid entries")
                 return redirect('admin_login')
         return render(request, 'management/admin_login.html')
