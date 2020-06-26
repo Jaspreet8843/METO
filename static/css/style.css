@@ -105,6 +105,125 @@ html {
 .service_pop .col1{
 	width: 33%;
 }
+.pro_mob{
+	width: 100%;
+}
+
+.pro_mob img{
+	width: 35%; 
+	border-radius: 100%; 
+	margin: 10%; 
+	margin-bottom: 5%;
+	margin-top: 20%;
+	border:4px solid white;
+}
+.pro_mob a{
+	color: white; 
+	font-weight: bold;
+	-webkit-transition: max-height 0.2s ease-in-out;
+    -moz-transition: max-height 0.2s ease-in-out;
+    -o-transition: max-height 0.2s ease-in-out;
+    transition: max-height 0.2s ease-in-out;
+
+}
+.pro_mob a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+.pro_mob hr{
+	width: 60%; 
+	background-color: white; 
+	height: 4px; 
+	border-radius: 10px; 
+	margin: auto;
+}
+
+.pro_mob_bg{
+	background:url('../background/pro_mob.png'); 
+	text-align: center; 
+	background-size: cover;
+	background-repeat:no-repeat;  
+	padding-bottom: 7px;
+}
+
+.pro_mob_edit{
+	margin:8% 15%;
+}
+.pro_mob_edit h5{
+	color: dodgerblue;
+	padding-left: 1%;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.pro_mob_edit input{
+	width: 100%;
+	border:none;
+	border-bottom: 1px solid lightgrey;
+	margin-bottom: 10%; 
+	outline: none !important;
+}
+.pro_mob_edit input:focus{
+	border-bottom: 2px solid dodgerblue;
+}
+
+.pro_mob_edit select{
+	width: 100%;
+	border:none;
+	background:none;
+	outline: none !important;
+	border-bottom: 1px solid lightgrey;
+	margin-bottom: 10%;
+}
+
+.pro_mob_edit input[type=checkbox]{
+	width: 5%;
+}
+.pro_mob_edit label{
+	color: grey;
+	font-weight: lighter;
+}
+
+.pro_mob_edit button{
+	margin: 5%;
+	background: dodgerblue;
+	color: white;
+	font-weight: bold;
+	width: 150px;
+	height: 50px;
+	border: none;
+	outline: none;
+	border-radius: 50px;
+
+}
+.pro_mob_info{
+
+}
+
+.pro_mob_info img{
+	width: 15%;
+	border-radius: 0;
+	margin:0 5%;
+	float: left;
+	vertical-align: middle;
+}
+
+.pro_mob_info h5{
+	color: lightgrey;
+	font-weight: lighter;
+	font-size: 14px;
+}
+.pro_mob_info h4{
+	font-size: 18px;
+	float: right;
+	width: 75%;
+	word-wrap: break-word; 
+}
+.pro_mob_info .details{
+	margin: 8%;
+}
+
 
 .mob_nav_close{
 	background: transparent; 
@@ -301,7 +420,7 @@ td{
 }
 
 .bookings{
-padding-top:100px;
+padding-top:0px;
 margin:5%;
 }
 .book_tr{

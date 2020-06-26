@@ -34,6 +34,27 @@ window.service_btn=function(){
         
 };
 
+// PROFILE PAGE MOBILE VIEW SWITCH
+
+function switch_bookings(){
+    $("#bookings_mobile_view").fadeIn();
+    $("#profile_mobile_view").hide();
+    $("#settings_mobile_view").hide();
+
+}
+
+function switch_settings(){
+    $("#settings_mobile_view").fadeIn();
+    $("#profile_mobile_view").hide();
+    $("#bookings_mobile_view").hide();
+}
+
+function switch_profile(){
+    $("#profile_mobile_view").fadeIn();
+    $("#bookings_mobile_view").hide();
+    $("#settings_mobile_view").hide();
+}
+
 //show services
 function show_service(id){
     if( $(window).width()>992)
@@ -184,6 +205,9 @@ if($("#change_password").is(":visible")){
 }
 else{
     $("#change_password").slideDown();
+    $('html,body').animate({
+        scrollTop: $("#change_password").offset().top
+    });
     $("#change_password").addClass('animate__animated animate__fadeIn');
 }
 };

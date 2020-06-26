@@ -92,8 +92,42 @@ def index(request):
 
 def profile(request):
     if request.session.has_key('user_id'):
+        if request.method == 'POST':
+            user_name = request.POST.get('user_name')
+            user_phone = request.POST.get('user_phone')
+            user_email = request.POST.get('user_email')
+            user_gender = request.POST.get('user_gender')
+            user_area = request.POST.get('user_area')
+            user_city = request.POST.get('user_city')
+            user_pincode = request.POST.get('user_pincode')
+            user_old_pass = request.POST.get('user_old_pass')
+            user_new_pass = request.POST.get('user_new_pass')
+            user_obj = user.objects.get(user_id=request.session['user_id'])
+            if valid_details(user_name, user_phone, user_email, user_gender, user_area,
+                             user_city, user_pincode, user_old_pass, user_new_pass):
+                print(True)
+                user_password = user_obj.user_password
+                if len(user_old_pass) >= 8 and len(user_new_pass) >= 8:
+                    user_hash_password = str(user_password)
+                    user_hash_password = user_hash_password[2:len(user_hash_password) - 1]
+                    check_pass = bcrypt.checkpw(user_old_pass.encode('utf8'), bytes(user_hash_password, 'utf-8'))
+                    if check_pass:
+                        user_password = bcrypt.hashpw(user_new_pass.encode('utf8'), bcrypt.gensalt())
+                    else:
+                        print("Incorrect Password")
+                user_obj = user.objects.filter(user_id=request.session['user_id'])
+                user_obj.update(user_name=user_name, user_phone=user_phone, user_email=user_email,
+                                user_gender=user_gender, user_area=user_area, user_city=user_city,
+                                user_pincode=user_pincode,
+                                user_password=user_password)
+                return redirect('profile')
+            else:
+                print("Invalid details")
+                return redirect('profile')
+
         user_obj = user.objects.get(user_id=request.session['user_id'])
-        return render(request, 'customer/profile.html', ({'user': user_obj}))
+        booking_obj = booking.objects.filter(user_id=user_obj)
+        return render(request, 'customer/newprofile.html', ({'bookings': booking_obj, 'user': user_obj}))
     return redirect('index')
 
 
