@@ -10,8 +10,8 @@ html {
 
 
 .body-bg-fixed{
-	background-image: url('../img/background.png');
-	background-attachment: scroll;
+	background-image: url('../background/pro_desktop.png');
+	background-size:cover;
 }
 .layer{
 	background: rgba(255,255,255,0.5);
@@ -478,6 +478,10 @@ html {
 }
 .body{
 	padding:90px 0;
+}
+
+.body td{
+    text-align:center;
 }
 h2{
 	text-align: center;
@@ -1873,8 +1877,8 @@ scrollbar-color: #4285F4 #F5F5F5;
 		.card{width: 100% !important; font-size: 10px !important;}
 		.body{
 			padding:0 2%;
-			padding-top:8%; 
-			margin-bottom: 4%;
+			padding-top:4%;
+			padding-bottom:4%;
 		}
 
 	}
