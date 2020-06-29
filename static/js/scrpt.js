@@ -10,6 +10,16 @@
 //  }
 //  prevScrollpos = currentScrollPos;
 //}
+window.pop_close=function(){
+    $('#book_tech_pop').fadeOut();
+};
+
+window.pop_open=function(id, name){
+    $('#book_tech_pop').fadeIn();
+    $('#technician').text(name);
+    $('#service_id').attr('value', id);
+    $('#service_id').hide();
+};
 
 window.onscroll = function(){
     if ($(window).scrollTop()>50 &&  $(window).width()<993 ){
@@ -261,6 +271,7 @@ function assign(id){
 
     }
 }
+
 
 window.trclick=function(id){
 if($("#"+id).is(":visible")){

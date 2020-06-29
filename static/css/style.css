@@ -352,8 +352,8 @@ html {
 	color: white; 
 	position: fixed; 
 	top:0vw; 
-	left:80vw; 
-	width: 70px; 
+	right:0px;
+	width: 70px;
 	height: 60px; 
 	z-index: 1001; 
 	font-size: 40px; 
@@ -541,6 +541,73 @@ h2{
 .bookings{
 padding-top:0px;
 margin:5%;
+}
+
+.book_ticket_cover{
+    display:none;
+    z-index:1000;
+    position:fixed;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.8)
+}
+
+.book_popup_card{
+    background:white;
+    width:40vw;
+    height:auto;
+    margin:auto;
+    margin-top:20vh;
+    border-radius:5px;
+}
+
+.book_popup_card .headers{
+
+    float:left;
+    width:38%;
+    text-align:right;
+    border-right:4px solid #004aad;
+    padding:0 10px;
+    margin: 10px 0;
+}
+
+
+.book_table_div{
+    background:linear-gradient(dodgerblue, skyblue);
+    padding:0 2vw;
+    width:100%;
+    height:auto;
+}
+.tech_book_table{
+    width:100%;
+    height:20vh;
+    border:none;
+}
+.book_popup_card button{
+    width:10vw;
+    color:black;
+}
+.book_popup_card img{
+    width:6vw;
+}
+.tech_book_table label{
+    color:white;
+    font-weight:bolder;
+    font-size:1vw;
+}
+.tech_book_table input, select{
+    width:100%;
+    font-size: 1vw !important;
+    height: 2vw;
+    border:none;
+    border-radius:5px;
+}
+.tech_book_table textarea{
+    width:100%;
+    font-size:1vw;
+    border:none;
+    border-radius:5px;
 }
 .book_tr{
     background:white;
@@ -1273,7 +1340,35 @@ scrollbar-color: #4285F4 #F5F5F5;
 }
 @media (max-width:767px)
 {
+    .book_popup_card{
+        width:90vw;
+    }
+.tech_book_table{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+.tech_book_table td{
+    margin:0;
+    padding:10px 2px !important;
+}
+.tech_book_table input, select{
+    font-size: 2.5vh !important;
+    height: 5vh;
+}
+.book_popup_card button{
+    width:40vw;
+}
+.book_popup_card img{
+    width:14vw;
+}
+.tech_book_table textarea{
+    font-size:2.5vh;
+}
+.tech_book_table label{
+    font-size:2vh;
 
+}
 	.pattern{
 		
 	}
@@ -1708,7 +1803,6 @@ scrollbar-color: #4285F4 #F5F5F5;
 		.xs {color:red;font-weight:bold;}
 		.card{width: 100% !important;}
 		.h5{font-size: 5px !important;}
-		.table{width: 50% !important;}
 		.link{font-size: 10px !important;}
 
 	}
@@ -1756,7 +1850,8 @@ scrollbar-color: #4285F4 #F5F5F5;
 	}
 
 	/* Large devices (desktops, 992px and up) */
-	@media (min-width: 992px) and (max-width:1200px) { 
+	@media (min-width: 992px) and (max-width:1200px) {
+
 		.bottom-bg{
 			height: 1366px;
 			background-repeat: repeat;

@@ -24,6 +24,82 @@
 	<body id="contents" class="">
 		<img src="static/background/bg3.png" class='bottom-bg' style="">
 		<div class="">
+			<!--------------------------------- BOOK SERVICE POPUP ------------------------------------------------>
+			<div id="book_tech_pop" class="book_ticket_cover">
+				<button class="mob_nav_close" onclick="pop_close()"><i class="fa fa-times" aria-hidden="true"></i></button>
+				<div class="book_popup_card">
+					<div class="headers">
+						<p style="font-size:2vw; font-weight:bolder; color:#004aad; margin-bottom:0">BOOK YOUR</p>
+						<p id="technician" style="font-weight:bolder; color:tomato; margin:0">technician</p>
+					</div>
+					<div style="float:right; width:20%">
+						<img src="{% static 'img/favicon.png' %}" >
+					</div>
+					<div class="clear"></div>
+					<div class="book_table_div">
+						<table class="tech_book_table table">
+							<form method="post">
+								{% csrf_token %}
+								<tr>
+									<td>
+										<label>
+											Phone:
+										</label>
+									</td>
+									<td colspan="3">
+										<input type="text" name="booking_phone" pattern="[0-9]{10}" required="required">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>
+											Locality:
+										</label>
+									</td>
+									<td colspan="3">
+										<input type="text" id="area" name="booking_area" pattern=".{2,100}" required="required">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>
+											City:
+										</label>
+									</td>
+									<td width="30%">
+										<select id="city" name="booking_city" required>
+											<option value="">City</option>
+											<option value="Jorhat">Jorhat</option>
+										</select>
+									</td>
+									<td>
+										<label>
+											Pincode:
+										</label>
+									</td>
+									<td width="30%">
+										<input type="text" id="pincode" name="booking_pincode" pattern="[0-9]{6}" required="required">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>
+											Comments:
+										</label>
+									</td>
+									<td colspan="3">
+										<textarea name="booking_desc" cols="3" placeholder="Optional"></textarea>
+									</td>
+									<input type="text" id="service_id" name="service_id" >
+								</tr>
+							</form>
+						</table>
+					</div>
+					<div style="width:100%; text-align:center; padding-bottom:10px">
+						<button class="getstarted-signup" > BOOK</button>
+					</div>
+				</div>
+			</div>
 			<!-------------------------------      METO LOGO DESKTOP VIEW                   --------------------------------->
 			
 			<div id="home-pc" class="home-pc">
@@ -76,7 +152,7 @@
 					<div class="nav-btn" style="position: absolute; top:34vw; left:18vw">
 						<button onclick='service_btn()' class="getstarted">SERVICES</button>
 					</div>
-					<div style="position: absolute;top:46vw; background: rgba(0,0,0,.5); width: 100%; text-align: right">
+					<div style="position: absolute;top:46.5vw; background: rgba(0,0,0,.5); width: 100%; text-align: right">
 						<text style="color:white; font-weight: lighter;padding-right: 50px;">Queries? Reach out to us at <a href="mailto: care@meto.co.in" style="color:white"><b>care@meto.co.in</b></a></text>
 					</div>
 					<div id="signup-bar" class="nav_pc_disp" >
@@ -220,19 +296,19 @@
 					</div>
 					<div id="mcat2" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/110'">
+							<div class="card" onclick="pop_open(110, 'Maid')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Maid</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/120'">
+							<div class="card" onclick="pop_open(120, 'Driver')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Driver</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/130'">
+							<div class="card" onclick="pop_open(130, 'Gardener')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Gardener</text>
 							</div>
@@ -240,31 +316,31 @@
 					</div>
 					<div id="mcat3" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/140'">
+							<div class="card" onclick="pop_open(140, 'Appointment')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Makeup</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/150'">
+							<div class="card" onclick="pop_open(150, 'Haircut')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Boys haircut</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/160'">
+							<div class="card" onclick="pop_open(160, 'Haircut')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Girls haircut</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/170'">
+							<div class="card" onclick="pop_open(170, 'Spa')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Spa</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/180'">
+							<div class="card" onclick="pop_open(180, 'Mehendi')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Mehendi</text>
 							</div>
@@ -312,19 +388,19 @@
 					</div>
 					<div id="cat2" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/110'">
+							<div class="card" onclick="pop_open(110, 'Maid')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Maid</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/120'">
+							<div class="card" onclick="pop_open(120, 'Driver')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Driver</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/130'">
+							<div class="card" onclick="pop_open(130, 'Gardener')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Gardener</text>
 							</div>
@@ -332,31 +408,31 @@
 					</div>
 					<div id="cat3" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/140'">
+							<div class="card" onclick="pop_open(140, 'Makeup')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Makeup</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/150'">
+							<div class="card" onclick="pop_open(150, 'Haircut')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Boys haircut</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/160'">
+							<div class="card" onclick="pop_open(160, 'Haircut')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Girls haircut</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/170'">
+							<div class="card" onclick="pop_open(170, 'Spa')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Spa</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/180'">
+							<div class="card" onclick="pop_open(180, 'Mehendi')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Mehendi</text>
 							</div>
@@ -364,19 +440,19 @@
 					</div>
 					<div id="cat4" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/190'">
+							<div class="card" onclick="pop_open(190, 'Photographer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Photographer</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/200'">
+							<div class="card" onclick="pop_open(200, 'Organizer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Organizer</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/210'">
+							<div class="card" onclick="pop_open(210, 'Caterer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Caterer</text>
 							</div>
@@ -384,13 +460,13 @@
 					</div>
 					<div id="cat5" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/220'">
+							<div class="card" onclick="pop_open(220, 'Doctor')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Doctor</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/230'">
+							<div class="card" onclick="pop_open(230, 'Lawyer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Lawyer</text>
 							</div>
@@ -398,19 +474,19 @@
 					</div>
 					<div id="cat6" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/240'">
+							<div class="card" onclick="pop_open(240, 'Grocery')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Grocery</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/250'">
+							<div class="card" onclick="pop_open(250, 'Veggies')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Veggies</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/260'">
+							<div class="card" onclick="pop_open(260, 'Fruits')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Fruits</text>
 							</div>
@@ -418,25 +494,25 @@
 					</div>
 					<div id="cat7" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/270'">
+							<div class="card" onclick="pop_open(270, 'Plumber')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Plumber</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/280'">
+							<div class="card" onclick="pop_open(280, 'Electrician')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Electrician</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/290'">
+							<div class="card" onclick="pop_open(290, 'Mechanic')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Mechanic</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/300'">
+							<div class="card" onclick="pop_open(300, 'Painter')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Painter</text>
 							</div>
@@ -444,13 +520,13 @@
 					</div>
 					<div id="cat8" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/310'">
+							<div class="card" onclick="pop_open(310, 'Bike')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Bike</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/320'">
+							<div class="card" onclick="pop_open(320, 'Taxi')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Taxi</text>
 							</div>
@@ -477,19 +553,19 @@
 				<div style="width: 100%; background: transparent; text-align: center;" >
 					<div id="mcat4" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/190'">
+							<div class="card" onclick="pop_open(190, 'Photographer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Photographer</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/200'">
+							<div class="card" onclick="pop_open(200, 'Organizer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Organizer</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/210'">
+							<div class="card" onclick="pop_open(210, 'Caterer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Caterer</text>
 							</div>
@@ -497,13 +573,13 @@
 					</div>
 					<div id="mcat5" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/220'">
+							<div class="card" onclick="pop_open(220, 'Doctor')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Doctor</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/230'">
+							<div class="card" onclick="pop_open(230, 'Lawyer')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Lawyer</text>
 							</div>
@@ -511,19 +587,19 @@
 					</div>
 					<div id="mcat6" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/240'">
+							<div class="card" onclick="pop_open(240, 'Grocery')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Grocery</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/250'">
+							<div class="card" onclick="pop_open(250, 'Veggies')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Veggies</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/260'">
+							<div class="card" onclick="pop_open(260, 'Fruits')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Fruits</text>
 							</div>
@@ -551,25 +627,25 @@
 				<div style="width: 100%; background: transparent; text-align: center;" >
 					<div id="mcat7" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/270'">
+							<div class="card" onclick="pop_open(270, 'Plumber')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Plumber</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/280'">
+							<div class="card" onclick="pop_open(280, 'Electrician')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Electrician</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/290'">
+							<div class="card" onclick="pop_open(290, 'Mechanic')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Mechanic</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/300'">
+							<div class="card" onclick="pop_open(300, 'Painter')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Painter</text>
 							</div>
@@ -577,13 +653,13 @@
 					</div>
 					<div id="mcat8" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/310'">
+							<div class="card" onclick="pop_open(310, 'Bike')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Bike</text>
 							</div>
 						</div>
 						<div class="col1">
-							<div class="card" onclick="window.location.href='/book/320'">
+							<div class="card" onclick="pop_open(320, 'Taxi')">
 								<img class="card-img-top" src="static/category.png" alt="Card image cap">
 								<text>Taxi</text>
 							</div>
