@@ -71,8 +71,8 @@ def assign_workers(request, service_id):
             date_obj.update(visiting_date=visiting_date, technician_assigned_date=technician_assigned_date)
             return redirect('assign_workers',service_id=booking_obj.service_id.service_id)
         service_obj = service.objects.get(service_id=service_id)
-        booking_obj = booking.objects.filter(service_id=service_obj, booking_status="Processing")
-        worker_obj = worker.objects.filter(service_id=service_obj)
+        booking_obj = booking.objects.filter(service_id=service_obj, booking_status="Processing").order_by('-booking_id')
+        worker_obj = worker.objects.filter(service_id=service_obj).order_by('name')
         work_count = []
         for i in worker_obj:
             work_count.append(assign_worker.objects.filter(worker_id=i).count())
@@ -86,7 +86,7 @@ def assign_workers(request, service_id):
 
 def workers(request):
     if request.session.has_key('staff_id'):
-        worker_obj = worker.objects.all()
+        worker_obj = worker.objects.all().order_by('worker_name')
         work_count = []
         for i in worker_obj:
             work_count.append(assign_worker.objects.filter(worker_id=i).count())

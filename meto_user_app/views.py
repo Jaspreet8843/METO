@@ -185,7 +185,7 @@ def book(request, service_id):
 def bookings(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
-        booking_obj = booking.objects.filter(user_id=user_obj)
+        booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
         return render(request, 'customer/bookings.html', ({'bookings': booking_obj, 'user': user_obj}))
     return redirect('index')
 
