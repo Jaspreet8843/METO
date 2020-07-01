@@ -10,6 +10,16 @@
 //  }
 //  prevScrollpos = currentScrollPos;
 //}
+window.pop_close=function(){
+    $('#book_tech_pop').fadeOut();
+};
+
+window.pop_open=function(id, name){
+    $('#book_tech_pop').fadeIn();
+    $('#technician').text(name);
+    $('#service_id').attr('value', id);
+    $('#service_id').hide();
+};
 
 window.onscroll = function(){
     if ($(window).scrollTop()>50 &&  $(window).width()<993 ){
@@ -33,6 +43,28 @@ window.service_btn=function(){
     $(window).scrollTop($('#cat').position().top);
         
 };
+
+// PROFILE PAGE MOBILE VIEW SWITCH
+
+function switch_bookings(){
+    $("#bookings_view").fadeIn();
+    $("#profile_view").hide();
+    $("#settings_view").hide();
+    $("#settings_view").hide();
+
+}
+
+function switch_settings(){
+    $("#settings_view").fadeIn();
+    $("#profile_view").hide();
+    $("#bookings_view").hide();
+}
+
+function switch_profile(){
+    $("#profile_view").fadeIn();
+    $("#bookings_view").hide();
+    $("#settings_view").hide();
+}
 
 //show services
 function show_service(id){
@@ -162,6 +194,20 @@ function check_pass() {
       }
     }
 
+function check_pass_pc() {
+      if (document.getElementById('password_pc').value == '' &&
+        document.getElementById('confirm_password_pc').value == '') {
+        document.getElementById('message').innerHTML = '';
+      }
+      else if (document.getElementById('password_pc').value ==
+        document.getElementById('confirm_password_pc').value) {
+        document.getElementById('message').innerHTML = '';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Password not matching';
+      }
+    }
+
 
 // for navbar hide on click mobile
 /*
@@ -184,9 +230,21 @@ if($("#change_password").is(":visible")){
 }
 else{
     $("#change_password").slideDown();
+    $('html,body').animate({
+        scrollTop: $("#change_password").offset().top
+    });
     $("#change_password").addClass('animate__animated animate__fadeIn');
 }
-};
+}
+window.passcheck_pc=function(){
+if($("#change_password_pc").is(":visible")){
+    $("#change_password_pc").slideUp();
+}
+else{
+    $("#change_password_pc").slideDown();
+    $("#change_password_pc").addClass('animate__animated animate__fadeIn');
+}
+}
 function fill_info(ar, ct, ph, pc, nm, ds, id){
     document.getElementById('area_info').innerHTML= ar;
     document.getElementById('city_info').innerHTML= ct;
@@ -214,6 +272,7 @@ function assign(id){
     }
 }
 
+
 window.trclick=function(id){
 if($("#"+id).is(":visible")){
     $("#"+id).slideUp();
@@ -221,7 +280,16 @@ if($("#"+id).is(":visible")){
 else{
     $("#"+id).slideDown();
 }
-};
+}
+
+function trclick_pc(id){
+if($("#pc"+id).is(":visible")){
+    $("#pc"+id).slideUp();
+}
+else{
+    $("#pc"+id).slideDown();
+}
+}
 
 //for loader
 window.onload = function () {

@@ -10,8 +10,8 @@ html {
 
 
 .body-bg-fixed{
-	background-image: url('../img/background.png');
-	background-attachment: scroll;
+	background-image: url('../background/pro_desktop.png');
+	background-size:cover;
 }
 .layer{
 	background: rgba(255,255,255,0.5);
@@ -105,14 +105,255 @@ html {
 .service_pop .col1{
 	width: 33%;
 }
+.pro_desktop{
+    width:100%;
+    height:50vw;
+    background-image:url('../background/pro_desktop.png');
+    background-size:cover;
+    padding-top:8%;
+
+}
+
+.pro_desktop .inner_card{
+    margin:auto;
+    width:60%;
+    height: 35vw;
+    background:white;
+    padding:3%;
+    padding-top:0;
+    border-radius:10px;
+}
+.pro_desktop .inner_card img{
+    width:15%;
+    margin:0 10%;
+}
+.pro_desktop .active a{
+    color:#004aad !important;
+    font-weight:bold;
+    font-size:1.2vw;
+}
+.pro_desktop .inactive a{
+    color:tomato;
+    font-size:1.2vw;
+    font-weight:bold;
+    -webkit-transition: max-height 0.2s ease-in-out;
+    -moz-transition: max-height 0.2s ease-in-out;
+    -o-transition: max-height 0.2s ease-in-out;
+    transition: max-height 0.2s ease-in-out;
+
+}
+.pro_desktop .inactive a:hover{
+    color:#004aad !important;
+    font-weight:bold;
+    text-decoration:none;
+}
+.pro_desktop .inner_card .inner_left{
+    float:left;
+    width:30%;
+    margin-top:3%;
+    height: 95%;
+    display:block;
+    position:relative;
+}
+.pro_desktop .inner_card .inactive{
+    background:#ffeeda;
+    border-bottom:1px solid orangered;
+    border-radius:10px;
+}
+.pro_desktop .inner_card .active{
+    background:#c4e3ff;
+    border-left:4px solid #004aad;
+    border-right:4px solid #004aad;
+    border-bottom: 1px solid #004aad;
+    border-radius:10px;
+}
+.pro_desktop .inner_card p{
+    width:100%;
+    height:4vw;
+    margin:0;
+    line-height:4vw;
+
+}
+.pro_desktop .inner_card b{
+    font-size:1.15vw;
+}
+.pro_desktop .inner_card .display_picture{
+    display:block;
+    width:75%;
+    margin:auto;
+    margin-top:15%;
+    background:linear-gradient(dodgerblue, white);
+    border-radius:100%;
+}
+
+.pro_desktop .inner_right{
+    float:left;
+    width:70%;
+    padding-left:2%;
+    height:100%;
+}
+.inner_right .inner_right_card img{
+    width: 2.5vw;
+}
+.pro_desktop .inner_right .inner_right_card{
+    background:#c4e3ff;
+    height:86%;
+    display:block;
+    border-top:4px solid #004aad;
+    border-bottom:4px solid #004aad;
+    border-radius:20px;
+    padding:2% 5%;
+}
+.inner_right .inner_right_card table{
+    height:100%;
+    width:100%;
+}
+.inner_right .inner_right_card table table{
+    height:80%;
+}
+
+.inner_right .inner_right_card td{
+    text-align:left;
+
+}
+.inner_right_card .right_title{
+    font-size:1vw;
+    font-weight:bold;
+    color: grey;
+}
+.inner_right_card .right_info{
+    font-size:1.2vw;
+    font-weight:bold;
+    color: #004aad;
+}
+
+.pro_mob{
+	width: 100%;
+}
+
+.pro_mob img{
+	width: 35%; 
+	border-radius: 100%; 
+	margin: 10%; 
+	margin-bottom: 5%;
+	margin-top: 20%;
+	border:4px solid white;
+}
+.pro_mob a{
+	color: white; 
+	font-weight: bold;
+	-webkit-transition: max-height 0.2s ease-in-out;
+    -moz-transition: max-height 0.2s ease-in-out;
+    -o-transition: max-height 0.2s ease-in-out;
+    transition: max-height 0.2s ease-in-out;
+
+}
+.pro_mob a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+.pro_mob hr{
+	width: 60%; 
+	background-color: white; 
+	height: 4px; 
+	border-radius: 10px; 
+	margin: auto;
+}
+
+.pro_mob_bg{
+	background:url('../background/pro_mob.png'); 
+	text-align: center; 
+	background-size: cover;
+	background-repeat:no-repeat;  
+	padding-bottom: 7px;
+}
+
+.pro_mob_edit{
+	margin:8% 15%;
+}
+.pro_mob_edit h5{
+	color: dodgerblue;
+	padding-left: 1%;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.pro_mob_edit input{
+	width: 100%;
+	border:none;
+	border-bottom: 1px solid lightgrey;
+	margin-bottom: 10%; 
+	outline: none !important;
+}
+.pro_mob_edit input:focus{
+	border-bottom: 2px solid dodgerblue;
+}
+
+.pro_mob_edit select{
+	width: 100%;
+	border:none;
+	background:none;
+	outline: none !important;
+	border-bottom: 1px solid lightgrey;
+	margin-bottom: 10%;
+}
+
+.pro_mob_edit input[type=checkbox]{
+	width: 5%;
+}
+.pro_mob_edit label{
+	color: grey;
+	font-weight: lighter;
+}
+
+.pro_mob_edit button{
+	margin: 5%;
+	background: dodgerblue;
+	color: white;
+	font-weight: bold;
+	width: 150px;
+	height: 50px;
+	border: none;
+	outline: none;
+	border-radius: 50px;
+
+}
+.pro_mob_info{
+
+}
+
+.pro_mob_info img{
+	width: 15%;
+	border-radius: 0;
+	margin:0 5%;
+	float: left;
+	vertical-align: middle;
+}
+
+.pro_mob_info h5{
+	color: grey;
+	font-weight: lighter;
+	font-size: 14px;
+}
+.pro_mob_info h4{
+	font-size: 18px;
+	float: right;
+	width: 75%;
+	word-wrap: break-word; 
+}
+.pro_mob_info .details{
+	margin: 8%;
+}
+
 
 .mob_nav_close{
 	background: transparent; 
 	color: white; 
 	position: fixed; 
 	top:0vw; 
-	left:80vw; 
-	width: 70px; 
+	right:0px;
+	width: 70px;
 	height: 60px; 
 	z-index: 1001; 
 	font-size: 40px; 
@@ -238,6 +479,10 @@ html {
 .body{
 	padding:90px 0;
 }
+
+.body td{
+    text-align:center;
+}
 h2{
 	text-align: center;
 	font-weight: bolder !important;
@@ -284,10 +529,7 @@ h2{
 }
 
 
-td{
-	padding: 10px !important;
-	text-align: center;
-}
+
 .spacing{
 	right: 40px;
 	padding:20px;
@@ -301,17 +543,85 @@ td{
 }
 
 .bookings{
-padding-top:100px;
+padding-top:0px;
 margin:5%;
+}
+
+.book_ticket_cover{
+    display:none;
+    z-index:1000;
+    position:fixed;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.8)
+}
+
+.book_popup_card{
+    background:white;
+    width:40vw;
+    height:auto;
+    margin:auto;
+    margin-top:20vh;
+    border-radius:5px;
+}
+
+.book_popup_card .headers{
+
+    float:left;
+    width:38%;
+    text-align:right;
+    border-right:4px solid #004aad;
+    padding:0 10px;
+    margin: 10px 0;
+}
+
+
+.book_table_div{
+    background:linear-gradient(dodgerblue, skyblue);
+    padding:0 2vw;
+    width:100%;
+    height:auto;
+}
+.tech_book_table{
+    width:100%;
+    height:20vh;
+    border:none;
+}
+.book_popup_card button{
+    width:10vw;
+    color:black;
+}
+.book_popup_card img{
+    width:6vw;
+}
+.tech_book_table label{
+    color:white;
+    font-weight:bolder;
+    font-size:1vw;
+}
+.tech_book_table input, select{
+    width:100%;
+    font-size: 1vw !important;
+    height: 2vw;
+    border:none;
+    border-radius:5px;
+}
+.tech_book_table textarea{
+    width:100%;
+    font-size:1vw;
+    border:none;
+    border-radius:5px;
 }
 .book_tr{
     background:white;
     margin:20px 0 !important;
     width: 100%;
-    border-radius:10px;
-    -webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+    height:100px;
+    border: 1px solid skyblue;
+    border-radius:10px ;
+
+
 }
 .book_tr td{
     padding:5px !important;
@@ -321,17 +631,15 @@ margin:5%;
     }
 
 .book_drop{
-    background:skyblue;
-    border-radius:0 0 10px 10px;
+    text-align:center;
+    background-image:linear-gradient(skyblue, white);
     -webkit-transition: all .2s ease-out;
 	-moz-transition: all .2s ease-out;
 	-o-transition: all .2s ease-out;
 	-ms-transition: all .2s ease-out;
 	transition: all .2s ease-out;
 }
-.book_drop:hover{
-    background:grey;
-}
+
 .book_drop_down{
 display:none;
 }
@@ -383,6 +691,7 @@ display:none;
     width:100%;
     border-radius:10px;
     background:skyblue;
+    margin-top:50px;
 
 }
 
@@ -431,6 +740,7 @@ display:none;
     background:white !important;
     border-radius:10px;
     margin:20px auto;
+    margin-top:20px !important;
     border-radius:10px;
  }
   .assign-worker-info label{
@@ -496,17 +806,23 @@ display:none;
     overflow-y:scroll;
     display:inline-block;
 }*/
+
+.assign-book-scroll td{
+    padding:0px !important;
+}
 .assign-worker-booking{
     background:skyblue;
-    margin:40px;
+    margin-top:100px;
     padding:10px;
-    width:95%;
+    width:100%;
     border-radius:10px;
 
 }
 
 .assign-worker-booking select{
     border-radius:10px;
+    margin:10px;
+    width:auto;
 }
 
 .assign-worker-booking-inner td{
@@ -852,7 +1168,6 @@ label{
 }
 table{
 
-	background-color:#D0D3D4;
 	height: 100%;
 
 }
@@ -878,6 +1193,7 @@ table{
 	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
+	border-radius:5px;
 }
 .login-input{
 	padding: 10px !important;
@@ -893,6 +1209,31 @@ table{
     border-radius:5px;
 	padding: 10px !important;
 	width: 240px;
+}
+.scrollbar {
+margin-left: 30px;
+float: left;
+height: 300px;
+width: 65px;
+background: #fff;
+overflow-y: scroll;
+margin-bottom: 25px;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+width: 12px;
+border-radius:10px;
+background-color: #F5F5F5;
+margin:10px !important;
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+border-radius: 20px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #4285F4; }
+
+.scrollbar-primary {
+scrollbar-color: #4285F4 #F5F5F5;
 }
 .btn-round{
 	width: 200px !important;
@@ -927,9 +1268,6 @@ table{
 	line-height:24px;
 	color:#737373;
 	margin-top:50px;
-	-webkit-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	-moz-box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
-	box-shadow: -1px 0px 16px 2px rgba(92,86,92,1);
 }
 .site-footer hr
 {
@@ -1015,7 +1353,37 @@ table{
 }
 @media (max-width:767px)
 {
+    .book_popup_card{
+        width:90vw;
+        overflow-y:auto;
+        max-height:80%;
+    }
+.tech_book_table{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+.tech_book_table td{
+    margin:0;
+    padding:10px 2px !important;
+}
+.tech_book_table input, select{
+    font-size: 16px !important;
+    height: 25px;
+}
+.book_popup_card button{
+    width:40vw;
+}
+.book_popup_card img{
+    width:14vw;
+}
+.tech_book_table textarea{
+    font-size:16px;
+}
+.tech_book_table label{
+    font-size:16px;
 
+}
 	.pattern{
 		
 	}
@@ -1100,9 +1468,47 @@ table{
 {
 	background-color:#007bb6
 }
+@media (min-width:768px)
+{
+    .book_tr{
+        height:100px;
+    }
+    .pro_mob_edit{
+        width:100%;
+        border-radius:10px;
+        margin:0;
+        margin-top:1vw;
+        height:23vw;
+        overflow-y:scroll;
+        padding:20px;
+    }
+    .pro_mob_edit input, .pro_mob_edit select{
+        margin-bottom:1.5vw;
+        font-size:1.2vw;
+    }
+    .pro_mob_edit h5{
+        font-size:0.8vw;
+    }
+    .pro_mob_edit button{
+        width:10vw;
+        height: 3vw;
+        font-size:1.2vw;
+    }
+    .pro_mob_edit label{
+        font-size: 1.2vw;
+    }
 
+    .pro_mob{
+    display:none;
+    }
+}
 @media (max-width:767px)
-{   .about_pc{
+{
+    .pro_desktop{
+        display:none;
+    }
+
+    .about_pc{
         display:none;
     }
     .about_mob{
@@ -1230,10 +1636,7 @@ table{
 	.booking select{
 		width: 100%;
 	}
-	.align-btn td{
 
-
-	}
 	.pro-btn{
 		padding: 10px 20px !important;
 		margin:5px !important;
@@ -1307,10 +1710,7 @@ table{
 		.cardmargin{
 			width: 100%;
 		}
-		td{
-			padding: 0px !important;
-			margin:0px !important;
-		}
+
 		.login{
 			margin-top:5% !important;
 			margin-left:25% !important;
@@ -1354,9 +1754,7 @@ table{
 	.progtrckr-todo{
 	font-size:12px;
 	}
-	.book_drop:hover{
-    background:skyblue;
-}
+
 	    .book_stats{
 	    width:150px;
 	    font-size:12px !important;
@@ -1420,10 +1818,7 @@ table{
 		.xs {color:red;font-weight:bold;}
 		.card{width: 100% !important;}
 		.h5{font-size: 5px !important;}
-		.table{width: 50% !important;}
 		.link{font-size: 10px !important;}
-		td{padding: 2px !important;}
-		table{margin:0px 0px !important;}
 
 	}
 
@@ -1470,7 +1865,8 @@ table{
 	}
 
 	/* Large devices (desktops, 992px and up) */
-	@media (min-width: 992px) and (max-width:1200px) { 
+	@media (min-width: 992px) and (max-width:1200px) {
+
 		.bottom-bg{
 			height: 1366px;
 			background-repeat: repeat;
@@ -1492,8 +1888,8 @@ table{
 		.card{width: 100% !important; font-size: 10px !important;}
 		.body{
 			padding:0 2%;
-			padding-top:8%; 
-			margin-bottom: 4%;
+			padding-top:4%;
+			padding-bottom:4%;
 		}
 
 	}
