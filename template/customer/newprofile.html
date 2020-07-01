@@ -32,7 +32,7 @@
      style="background: rgba(0,0,0,.5); position: fixed;width: 100%; height: 1024px; z-index: 999;  display: none"></div>
 <div class="nav_mob_disp" id="signup-bar-mob">
 
-    <img src="{% static '/img/favicon.png' %}">
+    <img src="{% static '/img/favicon.png' %}" onclick="window.location.href='../'">
     <text style="color:white; font-weight: lighter;padding-right: 0px;">
         <button class="getstarted-signup" onclick="window.location.href='../logout'"><i aria-hidden="true"
                                                                                         class="fa fa-sign-out"></i> log
@@ -91,7 +91,7 @@
                 <button class="getstarted" onclick="window.location.href='../#about'">ABOUT</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:12vh; left:20vh; z-index: 1000;">
-                <button class="getstarted" onclick="#cat">PROFILE</button>
+                <button class="getstarted" onclick="window.location.href='#'">PROFILE</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:82vh; left:20vh; z-index: 1000;">
                 <button class="getstarted" onclick="window.location.href='../#cat'">SERVICES</button>
@@ -550,7 +550,7 @@
             </div>
             <div class="clear"></div>
         </div>
-        <form action="" method="post"> {% csrf_token %}
+        <form action="/edit_profile/" method="post"> {% csrf_token %}
             <div class="pro_mob_edit">
                 <div class="details">
                     <h5> Name:</h5>
@@ -655,7 +655,7 @@
         <div class="inner_right">
             <h3 style="text-align:center; font-size:3.4vw; color:#004aad;"><b>USER DASHBOARD</b></h3>
             <div class="inner_right_card">
-                <form action="" method="post"> {% csrf_token %}
+                <form action="/edit_profile/" method="post"> {% csrf_token %}
                     <div class="pro_mob_edit scrollbar scrollbar-primary" style="border:1px solid dodgerblue;">
                         <div class="details">
                             <h5> Name:</h5>

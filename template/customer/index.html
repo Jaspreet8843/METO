@@ -38,7 +38,7 @@
 					<div class="clear"></div>
 					<div class="book_table_div">
 						<table class="tech_book_table table">
-							<form method="post">
+							<form method="post" action="/book/">
 								{% csrf_token %}
 								<tr>
 									<td>
@@ -92,12 +92,12 @@
 									</td>
 									<input type="text" id="service_id" name="service_id" >
 								</tr>
-							</form>
 						</table>
 					</div>
 					<div style="width:100%; text-align:center; padding-bottom:10px">
-						<button class="getstarted-signup" > BOOK</button>
+						<button class="getstarted-signup">BOOK</button>
 					</div>
+					</form>
 				</div>
 			</div>
 			<!-------------------------------      METO LOGO DESKTOP VIEW                   --------------------------------->
@@ -138,10 +138,10 @@
 					
 					
 					<div class="nav-btn" style="position: absolute; top:24vw; left:1vw">
-						<button class="getstarted" onclick="window.location.href='#'">CONTACT</button>
+						<button class="getstarted" onclick="window.location.href='#contact'">CONTACT</button>
 					</div>
 					<div class="nav-btn" style="position: absolute; top:19vw; left:9vw">
-						<button class="getstarted" onclick="window.location.href='../bookings'">BOOKINGS</button>
+						<button class="getstarted" onclick="window.location.href='../profile'">BOOKINGS</button>
 					</div>
 					<div class="nav-btn" style="position: absolute; top:29vw; left:9vw">
 						<button class="getstarted" onclick="window.location.href='#about'">ABOUT</button>
@@ -157,9 +157,9 @@
 					</div>
 					<div id="signup-bar" class="nav_pc_disp" >
 						{% if user.user_name is defined %}
-						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
+						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
 						{% else %}
-						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 50px;">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
+						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;cursor: pointer;" onclick="window.location.href='../profile'">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
 						{% endif %}
 					</div>
 				</div>
@@ -229,9 +229,9 @@
 					</div>
 					<div id="signup-bar-mob" class="nav_mob_disp">
 						{% if user.user_name is defined %}
-						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 0px;"><button class="getstarted-signup" onclick="window.location.href='../signup'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
+						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 0px;"><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
 						{% else %}
-						<img src="static/img/favicon.png"><text style="color:white; font-weight: lighter;padding-right: 0px;"> <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
+						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 0px;"> <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
 						{% endif %}
 					</div>
 				</div>
@@ -244,7 +244,7 @@
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1 " onclick="show_service('cat1')">
 					<div class="card" id="card-cat1">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Trending</text>
 					</div>
 				</div>
@@ -253,7 +253,7 @@
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat2')">
 					<div class="card" id="card-cat2">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Home</text>
 					</div>
 				</div>
@@ -262,7 +262,7 @@
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat3')">
 					<div class="card" id="card-cat3">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Beauty</text>
 					</div>
 				</div>
@@ -297,19 +297,19 @@
 					<div id="mcat2" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(110, 'Maid')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/maid.png" alt="Card image cap">
 								<text>Maid</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(120, 'Driver')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/driver.png" alt="Card image cap">
 								<text>Driver</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(130, 'Gardener')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/gardener.png" alt="Card image cap">
 								<text>Gardener</text>
 							</div>
 						</div>
@@ -317,31 +317,31 @@
 					<div id="mcat3" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(140, 'Appointment')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/makeup.png" alt="Card image cap">
 								<text>Makeup</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(150, 'Haircut')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/barber.png" alt="Card image cap">
 								<text>Boys haircut</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(160, 'Haircut')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/barber2.png" alt="Card image cap">
 								<text>Girls haircut</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(170, 'Spa')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/spa.png" alt="Card image cap">
 								<text>Spa</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(180, 'Mehendi')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/henna.png" alt="Card image cap">
 								<text>Mehendi</text>
 							</div>
 						</div>
@@ -350,7 +350,7 @@
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat4')">
 					<div class="card" id="card-cat4">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Occasion</text>
 					</div>
 				</div>
@@ -389,19 +389,19 @@
 					<div id="cat2" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(110, 'Maid')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/maid.png" alt="Card image cap">
 								<text>Maid</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(120, 'Driver')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/driver.png" alt="Card image cap">
 								<text>Driver</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(130, 'Gardener')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/gardener.png" alt="Card image cap">
 								<text>Gardener</text>
 							</div>
 						</div>
@@ -409,31 +409,31 @@
 					<div id="cat3" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(140, 'Makeup')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/makeup.png" alt="Card image cap">
 								<text>Makeup</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(150, 'Haircut')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/barber.png" alt="Card image cap">
 								<text>Boys haircut</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(160, 'Haircut')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/barber2.png" alt="Card image cap">
 								<text>Girls haircut</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(170, 'Spa')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/spa.png" alt="Card image cap">
 								<text>Spa</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(180, 'Mehendi')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/henna.png" alt="Card image cap">
 								<text>Mehendi</text>
 							</div>
 						</div>
@@ -441,19 +441,19 @@
 					<div id="cat4" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(190, 'Photographer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/photographer.png" alt="Card image cap">
 								<text>Photographer</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(200, 'Organizer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/organizer.png" alt="Card image cap">
 								<text>Organizer</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(210, 'Caterer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/caterar.png" alt="Card image cap">
 								<text>Caterer</text>
 							</div>
 						</div>
@@ -461,13 +461,13 @@
 					<div id="cat5" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(220, 'Doctor')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/doctor.png" alt="Card image cap">
 								<text>Doctor</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(230, 'Lawyer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/lawyer.png" alt="Card image cap">
 								<text>Lawyer</text>
 							</div>
 						</div>
@@ -475,19 +475,19 @@
 					<div id="cat6" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(240, 'Grocery')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/grocery.png" alt="Card image cap">
 								<text>Grocery</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(250, 'Veggies')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/vegetables.png" alt="Card image cap">
 								<text>Veggies</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(260, 'Fruits')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/fruits.png" alt="Card image cap">
 								<text>Fruits</text>
 							</div>
 						</div>
@@ -495,25 +495,25 @@
 					<div id="cat7" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(270, 'Plumber')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/plumber.png" alt="Card image cap">
 								<text>Plumber</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(280, 'Electrician')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/electrician.png" alt="Card image cap">
 								<text>Electrician</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(290, 'Mechanic')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/mechanic.png" alt="Card image cap">
 								<text>Mechanic</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(300, 'Painter')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/painter.png" alt="Card image cap">
 								<text>Painter</text>
 							</div>
 						</div>
@@ -521,14 +521,20 @@
 					<div id="cat8" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(310, 'Bike')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/motorbike.png" alt="Card image cap">
 								<text>Bike</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(320, 'Taxi')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/taxi.png" alt="Card image cap">
 								<text>Taxi</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card" onclick="pop_open(320, 'Taxi')">
+								<img class="card-img-top" src="static/services/bus.png" alt="Card image cap">
+								<text>ASTC Bus</text>
 							</div>
 						</div>
 					</div>
@@ -536,14 +542,14 @@
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat5')">
 					<div class="card" id="card-cat5">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Appointment</text>
 					</div>
 				</div>
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat6')">
 					<div class="card" id="card-cat6">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Daily needs</text>
 					</div>
 				</div>
@@ -554,19 +560,19 @@
 					<div id="mcat4" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(190, 'Photographer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/photographer.png" alt="Card image cap">
 								<text>Photographer</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(200, 'Organizer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/organizer.png" alt="Card image cap">
 								<text>Organizer</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(210, 'Caterer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/caterar.png" alt="Card image cap">
 								<text>Caterer</text>
 							</div>
 						</div>
@@ -574,13 +580,13 @@
 					<div id="mcat5" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(220, 'Doctor')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/doctor.png" alt="Card image cap">
 								<text>Doctor</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(230, 'Lawyer')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/lawyer.png" alt="Card image cap">
 								<text>Lawyer</text>
 							</div>
 						</div>
@@ -588,19 +594,19 @@
 					<div id="mcat6" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(240, 'Grocery')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/grocery.png" alt="Card image cap">
 								<text>Grocery</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(250, 'Veggies')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/vegetables.png" alt="Card image cap">
 								<text>Veggies</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(260, 'Fruits')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/fruits.png" alt="Card image cap">
 								<text>Fruits</text>
 							</div>
 						</div>
@@ -609,14 +615,14 @@
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat7')">
 					<div class="card" id="card-cat7">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Maintainence</text>
 					</div>
 				</div>
 				<!------------------------------------------------------------------------------------------------------------------------------->
 				<div class="col1" onclick="show_service('cat8')">
 					<div class="card" id="card-cat8">
-						<img class="card-img-top" src="static/category.png" alt="Card image cap">
+						<img class="card-img-top" src="static/services/beauty.png" alt="Card image cap">
 						<text>Transport</text>
 					</div>
 				</div>
@@ -628,25 +634,25 @@
 					<div id="mcat7" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(270, 'Plumber')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/plumber.png" alt="Card image cap">
 								<text>Plumber</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(280, 'Electrician')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/electrician.png" alt="Card image cap">
 								<text>Electrician</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(290, 'Mechanic')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/mechanic.png" alt="Card image cap">
 								<text>Mechanic</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(300, 'Painter')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/painter.png" alt="Card image cap">
 								<text>Painter</text>
 							</div>
 						</div>
@@ -654,14 +660,20 @@
 					<div id="mcat8" style="display: none;" class="slideUp service_pop">
 						<div class="col1">
 							<div class="card" onclick="pop_open(310, 'Bike')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/motorbike.png" alt="Card image cap">
 								<text>Bike</text>
 							</div>
 						</div>
 						<div class="col1">
 							<div class="card" onclick="pop_open(320, 'Taxi')">
-								<img class="card-img-top" src="static/category.png" alt="Card image cap">
+								<img class="card-img-top" src="static/services/taxi.png" alt="Card image cap">
 								<text>Taxi</text>
+							</div>
+						</div>
+						<div class="col1">
+							<div class="card" onclick="pop_open(320, 'Taxi')">
+								<img class="card-img-top" src="static/services/bus.png" alt="Card image cap">
+								<text>ASTC Bus</text>
 							</div>
 						</div>
 					</div>
@@ -731,7 +743,7 @@
 			</div>
 			<!-- Footer -->
 			<!-- Site footer -->
-			<footer class="site-footer " style="background:rgba(0,0,0,.8); margin-top:0;">
+			<footer class="site-footer " style="background:rgba(0,0,0,.8); margin-top:0;" id="contact">
 				<div class="container">
 					<hr>
 				</div>

@@ -11,6 +11,8 @@ from django.utils import timezone
 from django.contrib import messages
 
 # Create your views here.
+
+#LOGIN --------------------------------------------------------
 def login(request):
     if request.session.has_key('user_id'):
         return redirect('index')
@@ -47,6 +49,7 @@ def login(request):
         return render(request, 'customer/login.html')
 
 
+#SIGNUP --------------------------------------------------------
 def signup(request):
     if request.session.has_key('user_id'):
         return redirect('index')
@@ -90,55 +93,24 @@ def signup(request):
                 return redirect('login')
         return render(request, 'customer/login.html')
 
-
+#LOGOUT --------------------------------------------------------
 def logout(request):
-    del request.session['user_id']
+    if request.session.has_key('user_id'):
+        del request.session['user_id']
     return redirect('index')
 
+#HOMEPAGE --------------------------------------------------------
 def index(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         return render(request, 'customer/index.html', ({'user': user_obj}))
     return render(request, 'customer/index.html')
 
-
+#PROFILE & EDIT PROFILE & BOOKINGS------------------------------------------
 def profile(request):
     if request.session.has_key('user_id'):
-        if request.method == 'POST':
-            user_name = request.POST.get('user_name')
-            user_phone = request.POST.get('user_phone')
-            user_email = request.POST.get('user_email')
-            user_gender = request.POST.get('user_gender')
-            user_area = request.POST.get('user_area')
-            user_city = request.POST.get('user_city')
-            user_pincode = request.POST.get('user_pincode')
-            user_old_pass = request.POST.get('user_old_pass')
-            user_new_pass = request.POST.get('user_new_pass')
-            user_obj = user.objects.get(user_id=request.session['user_id'])
-            if valid_details(user_name, user_phone, user_email, user_gender, user_area,
-                             user_city, user_pincode, user_old_pass, user_new_pass):
-                print(True)
-                user_password = user_obj.user_password
-                if len(user_old_pass) >= 8 and len(user_new_pass) >= 8:
-                    user_hash_password = str(user_password)
-                    user_hash_password = user_hash_password[2:len(user_hash_password) - 1]
-                    check_pass = bcrypt.checkpw(user_old_pass.encode('utf8'), bytes(user_hash_password, 'utf-8'))
-                    if check_pass:
-                        user_password = bcrypt.hashpw(user_new_pass.encode('utf8'), bcrypt.gensalt())
-                    else:
-                        print("Incorrect Password")
-                user_obj = user.objects.filter(user_id=request.session['user_id'])
-                user_obj.update(user_name=user_name, user_phone=user_phone, user_email=user_email,
-                                user_gender=user_gender, user_area=user_area, user_city=user_city,
-                                user_pincode=user_pincode,
-                                user_password=user_password)
-                return redirect('profile')
-            else:
-                print("Invalid details")
-                return redirect('profile')
-
         user_obj = user.objects.get(user_id=request.session['user_id'])
-        booking_obj = booking.objects.filter(user_id=user_obj)
+        booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_date')
         return render(request, 'customer/newprofile.html', ({'bookings': booking_obj, 'user': user_obj}))
     return redirect('index')
 
@@ -158,7 +130,7 @@ def edit_profile(request):
             user_obj = user.objects.get(user_id=request.session['user_id'])
             if valid_details(user_name, user_phone, user_email, user_gender, user_area,
                              user_city, user_pincode, user_old_pass, user_new_pass):
-                print(True)
+                # print(True)
                 user_password = user_obj.user_password
                 if len(user_old_pass) >= 8 and len(user_new_pass) >= 8:
                     user_hash_password = str(user_password)
@@ -176,14 +148,22 @@ def edit_profile(request):
                 return redirect('profile')
             else:
                 print("Invalid details")
-                return redirect('edit_profile')
-        else:
-            user_obj = user.objects.get(user_id=request.session['user_id'])
-            return render(request, 'customer/edit_profile.html', ({'user': user_obj}))
+                return redirect('profile')
+        # else:
+        #     user_obj = user.objects.get(user_id=request.session['user_id'])
+        #     return render(request, 'customer/edit_profile.html', ({'user': user_obj}))
     return redirect('index')
 
+def bookings(request):
+    if request.session.has_key('user_id'):
+        user_obj = user.objects.get(user_id=request.session['user_id'])
+        booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
+        return HttpResponse("old page")
+        return render(request, 'customer/bookings.html', ({'bookings': booking_obj, 'user': user_obj}))
+    return redirect('index')
 
-def book(request, service_id):
+#BOOK SERVICE -----------------------------------------------------------
+def book(request):
     if request.session.has_key('user_id'):
         if request.method == 'POST':
             booking_desc = request.POST.get('booking_desc')
@@ -191,8 +171,9 @@ def book(request, service_id):
             booking_city = request.POST.get('booking_city')
             booking_pincode = request.POST.get('booking_pincode')
             booking_phone = request.POST.get('booking_phone')
+            service_id = request.POST.get('service_id')
             if valid_booking(booking_pincode, booking_phone):
-                print(True)
+                # print(True)
                 try:
                     user_obj = user.objects.get(user_id=request.session['user_id'])
                     service_obj = service.objects.get(service_id=service_id)
@@ -201,27 +182,19 @@ def book(request, service_id):
                                           booking_area=booking_area,
                                           booking_city=booking_city, booking_pincode=booking_pincode)
                     booking_obj.save()
-                    print(booking_obj)
                     date_obj = date(booking_id=booking_obj)
                     date_obj.save()
+                    return HttpResponse("Booking successful")
                 except Exception as e:
                     print(e)
-                    print("Failed booking")
+                    # print("Failed booking")
             else:
                 print("Invalid details")
             return redirect('index')
-        user_obj = user.objects.get(user_id=request.session['user_id'])
-        service_obj = service.objects.get(service_id=service_id)
-        return render(request, 'customer/book_ticket.html', ({'user': user_obj, 'service': service_obj}))
+        # user_obj = user.objects.get(user_id=request.session['user_id'])
+        # service_obj = service.objects.get(service_id=service_id)
+        # return render(request, 'customer/book_ticket.html', ({'user': user_obj, 'service': service_obj}))
     return redirect('login')
-
-
-def bookings(request):
-    if request.session.has_key('user_id'):
-        user_obj = user.objects.get(user_id=request.session['user_id'])
-        booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
-        return render(request, 'customer/bookings.html', ({'bookings': booking_obj, 'user': user_obj}))
-    return redirect('index')
 
 
 def feedback(request):
@@ -231,6 +204,7 @@ def feedback(request):
 def about(request):
     return HttpResponse("Under construction")
 
+#FORGOT PASS --------------------------------------------------------
 def forgotpass(request):
     if request.method=='POST':
         phone = request.POST.get('recovery_phone')
@@ -253,6 +227,7 @@ def forgotpass(request):
             print(e)
     return HttpResponse("Something went wrong. Try again.")
 
+#RESET PASS --------------------------------------------------------
 def resetpass(request,recovery_id):
     if request.method=='POST':
         new_pass = request.POST.get('new_password')
