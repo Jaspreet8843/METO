@@ -243,3 +243,6 @@ def resetpass(request,recovery_id):
         return redirect('login')
     return render(request,'customer/password_reset.html')
 
+def not_found(request,exception):
+    return render(request,'404.html')
+

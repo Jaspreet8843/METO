@@ -207,19 +207,19 @@
 							
 							<div>
 								<div class="nav-btn" style="position: fixed; top:47vh; left:3vh; z-index: 1000;">
-									<button class="getstarted">CONTACT</button>
+									<button class="getstarted" onclick="navbar_close();window.location.href='#contact'">CONTACT</button>
 								</div>
 								<div class="nav-btn" style="position: fixed; top:30vh; left:13vh; z-index: 1000;">
-									<button class="getstarted" onclick="window.location.href='../profile'">BOOKINGS</button>
+									<button class="getstarted" onclick="navbar_close();window.location.href='../profile'">BOOKINGS</button>
 								</div>
 								<div class="nav-btn" style="position: fixed; top:65vh; left:13vh; z-index: 1000;">
-									<button class="getstarted">ABOUT</button>
+									<button class="getstarted" onclick="navbar_close();window.location.href='#about'">ABOUT</button>
 								</div>
 								<div class="nav-btn" style="position: fixed; top:12vh; left:20vh; z-index: 1000;">
-									<button class="getstarted" onclick="window.location.href='../profile'">PROFILE</button>
+									<button class="getstarted" onclick="navbar_close();window.location.href='../profile'">PROFILE</button>
 								</div>
 								<div class="nav-btn" style="position: fixed; top:82vh; left:20vh; z-index: 1000;">
-									<button onclick='service_btn()' class="getstarted">SERVICES</button>
+									<button onclick='navbar_close();service_btn()' class="getstarted">SERVICES</button>
 								</div>
 							</div>
 						</div>
@@ -765,8 +765,6 @@
 					</div>
 				</div>
 			</footer>
-			
-			
 			
 		</div>
 	</body>

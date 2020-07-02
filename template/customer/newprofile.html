@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Dashboard</title>
-    <link href="static/img/favicon.png" rel="icon" type="image/icon type">
+    <title>METO</title>
+    <link href="{% static '/img/favicon.png' %}" rel="icon" type="image/icon type">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <meta charset="utf-8" content="width=device-width, initial-scale=1.0" name="viewport">
@@ -82,19 +82,19 @@
 
         <div>
             <div class="nav-btn" style="position: fixed; top:47vh; left:3vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='../'">HOME</button>
+                <button class="getstarted" onclick="navbar_close();window.location.href='../'">HOME</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:30vh; left:13vh; z-index: 1000;">
-                <button class="getstarted">BOOKINGS</button>
+                <button class="getstarted" onclick="navbar_close();switch_bookings()">BOOKINGS</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:65vh; left:13vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='../#about'">ABOUT</button>
+                <button class="getstarted" onclick="navbar_close();window.location.href='../#about'">ABOUT</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:12vh; left:20vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='#'">PROFILE</button>
+                <button class="getstarted" onclick="navbar_close();switch_profile()">PROFILE</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:82vh; left:20vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='../#cat'">SERVICES</button>
+                <button class="getstarted" onclick="navbar_close();window.location.href='../#cat'">SERVICES</button>
             </div>
         </div>
     </div>
@@ -308,6 +308,9 @@
 
         <div class="bookings">
             <table class="clear-bg" style="width:100%; border-radius:10px;">
+                {% if bookings|length == 0 %}
+                <tr><td>You have no bookings yet.</td></tr>
+                {% endif %}
                 {% for i in bookings %}
                 <table class="book_tr " style="width:100%;">
                     <tr>
@@ -416,6 +419,9 @@
 
                         <div class="bookings">
                             <table style="width:100%; border-radius:10px;">
+                                {% if bookings|length == 0 %}
+                                <tr><td>You have no bookings yet.</td></tr>
+                                {% endif %}
                                 {% for i in bookings %}
                                 <table class="book_tr " >
                                     <!--tr>

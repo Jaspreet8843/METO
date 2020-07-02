@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.conf.urls import handler404
+
+handler404 = 'meto_user_app.views.not_found'
 
 urlpatterns = [
 	path('',include("meto_user_app.urls")),
