@@ -49,7 +49,6 @@ function m_change_label(id,status){
 
 }
 
-
 window.pop_close=function(){
     $('#book_tech_pop').fadeOut();
 };
