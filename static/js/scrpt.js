@@ -30,6 +30,24 @@ function change_label(id,status){
    document.getElementById("progress_bar_"+id).style.width = percent+"%";
 
 }
+function m_change_label(id,status){
+   var percent=0;
+   if (status=="Processing")
+        percent=40;
+   //else if (status=="Staff assigned")
+   //     percent=40;
+   else if (status=="Worker assigned")
+        percent=60;
+   else if (status=="Visited")
+        percent=80;
+   else
+        percent=100;
+
+   document.getElementById("m_progress_percentage_"+id).innerHTML
+                = percent+"%";
+   document.getElementById("m_progress_bar_"+id).style.width = percent+"%";
+
+}
 
 
 window.pop_close=function(){
