@@ -116,6 +116,7 @@ function show_service(id){
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
             $("#"+id).velocity('slideDown');
+            location.href="#desktop_categories";
         }
 
 
@@ -165,10 +166,12 @@ function show_service(id){
                 $("#mcat"+i).hide();
             }   
             
+
         }
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
             $("#m"+id).show();
+            location.href=("#m"+id);
             $("#m"+id).removeClass('animate__animated animate__fadeOut');
             $("#m"+id).addClass('animate__animated animate__fadeIn');
         }
