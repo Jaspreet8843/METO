@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Dashboard</title>
-    <link href="static/img/favicon.png" rel="icon" type="image/icon type">
+    <title>METO</title>
+    <link href="{% static '/img/favicon.png' %}" rel="icon" type="image/icon type">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <meta charset="utf-8" content="width=device-width, initial-scale=1.0" name="viewport">
@@ -33,11 +33,10 @@
      style="background: rgba(0,0,0,.5); position: fixed;width: 100%; height: 1024px; z-index: 999;  display: none"></div>
 <div class="nav_mob_disp" id="signup-bar-mob">
 
-    <img src="{% static '/img/favicon.png' %}">
+    <img src="{% static '/img/favicon.png' %}" onclick="window.location.href='../'">
     <text style="color:white; font-weight: lighter;padding-right: 0px;">
-        <button class="getstarted-signup" onclick="window.location.href='../logout'"><i aria-hidden="true"
-                                                                                        class="fa fa-sign-out"></i> log
-            out
+        <button class="getstarted-signup" onclick="window.location.href='../'"><i aria-hidden="true"
+                                                                                        class="fa fa-sign-out"></i>Go back
         </button>
         <text style="font-size:25px; margin:1% 4%;"><i aria-hidden="true" class="fa fa-bars"
                                                        onclick="navbar_open()"></i></text>
@@ -83,19 +82,19 @@
 
         <div>
             <div class="nav-btn" style="position: fixed; top:47vh; left:3vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='../'">HOME</button>
+                <button class="getstarted" onclick="navbar_close();window.location.href='../'">HOME</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:30vh; left:13vh; z-index: 1000;">
-                <button class="getstarted">BOOKINGS</button>
+                <button class="getstarted" onclick="navbar_close()">BOOKINGS</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:65vh; left:13vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='../#about'">ABOUT</button>
+                <button class="getstarted" onclick="navbar_close();window.location.href='../#about'">ABOUT</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:12vh; left:20vh; z-index: 1000;">
-                <button class="getstarted" onclick="#cat">PROFILE</button>
+                <button class="getstarted" onclick="navbar_close()">PROFILE</button>
             </div>
             <div class="nav-btn" style="position: fixed; top:82vh; left:20vh; z-index: 1000;">
-                <button class="getstarted" onclick="window.location.href='../#cat'">SERVICES</button>
+                <button class="getstarted" onclick="navbar_close();window.location.href='../#cat'">SERVICES</button>
             </div>
         </div>
     </div>
