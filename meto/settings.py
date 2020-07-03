@@ -24,9 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2089rv8t0y#)ed#j^x(08co523yxcvm&0p%x_#y7t^y94afv04'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['meto-jrt.herokuapp.com','127.0.0.1','localhost']
+DEBUG_PROPAGATE_EXCEPTIONS = False
+
+#ALLOWED_HOSTS = ['meto-jrt.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

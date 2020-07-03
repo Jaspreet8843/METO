@@ -15,3 +15,5 @@ from django.db.backends.mysql.base import DatabaseWrapper
 DatabaseWrapper.data_types['DateTimeField'] = 'datetime' # fix for MySQL 5.5
 
 SECURE_SSL_REDIRECT = False
+
+DEBUG = True
