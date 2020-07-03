@@ -110,7 +110,7 @@ def index(request):
 def profile(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
-        booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_date')
+        booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
         return render(request, 'customer/newprofile.html', ({'bookings': booking_obj, 'user': user_obj}))
     return redirect('index')
 
