@@ -101,7 +101,7 @@
 </div>
 
 <!----------------------------------------------------- PROFILE SECTION ------------------------------------------------------------->
-<div id="profile_view" style="">
+<div id="profile_view" style="display:none">
     <!----------------------------------------------------- PROFILE MOBILE VERSION ------------------------------------------------------->
 
     <div class="pro_mob" id="profile_mobile_view" style="">
@@ -283,7 +283,7 @@
 
 </div>
 <!---------------------------------------------BOOKINGS SECTION ------------------------------------------------------------------------------>
-<div id="bookings_view" style="display:none">
+<div id="bookings_view" style="">
     <!---------------------------------------------BOOKINGS MOBILE VERSION ----------------------------------------------------->
 
     <div class="pro_mob" id="bookings_mobile_view" style="">
@@ -423,99 +423,49 @@
                                 {% endif %}
                                 {% for i in bookings %}
                                 <table class="book_tr " >
+                                    <tr>
+                                        <td style="width:20%; height:60px; text-align:center"><img src="{% static 'img/service.svg' %}"> </td>
+                                        <td style="font-size: 1.2vw; font-weight:bold; color:orangered">{{i.service_id.service_name}}</td>
+                                        <td style="width:30%; font-size:0.9vw; text-align:right; padding-right:1.3vw">{{i.booking_date}}</td>
+                                    </tr>
                                     <!--tr>
-                                        <td style="width: 100px;">
-                                            <img class="booking_icon" src="{% static 'img/serve.png' %}"
-                                                 style="">
+                                        <td style="width:20%; text-align:center">
+                                            <img src="{% static 'img/timer.svg' %}" style="margin:10px;">
                                         </td>
-                                        <td>
-                                            <table class="clear-bg book-inner">
-                                                <tr>
-                                                    <td>
-                                                        <h4 class="h4c">{{i.service_id.service_name}}</h4>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-                                                              rel="stylesheet">
-                                                        Rate:
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td class="book_stats">
-                                            {{i.booking_status}}
+                                        <td colspan="2" style="font-size:1vw">
+                                            Staff Assigned
                                         </td>
                                     </tr-->
-                                    <tr onclick="trclick_pc({{i.booking_id}});" style="height;1000px;">
-                                        <td style="width:80%;">{{i.service_id.service_name}}</td>
-                                        <td class="book_drop" colspan="5" style="width:20%; text-align:center;"><i aria-hidden="true"
-                                                                             class="fa fa-chevron-down"></i></td>
-                                    </tr>
-                                    <tr class="book_drop_down" id="pc{{i.booking_id}}">
-                                        <td colspan="5" style="text-align:left">
-                                            <ol class="progtrckr" data-progtrckr-steps="5"
-                                                style="padding-left:50px; width:100%;">
-                                                {% if i.booking_status == 'Processing' %}
-                                                <li class="progtrckr-done" style="text-align:left">Booking made</li>
-                                                <li class="progtrckr-done" style="text-align:left">Assigned to our
-                                                    staff
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Technician assigned
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Technician Visited
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Case closed</li>
-                                                {% elif i.booking_status == 'Worker assigned' %}
-                                                <li class="progtrckr-done" style="text-align:left">Booking made</li>
-                                                <li class="progtrckr-done" style="text-align:left">Assigned to our
-                                                    staff
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Technician assigned
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Technician Visited
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Case closed</li>
-                                                {% elif i.booking_status == 'Visited' %}
-                                                <li class="progtrckr-done" style="text-align:left">Booking made</li>
-                                                <li class="progtrckr-done" style="text-align:left">Assigned to our
-                                                    staff
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Technician assigned
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Technician Visited
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Case closed</li>
-                                                {% elif i.booking_status == 'Cancelled' %}
-                                                <li class="progtrckr-done" style="text-align:left">Booking made</li>
-                                                <li class="progtrckr-done" style="text-align:left">Assigned to our
-                                                    staff
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Technician assigned
-                                                </li>
-                                                <li class="progtrckr-todo" style="text-align:left">Technician Visited
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Case closed</li>
-                                                {% else %}
-                                                <li class="progtrckr-done" style="text-align:left">Booking made</li>
-                                                <li class="progtrckr-done" style="text-align:left">Assigned to our
-                                                    staff
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Technician assigned
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Technician Visited
-                                                </li>
-                                                <li class="progtrckr-done" style="text-align:left">Case closed</li>
-                                                {% endif %}
-                                            </ol>
+                                    <tr>
+                                        <td colspan="3" style="padding:5%; padding-top:0">
+                                            <div style="float:left; width:60%; font-size:1vw; color: dodgerblue; font-weight:bold">
+                                                <label style="color:dodgerblue; font-size:1vw; font-weight:bold; margin:0" id="progress_percentage_{{i.booking_id}}"></label> Done
+                                            </div>
+                                            <div style="float:right; width:40%; text-align:right; font-size: 0.8vw;">
+                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                {{i.booking_status}}
+                                            </div>
+                                            <div class="clear">
+                                            </div>
+                                            <div class="progress" style="margin-top:5px;">
+                                                <div  id="progress_bar_{{i.booking_id}}" class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
+                                    <script>
+                                          change_label("{{i.booking_id}}","{{i.booking_status}}");
+                                    </script>
+                                    <tr>
+                                        <td colspan="3"><hr style="margin:0"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:right; padding-right:2vw; font-size:0.8vw; color:grey" colspan="3">
+                                           Booking ID:  {{i.booking_id}}
+
+                                        </td>
+                                    </tr>
+
                                 </table>
                                 {% endfor %}
                             </table>

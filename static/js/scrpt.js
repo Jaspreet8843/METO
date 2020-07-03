@@ -10,6 +10,28 @@
 //  }
 //  prevScrollpos = currentScrollPos;
 //}
+
+
+function change_label(id,status){
+   var percent=0;
+   if (status=="Processing")
+        percent=40;
+   //else if (status=="Staff assigned")
+   //     percent=40;
+   else if (status=="Worker assigned")
+        percent=60;
+   else if (status=="Visited")
+        percent=80;
+   else
+        percent=100;
+
+   document.getElementById("progress_percentage_"+id).innerHTML
+                = percent+"%";
+   document.getElementById("progress_bar_"+id).style.width = percent+"%";
+
+}
+
+
 window.pop_close=function(){
     $('#book_tech_pop').fadeOut();
 };
@@ -116,7 +138,7 @@ function show_service(id){
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
             $("#"+id).velocity('slideDown');
-            location.href="#desktop_categories";
+            $(window).scrollTop($('#desktop_categories').position().top);
         }
 
 
@@ -171,7 +193,7 @@ function show_service(id){
         if(flag!=1){
             $("#card-"+id).addClass('permahover');
             $("#m"+id).show();
-            location.href=("#m"+id);
+             $(window).scrollTop($("#card-"+id).position().top);
             $("#m"+id).removeClass('animate__animated animate__fadeOut');
             $("#m"+id).addClass('animate__animated animate__fadeIn');
         }
