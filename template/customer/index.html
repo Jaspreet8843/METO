@@ -3,7 +3,7 @@
 <html>
 	<head> 
 		<title>METO</title>
-		<link rel="icon" href="static/img/favicon.png" type="image/icon type">
+		<link rel="icon" href="{% static 'img/favicon_small.png' %}" type="image/icon type">
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@
 						<p id="technician" style="font-weight:bolder; color:tomato; margin:0">technician</p>
 					</div>
 					<div style="float:right; width:20%">
-						<img src="{% static 'img/favicon.png' %}" >
+						<img src="{% static 'img/favicon_small.png' %}" >
 					</div>
 					<div class="clear"></div>
 					<div class="book_table_div">
@@ -165,9 +165,9 @@
 					</div>
 					<div id="signup-bar" class="nav_pc_disp" >
 						{% if user.user_name is defined %}
-						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
+						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
 						{% else %}
-						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;cursor: pointer;" onclick="window.location.href='../profile/#profile'">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
+						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;cursor: pointer;" onclick="window.location.href='../profile/#profile'">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
 						{% endif %}
 					</div>
 				</div>
@@ -245,9 +245,9 @@
 					</div>
 					<div id="signup-bar-mob" class="nav_mob_disp">
 						{% if user.user_name is defined %}
-						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 0px;"><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign in</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
+						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 0px;"><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign in</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
 						{% else %}
-						<img src="static/img/favicon.png" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 0px;"> <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
+						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 0px;"> <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button><text style="font-size:25px; margin:1% 4%;"><i class="fa fa-bars" aria-hidden="true" onclick="navbar_open()"></i></text></text>
 						{% endif %}
 					</div>
 				</div>
