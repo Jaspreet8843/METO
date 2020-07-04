@@ -28,8 +28,8 @@ DEBUG = False
 
 DEBUG_PROPAGATE_EXCEPTIONS = False
 
-#ALLOWED_HOSTS = ['meto-jrt.herokuapp.com','127.0.0.1','localhost']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['meto-jrt.herokuapp.com','127.0.0.1','localhost']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
