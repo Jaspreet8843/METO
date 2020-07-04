@@ -32,6 +32,18 @@ ALLOWED_HOSTS = ['meto-jrt.herokuapp.com','127.0.0.1','localhost']
 #ALLOWED_HOSTS = ['*']
 
 
+SECURE_HSTS_SECONDS = 31536000
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS= True
+
+SESSION_COOKIE_SECURE= True
+
+CSRF_COOKIE_SECURE = True
+
+SECURE_HSTS_PRELOAD = True
+
+SECURE_REFERRER_POLICY = 'no-referrer'
+
 # Application definition
 
 INSTALLED_APPS = [
