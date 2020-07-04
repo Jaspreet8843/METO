@@ -46,6 +46,8 @@ SECURE_HSTS_PRELOAD = True
 
 SECURE_REFERRER_POLICY = 'no-referrer'
 
+WHITENOISE_MAX_AGE = 31557600
+
 # Application definition
 
 INSTALLED_APPS = [
