@@ -101,6 +101,7 @@ def logout(request):
 
 #HOMEPAGE --------------------------------------------------------
 def index(request):
+    request.session['user_id'] = '5'
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         return render(request, 'customer/index.html', ({'user': user_obj}))
@@ -108,6 +109,7 @@ def index(request):
 
 #PROFILE & EDIT PROFILE & BOOKINGS------------------------------------------
 def profile(request):
+    request.session['user_id'] = '5'
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
