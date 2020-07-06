@@ -184,7 +184,7 @@ def book(request):
                     booking_obj.save()
                     date_obj = date(booking_id=booking_obj)
                     date_obj.save()
-                    return HttpResponse("Booking successful")
+                    return render(request, 'customer/booking_success.html')
                 except Exception as e:
                     print(e)
                     # print("Failed booking")
