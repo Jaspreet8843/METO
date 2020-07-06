@@ -144,7 +144,7 @@
 						{% if user.user_name is defined %}
 						<button class="getstarted" onclick="window.location.href='../login'">BOOKINGS</button>
 						{% else %}
-						<button class="getstarted" onclick="window.location.href='../profile'">BOOKINGS</button>
+						<button class="getstarted" onclick="window.location.href='../profile/#bookings'">BOOKINGS</button>
 						{% endif %}
 					</div>
 					<div class="nav-btn" style="position: absolute; top:29vw; left:9vw">
@@ -154,7 +154,7 @@
 						{% if user.user_name is defined %}
 						<button class="getstarted" onclick="window.location.href='../login'">PROFILE</button>
 						{% else %}
-						<button class="getstarted" onclick="window.location.href='../profile/#profile'">PROFILE</button>
+						<button class="getstarted" onclick="window.location.href='../profile'">PROFILE</button>
 						{% endif %}
 					</div>
 					<div class="nav-btn" style="position: absolute; top:34vw; left:18vw">
@@ -167,7 +167,7 @@
 						{% if user.user_name is defined %}
 						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;"><button class="getstarted-login" onclick="window.location.href='../login'"><i class="fa fa-sign-in" aria-hidden="true"></i> log in</button><button class="getstarted-signup" onclick="window.location.href='../login'"><i class="fa fa-user-plus" aria-hidden="true"></i> sign up</button></text>
 						{% else %}
-						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;cursor: pointer;" onclick="window.location.href='../profile/#profile'">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
+						<img src="{% static 'img/favicon_small.png' %}" onclick="window.location.href='../'"><text style="color:white; font-weight: lighter;padding-right: 50px;cursor: pointer;" onclick="window.location.href='../profile'">{{user.user_email}} <button class="getstarted-signup" onclick="window.location.href='../logout'"><i class="fa fa-sign-out" aria-hidden="true"></i> log out</button></text>
 						{% endif %}
 					</div>
 				</div>
@@ -221,7 +221,7 @@
 									{% if user.user_name is defined %}
 									<button class="getstarted" onclick="navbar_close();window.location.href='../login'">BOOKINGS</button>
 									{% else %}
-									<button class="getstarted" onclick="navbar_close();window.location.href='../profile'">BOOKINGS</button>
+									<button class="getstarted" onclick="navbar_close();window.location.href='../profile/#bookings'">BOOKINGS</button>
 									{% endif %}
 								</div>
 								<div class="nav-btn" style="position: fixed; top:65vh; left:13vh; z-index: 1000;">
@@ -231,7 +231,7 @@
 									{% if user.user_name is defined %}
 									<button class="getstarted" onclick="navbar_close();window.location.href='../login'">PROFILE</button>
 									{% else %}
-									<button class="getstarted" onclick="navbar_close();window.location.href='../profile/#profile'">PROFILE</button>
+									<button class="getstarted" onclick="navbar_close();window.location.href='../profile'">PROFILE</button>
 									{% endif %}
 								</div>
 								<div class="nav-btn" style="position: fixed; top:82vh; left:20vh; z-index: 1000;">
