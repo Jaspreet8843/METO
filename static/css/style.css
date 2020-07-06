@@ -101,7 +101,7 @@ html {
 
 
 .error_404{
-    background:url('../../static/background/pro_desktop.jpg');
+    background:url('../background/pro_desktop.jpg');
     background-size:cover;
     width:100vw;
     height:100vh;
