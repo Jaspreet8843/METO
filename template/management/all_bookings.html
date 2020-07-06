@@ -84,27 +84,61 @@
                             <td>
                                 {{i.0.booking_date}}
                             </td>
+
+                            {% if i.0.booking_status == 'Worker assigned' %}
+                            <td>
+                                {{i.0.booking_id}} 
+                                <form action="/metoadmin/service_delivered/{{i.0.booking_id}}" method="post">
+                                    {% csrf_token %}
+                                    <button onclick="return confirm('Booking ID: {{i.0.booking_id}}. Are you sure?')">DONE</button>
+                                </form>
+                            </td>
+                            {% else %}
                             <td>
                                 {{i.0.booking_id}}
                             </td>
+                            {% endif %}
+
                             <td>
                                 {{i.0.service_id.service_name}}
                             </td>
+
                             <td>
                                 {{i.0.booking_area}}
                             </td>
+
                             <td>
                                 {{i.0.user_id.user_name}}
                             </td>
+
                             <td>
                                 {{i.0.booking_phone}}
                             </td>
+
+                            {% if i.0.booking_status == 'Worker Visited' %}
+                            <td style="color: green;">
+                                {{i.0.booking_status}}
+                            </td>
+                            {% elif i.0.booking_status == 'Worker assigned' %}
+                            <td style="color: orangered;">
+                                {{i.0.booking_status}}
+                            </td>
+                            {% else %}
                             <td>
                                 {{i.0.booking_status}}
                             </td>
+                            {% endif %}
+
+                            {% if i.0.booking_status == 'Worker assigned' %}
                             <td>
-                                {{i.2}} {{i.1}}
+                                ID{{i.1}}- {{i.2}}
                             </td>
+                            {% else %}
+                            <td>
+                                --
+                            </td>
+                            {% endif %}
+
                         </tr>
                         {% endfor %}
                         </tbody>
