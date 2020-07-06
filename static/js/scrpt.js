@@ -11,6 +11,15 @@
 //  prevScrollpos = currentScrollPos;
 //}
 
+window.rate=function(id){
+    $('#rating_booking_id').attr('value', id);
+    $('#rating_pop').fadeIn();
+}
+
+window.rating_close=function(){
+    $('#rating_pop').fadeOut();
+}
+
 
 function change_label(id,status){
    var percent=0;
@@ -20,10 +29,16 @@ function change_label(id,status){
    //     percent=40;
    else if (status=="Worker assigned")
         percent=60;
-   else if (status=="Visited")
+   else if (status=="Worker Visited")
+   {
         percent=80;
+        $('#rate'+id).show();
+        $('#status'+id).hide();
+
+   }
    else
         percent=100;
+
 
    document.getElementById("progress_percentage_"+id).innerHTML
                 = percent+"%";
@@ -38,7 +53,7 @@ function m_change_label(id,status){
    //     percent=40;
    else if (status=="Worker assigned")
         percent=60;
-   else if (status=="Visited")
+   else if (status=="Worker Visited")
         percent=80;
    else
         percent=100;

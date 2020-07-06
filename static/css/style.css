@@ -7,6 +7,140 @@
 html {
 	scroll-behavior: smooth !important;
 }
+.rating_cont{
+    z-index:9999;
+    position:absolute;
+    top: 0;
+    height:100vh;
+    width:100%;
+    background:rgba(0,0,0,.5);
+}
+.rating_cont .rating_close{
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:50px;
+    color:white;
+    background:none;
+}
+.rating_cont .cont_1{
+    height: 450px;
+    width:400px;
+    margin: 7% auto;
+    background:white;
+    text-align:center;
+    border-radius:10px;
+}
+.rating_cont .cont_1 .cont_1-1{
+    width:100%;
+    height:auto;
+    background:#c4e3ff;
+    margin-bottom:12%;
+    border-radius:10px;
+}
+.rating_cont button{
+    background:#c4e3ff;
+    border:none;
+    font-weight:bold;
+    border-radius:10px;
+    width:100px;
+    height:40px;
+}
+.cont_1 .cont_1-1 img{
+    width:90px;
+    bottom:-45px;
+    position:relative;
+}
+
+.rating_cont textarea{
+    border:1px solid lightgrey;
+    margin:7%;
+    border-radius:10px;
+	padding:2%;
+}
+
+.rating {
+    font-size: 40px;
+    margin:auto;
+    width: 220px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.rating input[type=radio]{
+    display:none;
+}
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+
+
+.error_404{
+    background:url('../../static/background/pro_desktop.jpg');
+    background-size:cover;
+    width:100vw;
+    height:100vh;
+    text-align:center;
+}
+
+.error_404 h1{
+    color:rgba(255,255,255,.6);
+    font-size:20vw;
+
+}
+.error_404 h5{
+    color:rgba(255,255,255,.6);
+    font-size:2vw !important;
+}
+.error_404 p{
+    margin:3%;
+    color:rgba(255,255,255,.6);
+    font-weight:lighter;
+}
+
+.error_404 button{
+    width:150px;
+    height:40px;
+    border: 2px solid orangered;
+    color: orangered;
+    border-radius:50px;
+    background:rgba(0,0,0,.2);
+    font-weight: bolder;
+    -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+.error_404 button:hover{
+    background:orangered;
+    color: black;
+}
 
 .success_window{
 
@@ -1810,6 +1944,18 @@ scrollbar-color: #4285F4 #F5F5F5;
 	}
 
 	@media (max-width: 576px) {
+	    .error_404 h1{
+	        padding-top:15vh;
+	        font-size:35vw;
+	    }
+	    .error_404 h5{
+	        font-size:5vw !important;
+	        margin:4%;
+	    }
+
+	    .error_404 p{
+	        margin:10%;
+	    }
 		.success_window{
 			padding-top: 5%;
 			height: auto;
