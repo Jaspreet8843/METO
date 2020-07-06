@@ -50,7 +50,8 @@ def admin_login(request):
 
 
 def admin_logout(request):
-    del request.session['staff_id']
+    if request.session.has_key("staff_id"):
+        del request.session['staff_id']
     return redirect('admin_login')
 
 
@@ -72,7 +73,7 @@ def assign_workers(request, service_id):
             return redirect('assign_workers',service_id=booking_obj.service_id.service_id)
         service_obj = service.objects.get(service_id=service_id)
         booking_obj = booking.objects.filter(service_id=service_obj, booking_status="Processing").order_by('-booking_id')
-        worker_obj = worker.objects.filter(service_id=service_obj).order_by('name')
+        worker_obj = worker.objects.filter(service_id=service_obj).order_by('worker_name')
         work_count = []
         for i in worker_obj:
             work_count.append(assign_worker.objects.filter(worker_id=i).count())
@@ -134,6 +135,16 @@ def all_bookings(request):
     else:
         return redirect('admin_login')
 
+def service_delivered(request,booking_id):
+    if request.session.has_key("staff_id"):
+        if request.method=="POST":
+            booking_obj = booking.objects.filter(booking_id=booking_id)
+            if booking_obj.count()!=0:
+                booking_obj.update(booking_status="Worker Visited")
+                return redirect('all_bookings')
+            else:
+                return HttpResponse("Something went wrong with ID")
+    return HttpResponse("Invalid request")
 
 def assign_staffs(request):
     if request.session.has_key('staff_id'):
