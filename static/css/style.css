@@ -16,6 +16,7 @@ html {
     background:rgba(0,0,0,.5);
 }
 .rating_cont .rating_close{
+    outline:none;
     position:absolute;
     top:0;
     right:0;
@@ -1728,6 +1729,14 @@ scrollbar-color: #4285F4 #F5F5F5;
 }
 @media (max-width:767px)
 {
+    .rating_cont{
+      position:fixed;
+    }
+    .rating_cont .cont_1
+    {
+        margin-top:20%;
+        width:90%;
+    }
     .pro_desktop{
         display:none;
     }

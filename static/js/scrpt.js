@@ -16,8 +16,17 @@ window.rate=function(id){
     $('#rating_pop').fadeIn();
 }
 
+window.ratem=function(id){
+    $('#ratingm_booking_id').attr('value', id);
+    $('#ratingm_pop').fadeIn();
+}
+
 window.rating_close=function(){
     $('#rating_pop').fadeOut();
+}
+
+window.ratingm_close=function(){
+    $('#ratingm_pop').fadeOut();
 }
 
 
@@ -54,7 +63,11 @@ function m_change_label(id,status){
    else if (status=="Worker assigned")
         percent=60;
    else if (status=="Worker Visited")
+    {
         percent=80;
+        $('#ratem'+id).show();
+        $('#statusm'+id).hide();
+    }
    else
         percent=100;
 
