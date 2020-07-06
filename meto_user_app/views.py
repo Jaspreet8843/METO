@@ -101,7 +101,7 @@ def logout(request):
 
 #HOMEPAGE --------------------------------------------------------
 def index(request):
-    request.session['user_id'] = '5'
+    #request.session['user_id'] = '5'
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         return render(request, 'customer/index.html', ({'user': user_obj}))
@@ -109,7 +109,7 @@ def index(request):
 
 #PROFILE & EDIT PROFILE & BOOKINGS------------------------------------------
 def profile(request):
-    request.session['user_id'] = '5'
+    #request.session['user_id'] = '5'
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
@@ -186,7 +186,7 @@ def book(request):
                     booking_obj.save()
                     date_obj = date(booking_id=booking_obj)
                     date_obj.save()
-                    return HttpResponse("Booking successful")
+                    return render(request, 'customer/booking_success.html')
                 except Exception as e:
                     print(e)
                     # print("Failed booking")
