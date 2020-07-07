@@ -10,8 +10,7 @@ urlpatterns = [
 	path('edit_profile/',views.edit_profile,name="edit_profile"),
 	path('bookings/',views.bookings,name="bookings"),
 	path('book/',views.book,name="book"),
-	path('feedback/',views.feedback,name="feedback"),
-	path('about/',views.about,name="about"),
+	path('bookings/rate/',views.rate_booking,name="rate_booking"),
 	path('forgotpass/',views.forgotpass,name="forgotpass"),
 	path('reset/<str:recovery_id>',views.resetpass,name="resetpass"),
 ]

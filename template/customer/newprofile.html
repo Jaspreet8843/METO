@@ -118,6 +118,14 @@
         </div>
 
         <div class="pro_mob_info">
+            {% if messages %}
+              {% for msg in messages %}
+                <div class="alert alert-danger alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  {{msg.message}}
+                </div>
+              {% endfor %}
+            {% endif %}
             <div class="details">
                 <img src="{% static 'img/email.svg' %}">
                 <h5>Email:</h5>
@@ -154,6 +162,14 @@
     <!------------------------------------------ PROFILE DESKTOP VERSION ------------------------------------------------------->
     <div class="pro_desktop">
         <div class="inner_card">
+            {% if messages %}
+              {% for msg in messages %}
+                <div class="alert alert-danger alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  {{msg.message}}
+                </div>
+              {% endfor %}
+            {% endif %}
             <div class="inner_left">
                 <div style="padding:10%;">
                     <img class="display_picture" src="{% static 'name.png' %}">
@@ -429,7 +445,8 @@
             </div>
             <h5 style="font-weight:bolder">Rate Your Experience!</h5>
             <div class="txt-center">
-                <form>
+                <form action="/bookings/rate/" method="post">
+                    {% csrf_token %}
                     <div class="rating">
                         <input class="radio-btn hide" id="star5" name="star" type="radio" value="5"/>
                         <label for="star5">☆</label>
@@ -443,9 +460,9 @@
                         <label for="star1">☆</label>
                         <div class="clear"></div>
                     </div>
-                    <textarea cols="10" style="width:80%; height:100px;" placeholder="Add a comment to your rating..."></textarea>
-                    <input id="ratingm_booking_id" type="text" style="display:none">
-                    <button type="submit">RATE</button>
+                    <textarea name="comment" cols="10" style="width:80%; height:100px;" placeholder="Add a comment to your rating..."></textarea>
+                    <!-- <input id="ratingm_booking_id" type="text" style="display:none"> -->
+                    <button id="ratingm_booking_id" name="btn" type="submit">RATE</button>
                 </form>
             </div>
 
@@ -543,7 +560,8 @@
             </div>
             <h5 style="font-weight:bolder">Rate Your Experience!</h5>
             <div class="txt-center">
-                <form>
+                <form action="/bookings/rate/" method="post">
+                    {% csrf_token %}
                     <div class="rating">
                         <input class="radio-btn hide" id="star5" name="star" type="radio" value="5"/>
                         <label for="star5">☆</label>
@@ -557,9 +575,9 @@
                         <label for="star1">☆</label>
                         <div class="clear"></div>
                     </div>
-                    <textarea cols="10" style="width:80%; height:100px;" placeholder="Add a comment to your rating..."></textarea>
-                    <input id="rating_booking_id" type="text" style="display:none">
-                    <button type="submit">RATE</button>
+                    <textarea name="comment" cols="10" style="width:80%; height:100px;" placeholder="Add a comment to your rating..."></textarea>
+                    <!-- <input id="rating_booking_id" type="text" style="display:none"> -->
+                    <button id="rating_booking_id" name="btn" type="submit">RATE</button>
                 </form>
             </div>
 

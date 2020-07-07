@@ -131,6 +131,20 @@ def edit_profile(request):
             if valid_details(user_name, user_phone, user_email, user_gender, user_area,
                              user_city, user_pincode, user_old_pass, user_new_pass):
                 # print(True)
+                try:
+                    check_unique = user.objects.get(user_phone=user_phone)
+                    if check_unique.user_phone != user_obj.user_phone:
+                        messages.error(request,"Number already registered!!")
+                        return redirect('profile')
+                except:
+                    pass
+                try:
+                    check_unique = user.objects.get(user_email=user_email)
+                    if check_unique.user_email != user_obj.user_email:
+                        messages.error(request,"Email already registered!!")
+                        return redirect('profile')
+                except:
+                    pass
                 user_password = user_obj.user_password
                 if len(user_old_pass) >= 8 and len(user_new_pass) >= 8:
                     user_hash_password = str(user_password)
@@ -139,7 +153,8 @@ def edit_profile(request):
                     if check_pass:
                         user_password = bcrypt.hashpw(user_new_pass.encode('utf8'), bcrypt.gensalt())
                     else:
-                        print("Incorrect Password")
+                        messages.error(request,"Invalid current password!!")
+                        return redirect('profile')
                 user_obj = user.objects.filter(user_id=request.session['user_id'])
                 user_obj.update(user_name=user_name, user_phone=user_phone, user_email=user_email,
                                 user_gender=user_gender, user_area=user_area, user_city=user_city,
@@ -147,7 +162,8 @@ def edit_profile(request):
                                 user_password=user_password)
                 return redirect('profile')
             else:
-                print("Invalid details")
+                # print("Invalid details")
+                messages.error(request,"Invalid details!!")
                 return redirect('profile')
         # else:
         #     user_obj = user.objects.get(user_id=request.session['user_id'])
@@ -158,9 +174,25 @@ def bookings(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
         booking_obj = booking.objects.filter(user_id=user_obj).order_by('-booking_id')
-        return HttpResponse("old page")
+        return redirect('not_found')
         return render(request, 'customer/bookings.html', ({'bookings': booking_obj, 'user': user_obj}))
     return redirect('index')
+
+def rate_booking(request):
+    if request.session.has_key('user_id'):
+        if request.method=='POST':
+            booking_id = request.POST['btn']
+            rating = request.POST.get('star')
+            comment = request.POST.get('comment')
+            try:
+                booking_obj = booking.objects.get(booking_id=booking_id)
+                feedback_obj = feedback(booking_id=booking_obj, rating=rating, feedback=comment)
+                feedback_obj.save()
+            except Exception as e:
+                # print(e)
+                return redirect('not_found')
+            return redirect('profile')
+    return redirect('not_found')
 
 #BOOK SERVICE -----------------------------------------------------------
 def book(request):
@@ -189,43 +221,42 @@ def book(request):
                     print(e)
                     # print("Failed booking")
             else:
-                print("Invalid details")
+                # print("Invalid details")
+                messages.error(request,"Invalid details!!")
             return redirect('index')
         # user_obj = user.objects.get(user_id=request.session['user_id'])
         # service_obj = service.objects.get(service_id=service_id)
         # return render(request, 'customer/book_ticket.html', ({'user': user_obj, 'service': service_obj}))
     return redirect('login')
 
-
-def feedback(request):
-    return HttpResponse("Under construction")
-
-
-def about(request):
-    return HttpResponse("Under construction")
-
 #FORGOT PASS --------------------------------------------------------
 def forgotpass(request):
     if request.method=='POST':
         phone = request.POST.get('recovery_phone')
         try:
-            email = user.objects.get(user_phone=phone).user_email
-            sender="metojrt@gmail.com"
-            subject = "Reset your password"
-            site="https://meto-jrt.herokuapp.com/reset/"
-            recovery_id = str(get_random_string(length=32))+str(datetime.now().strftime('%Y%m%d%H%M%S'))
-            msg="Go to the link below to reset your password.\n\nDo not share the link with anyone.\n"+site+recovery_id
-            send_mail(subject,msg,sender,[email],fail_silently=False)
-            recovery_obj = recovery.objects.filter(email_id=email)
-            if recovery_obj.exists():
-                recovery_obj.update(recovery_id=recovery_id)
-            else:
-                recovery_obj = recovery(email_id=email,recovery_id=recovery_id)
-                recovery_obj.save()
-            return render(request,'customer/password_reset_email.html')
+            user_obj = user.objects.get(user_phone=phone)
+            try:
+                email = user.objects.get(user_phone=phone).user_email
+                sender="metojrt@gmail.com"
+                subject = "Reset your password"
+                site="https://meto-jrt.herokuapp.com/reset/"
+                recovery_id = str(get_random_string(length=32))+str(datetime.now().strftime('%Y%m%d%H%M%S'))
+                msg="Go to the link below to reset your password.\n\nDo not share the link with anyone.\n"+site+recovery_id
+                send_mail(subject,msg,sender,[email],fail_silently=False)
+                recovery_obj = recovery.objects.filter(email_id=email)
+                if recovery_obj.exists():
+                    recovery_obj.update(recovery_id=recovery_id)
+                else:
+                    recovery_obj = recovery(email_id=email,recovery_id=recovery_id)
+                    recovery_obj.save()
+                return render(request,'customer/password_reset_email.html')
+            except Exception as e:
+                print(e)
         except Exception as e:
-            print(e)
-    return HttpResponse("Something went wrong. Try again.")
+            raise e
+            messages.error(request,"Number not registered!!")
+            return redirect('login')
+    return redirect('not_found')
 
 #RESET PASS --------------------------------------------------------
 def resetpass(request,recovery_id):
