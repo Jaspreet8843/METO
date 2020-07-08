@@ -131,7 +131,7 @@
                                             <input class="form-control form-input" type="text"
                                                    placeholder="&#xf10b;  Number"
                                                    style="font-family: Arial, FontAwesome " name="login_phone"
-                                                   pattern="[0-9]{10}" required="required"/>
+                                                   pattern="[0-9]{10}" maxlength="10" required="required"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -139,7 +139,7 @@
                                                                        placeholder="&#xf023;  Password"
                                                                        style="font-family: Arial, FontAwesome"
                                                                        name="login_pass" required="required"
-                                                                       pattern=".{8,20}"
+                                                                       pattern=".{8,20}" maxlength="20" 
                                                                        title="Password should be 8-20 characters long">
                                         </td>
                                     </tr>
@@ -175,7 +175,7 @@
                                         <td class="login-input"><input class="form-control form-input" type="text"
                                                                        placeholder="&#xf10b;  Regd. Number"
                                                                        style="font-family: Arial, FontAwesome "
-                                                                       name="recovery_phone" pattern="[0-9]{10}" required="required"></td>
+                                                                       name="recovery_phone" pattern="[0-9]{10}" maxlength="10" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td class="login-input">
@@ -222,12 +222,12 @@
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="text"
                                                                        placeholder="Phone" name="new_phone"
-                                                                       pattern="[0-9]{10}" required="required"></td>
+                                                                       pattern="[0-9]{10}" required="required" maxlength="10"></td>
                                     </tr>
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="text"
                                                                        placeholder="Pincode" name="new_pincode"
-                                                                       pattern="[0-9]{6}" required="required"></td>
+                                                                       pattern="[0-9]{6}" required="required" maxlength="6"></td>
                                     </tr>
 
                                     <tr>
@@ -280,7 +280,7 @@
                                     <tr>
                                         <td class="login-input"><input class="form-control form-input" type="password" id="password" onkeyup="check_pass()" 
                                                                        placeholder="Password" name=""
-                                                                       required="required" pattern=".{8,20}"
+                                                                       required="required" pattern=".{8,20}" maxlength="20" 
                                                                        title="Password should be 8-20 characters long">
                                         </td>
                                     </tr>
@@ -288,7 +288,7 @@
                                         <td class="login-input"><input class="form-control form-input" type="password" id="confirm_password" onkeyup="check_pass()" 
                                                                        placeholder="Confirm Password" name="new_pass"
                                                                        required="required"
-                                                                       pattern=".{8,20}"
+                                                                       pattern=".{8,20}" maxlength="20" 
                                                                        title="Password should be 8-20 characters long">
                                         </td>
                                     </tr>

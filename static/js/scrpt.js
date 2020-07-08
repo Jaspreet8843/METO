@@ -38,7 +38,7 @@ function change_label(id,status){
    //     percent=40;
    else if (status=="Worker assigned")
         percent=60;
-   else if (status=="Worker Visited")
+   else if (status=="Worker visited")
    {
         percent=80;
         $('#rate'+id).show();
@@ -62,7 +62,7 @@ function m_change_label(id,status){
    //     percent=40;
    else if (status=="Worker assigned")
         percent=60;
-   else if (status=="Worker Visited")
+   else if (status=="Worker visited")
     {
         percent=80;
         $('#ratem'+id).show();

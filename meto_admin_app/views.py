@@ -140,11 +140,26 @@ def service_delivered(request,booking_id):
         if request.method=="POST":
             booking_obj = booking.objects.filter(booking_id=booking_id)
             if booking_obj.count()!=0:
-                booking_obj.update(booking_status="Worker Visited")
+                booking_obj.update(booking_status="Worker visited")
+                date_obj = date.objects.filter(booking_id=booking_id)
+                date_obj.update(technician_visited_date=datetime.now().strftime('%Y-%m-%d'))
                 return redirect('all_bookings')
             else:
                 return HttpResponse("Something went wrong with ID")
     return HttpResponse("Invalid request")
+
+def all_ratings(request):
+    if request.session.has_key('staff_id'):
+        feedback_obj = feedback.objects.all().order_by('-booking_id')
+        feedbacks = []
+        for i in feedback_obj:
+            w = booking.objects.get(booking_id=i.booking_id.booking_id).service_id.service_name
+            x = booking.objects.get(booking_id=i.booking_id.booking_id).booking_date
+            y = assign_worker.objects.get(booking_id=i.booking_id).worker_id.worker_id
+            z = worker.objects.get(worker_id=y).worker_name
+            feedbacks.append([i,w,x,y,z])
+        print(feedbacks)
+        return render(request,'management/all_ratings.html',({'ratings':feedbacks}))
 
 def assign_staffs(request):
     if request.session.has_key('staff_id'):

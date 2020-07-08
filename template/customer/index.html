@@ -33,7 +33,7 @@
 						<p id="technician" style="font-weight:bolder; color:tomato; margin:0">technician</p>
 					</div>
 					<div style="float:right; width:20%">
-						<img src="{% static 'img/favicon_small.png' %}" >
+						<img src="{% static 'img/favicon.png' %}" >
 					</div>
 					<div class="clear"></div>
 					<div class="book_table_div">
@@ -47,7 +47,7 @@
 										</label>
 									</td>
 									<td colspan="3">
-										<input type="text" name="booking_phone" pattern="[0-9]{10}" required="required">
+										<input type="text" name="booking_phone" pattern="[0-9]{10}" maxlength="10" required="required">
 									</td>
 								</tr>
 								<tr>
@@ -78,7 +78,7 @@
 										</label>
 									</td>
 									<td width="30%">
-										<input type="text" id="pincode" name="booking_pincode" pattern="[0-9]{6}" required="required">
+										<input type="text" id="pincode" name="booking_pincode" pattern="[0-9]{6}" maxlength="6" required="required">
 									</td>
 								</tr>
 								<tr>

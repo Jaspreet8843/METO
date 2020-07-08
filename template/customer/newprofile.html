@@ -621,7 +621,7 @@
 
                 <div class="details">
                     <h5> Phone:</h5>
-                    <input name="user_phone" pattern="[0-9]{10}" required="required" type="text"
+                    <input name="user_phone" pattern="[0-9]{10}" maxlength="10" required="required" type="text"
                            value="{{user.user_phone}}">
                     <div class="clear"></div>
                 </div>
@@ -659,7 +659,7 @@
 
                 <div class="details">
                     <h5> Pincode:</h5>
-                    <input name="user_pincode" pattern="[0-9]{6}" type="text" value="{{user.user_pincode}}">
+                    <input name="user_pincode" pattern="[0-9]{6}" maxlength="6" type="text" value="{{user.user_pincode}}">
                     <div class="clear"></div>
                 </div>
                 <div class="details" style="text-align: center;">
@@ -675,11 +675,11 @@
 
                     <h5> New Password:</h5>
                     <input id="password" name="" onkeyup="check_pass()"
-                           pattern=".{8,20}" title="Password should be 8-20 characters long" type="PASSWORD">
+                           pattern=".{8,20}" maxlength="20" title="Password should be 8-20 characters long" type="PASSWORD">
                     <div class="clear"></div>
 
                     <h5> Confirm Password:</h5>
-                    <input id="confirm_password" name="user_new_pass" onkeyup="check_pass()" pattern=".{8,20}"
+                    <input id="confirm_password" name="user_new_pass" onkeyup="check_pass()" pattern=".{8,20}" maxlength="20" 
                            style="margin-bottom: 1%" title="Password should be 8-20 characters long" type="PASSWORD">
                 </div>
                 <div style="text-align: center;">
@@ -726,7 +726,7 @@
 
                         <div class="details">
                             <h5> Phone:</h5>
-                            <input name="user_phone" pattern="[0-9]{10}" required="required" type="text"
+                            <input name="user_phone" pattern="[0-9]{10}" maxlength="10" required="required" type="text"
                                    value="{{user.user_phone}}">
                             <div class="clear"></div>
                         </div>
@@ -764,7 +764,7 @@
 
                         <div class="details">
                             <h5> Pincode:</h5>
-                            <input name="user_pincode" pattern="[0-9]{6}" type="text" value="{{user.user_pincode}}">
+                            <input name="user_pincode" pattern="[0-9]{6}" maxlength="10" type="text" value="{{user.user_pincode}}">
                             <div class="clear"></div>
                         </div>
                         <div class="details" style="text-align: center;">
@@ -776,13 +776,13 @@
                         <div id="change_password_pc"
                              style="display:none; border:1px solid lightgrey; padding: 5%; border-radius: 10px;">
                             <h5> Old Password:</h5>
-                            <input name="user_old_pass" pattern=".{8,20}" title="Password was 8-20 characters long"
+                            <input name="user_old_pass" pattern=".{8,20}" title="Password was 8-20 characters long" maxlength="20" 
                                    type="PASSWORD">
                             <div class="clear"></div>
 
                             <h5> New Password:</h5>
                             <input id="password_pc" name="" onkeyup="check_pass_pc()"
-                                   pattern=".{8,20}" title="Password should be 8-20 characters long" type="PASSWORD">
+                                   pattern=".{8,20}" maxlength="20" title="Password should be 8-20 characters long" type="PASSWORD">
                             <div class="clear"></div>
 
                             <h5> Confirm Password:</h5>

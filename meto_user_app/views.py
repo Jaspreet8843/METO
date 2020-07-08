@@ -106,7 +106,7 @@ def index(request):
         return render(request, 'customer/index.html', ({'user': user_obj}))
     return render(request, 'customer/index.html')
 
-#PROFILE & EDIT PROFILE & BOOKINGS------------------------------------------
+#PROFILE & EDIT PROFILE & BOOKINGS & RATING------------------------------------------
 def profile(request):
     if request.session.has_key('user_id'):
         user_obj = user.objects.get(user_id=request.session['user_id'])
@@ -186,12 +186,19 @@ def rate_booking(request):
             comment = request.POST.get('comment')
             try:
                 booking_obj = booking.objects.get(booking_id=booking_id)
-                feedback_obj = feedback(booking_id=booking_obj, rating=rating, feedback=comment)
-                feedback_obj.save()
-            except Exception as e:
-                # print(e)
-                return redirect('not_found')
-            return redirect('profile')
+                try:
+                    feedback_obj = feedback.objects.get(booking_id=booking_id)
+                    return redirect('not_found')
+                except Exception as e:
+                    feedback_obj = feedback(booking_id=booking_obj, rating=rating, feedback=comment)
+                    feedback_obj.save()
+                    booking_obj = booking.objects.filter(booking_id=booking_id)
+                    booking_obj.update(booking_status="Ticket closed")
+                    date_obj = date.objects.filter(booking_id=booking_id)
+                    date_obj.update(close_date=datetime.now().strftime('%Y-%m-%d'))
+                    return redirect('profile')
+            except:
+                pass
     return redirect('not_found')
 
 #BOOK SERVICE -----------------------------------------------------------

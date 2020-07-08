@@ -10,4 +10,5 @@ urlpatterns = [
 	path('workers/',views.workers,name="workers"),
 	path('all_bookings/',views.all_bookings,name="all_bookings"),
 	path('service_delivered/<int:booking_id>',views.service_delivered,name="service_delivered"),
+	path('ratings/',views.all_ratings,name="all_ratings"),
 ]

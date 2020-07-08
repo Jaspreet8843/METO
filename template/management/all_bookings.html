@@ -38,9 +38,9 @@
                     <select id="status_filter" name="status_filter" required style="height:45px;">
                         <option value="default">All</option>
                         <option value="Processing">Processing</option>
-                        <option value="Staff assigned">Staff Assigned</option>
-                        <option value="Worker assigned">Worker Assigned</option>
-                        <option value="Visited">Worker Visited</option>
+                        <option value="Staff assigned">Staff assigned</option>
+                        <option value="Worker assigned">Worker assigned</option>
+                        <option value="Visited">Worker visited</option>
                         <option value="Closed">Case closed</option>
                 </select>
                 </td>
@@ -115,7 +115,7 @@
                                 {{i.0.booking_phone}}
                             </td>
 
-                            {% if i.0.booking_status == 'Worker Visited' %}
+                            {% if i.0.booking_status == 'Worker visited' %}
                             <td style="color: green;">
                                 {{i.0.booking_status}}
                             </td>
@@ -131,7 +131,7 @@
 
                             {% if i.0.booking_status == 'Worker assigned' %}
                             <td>
-                                ID{{i.1}}- {{i.2}}
+                                ID{{i.1}}: {{i.2}}
                             </td>
                             {% else %}
                             <td>
