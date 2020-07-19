@@ -181,3 +181,6 @@ def assign_staffs(request):
         return HttpResponse("assign staff")
     else:
         return redirect('admin_login')
+
+def verify(request):
+    return render(request, 'googlea43fccb7d901a9b7.html')
