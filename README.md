@@ -1,6 +1,11 @@
 # METO
 Hosted on https://meto-jrt.herokuapp.com/
 
+## Overview
+Welcome to METO, your own managing assistant that will help you to manage each and every daily problem within minutes. METO is a managing startup, founded on June 1st,2020. In the period of the COVID19 pandemic, an ample amount of vocations have crashed and many workers have got unemployed. So, keeping an eye on this crisis, our METO community has risen to support those people and provide a helping hand towards managing your daily problems.
+
+It support you in minor daily problems like managing a professional photographer or carpenter or makeup artist or electrician and many more including groceries. And creating a connected society in every locality.
+
 ## Setup
 
 The first thing to do is to clone the repository:
@@ -31,6 +36,12 @@ Once `pip` has finished downloading the dependencies:
 ```
 And navigate to `http://127.0.0.1:8000/METO/`.
 
+## Project
+The project is built with
+* Django Framework
+* HTML CSS JS
+* ORM Model Django
+
 ## Walkthrough
 The project has the user side and admin side.
 The user side allows 
@@ -45,6 +56,7 @@ The admin side allows
 3. Change status of bookings
 
 ## Snapshots
+Desktop View
 Column 1 | Column 2
 ------------ | -------------
 ![](https://github.com/manabsaha/assets/blob/main/METO/home1.PNG) | ![](https://github.com/manabsaha/assets/blob/main/METO/home2.PNG) 
@@ -54,13 +66,10 @@ Login | Book service
 ![](https://github.com/manabsaha/assets/blob/main/METO/profile.PNG) | ![](https://github.com/manabsaha/assets/blob/main/METO/bookings.PNG)
 Profile | Bookings
 
-## Objective
-Welcome to METO, your own managing assistant that will help you to manage each and every daily problem within minutes. METO is a managing startup, founded on June 1st,2020. In the period of the COVID19 pandemic, an ample amount of vocations have crashed and many workers have got unemployed. So, keeping an eye on this crisis, our METO community has risen to support those people and provide a helping hand towards managing your daily problems.
-
-It support you in minor daily problems like managing a professional photographer or carpenter or makeup artist or electrician and many more including groceries. And creating a connected society in every locality.
-
-## Project
-The project is built with
-* Django Framework
-* HTML CSS JS
-* ORM Model Django
+Mobile View
+Column 1 | Column 2 | Column 3
+------------ | ------------- | -------------
+![](https://github.com/manabsaha/assets/blob/main/METO/mnav.jpeg) | ![](https://github.com/manabsaha/assets/blob/main/METO/mservices.jpeg) | ![](https://github.com/manabsaha/assets/blob/main/METO/mprofile.jpeg)
+Navigation | Services | Profile
+![](https://github.com/manabsaha/assets/blob/main/METO/mbookings.jpeg) | ![](https://github.com/manabsaha/assets/blob/main/METO/msettings.jpeg) | ![](https://github.com/manabsaha/assets/blob/main/METO/mlogin.jpeg)
+Bookings | Settings | Login
